@@ -2,7 +2,7 @@
 <html lang="en" class="dark scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>Abdullah Paryani | Strategic Marketing & Operations</title>
     <meta name="description" content="Portfolio of Abdullah Paryani - Marketing & Business Management Professional specializing in SaaS, digital operations, and strategic campaigns.">
     
@@ -24,10 +24,8 @@
                     },
                     colors: {
                         bg: '#050508',         
-                        surface: '#0f0f13',    
+                        surface: '#0c0c10',    
                         border: 'rgba(255, 255, 255, 0.08)',
-                        textMain: '#f8fafc',
-                        textMuted: '#94a3b8',
                         primary: '#3b82f6',    
                         accent: '#8b5cf6',     
                     },
@@ -35,20 +33,15 @@
                         'float': 'float 6s ease-in-out infinite',
                         'spin-slow': 'spin 15s linear infinite',
                         'gradient-xy': 'gradient-xy 8s ease infinite',
-                        'pulse-glow': 'pulse-glow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
                     },
                     keyframes: {
                         float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-15px)' },
+                            '0%, 100%': { transform: 'translate3d(0, 0, 0)' },
+                            '50%': { transform: 'translate3d(0, -12px, 0)' },
                         },
                         'gradient-xy': {
                             '0%, 100%': { 'background-size': '400% 400%', 'background-position': 'left center' },
                             '50%': { 'background-size': '200% 200%', 'background-position': 'right center' }
-                        },
-                        'pulse-glow': {
-                            '0%, 100%': { opacity: 0.4, transform: 'scale(1)' },
-                            '50%': { opacity: 0.8, transform: 'scale(1.05)' },
                         }
                     }
                 }
@@ -62,280 +55,197 @@
     <style type="text/tailwindcss">
         @layer utilities {
             .text-gradient-accent {
-                @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500 animate-gradient-xy bg-[length:200%_200%];
+                @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-500 to-blue-400 animate-gradient-xy bg-[length:200%_200%];
             }
             .glass-panel {
-                @apply bg-[#0f0f13]/60 backdrop-blur-xl border border-white/10 rounded-[24px] shadow-2xl transition-all duration-300;
+                @apply bg-[#0c0c10]/70 backdrop-blur-2xl border border-white/5 border-t-white/10 rounded-[24px] shadow-2xl transition-all duration-300;
             }
             .glass-panel:hover {
-                @apply border-white/20 shadow-[0_0_30px_rgba(59,130,246,0.15)] -translate-y-1 bg-[#0f0f13]/80;
+                @apply border-white/20 shadow-[0_0_30px_rgba(59,130,246,0.1)] -translate-y-1 bg-[#0c0c10]/90;
             }
         }
 
-        /* Global Reset & Strict Dark Mode Guarantee */
-        body {
-            background-color: #050508 !important;
-            color: #f8fafc !important;
-            -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
-            cursor: none; 
-        }
-        
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #050508; }
-        ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.3); }
+        /* Screen Global Styles */
+        @media screen {
+            body {
+                background-color: #050508 !important;
+                color: #f8fafc !important;
+                -webkit-font-smoothing: antialiased;
+                overflow-x: hidden;
+                cursor: none; 
+            }
+            
+            ::-webkit-scrollbar { width: 6px; }
+            ::-webkit-scrollbar-track { background: #050508; }
+            ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 10px; }
+            ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.3); }
 
-        /* Custom Elegant Cursor */
-        @media (hover: hover) and (pointer: fine) {
-            .cursor-dot, .cursor-ring { display: block; }
-        }
-        @media (hover: none) {
-            body { cursor: auto; }
-            .cursor-dot, .cursor-ring { display: none !important; }
-            a, button, input, textarea { cursor: pointer; }
-        }
-        .cursor-dot {
-            position: fixed; top: 0; left: 0; width: 5px; height: 5px;
-            background-color: #fff; border-radius: 50%;
-            transform: translate(-50%, -50%); pointer-events: none; z-index: 9999;
-            transition: width 0.2s, height 0.2s;
-        }
-        .cursor-ring {
-            position: fixed; top: 0; left: 0; width: 36px; height: 36px;
-            border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 50%;
-            transform: translate(-50%, -50%); pointer-events: none; z-index: 9998;
-            transition: width 0.3s, height 0.3s, background-color 0.3s, border-color 0.3s;
-            transition-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
-        }
-        .cursor-hover .cursor-dot { width: 0; height: 0; }
-        .cursor-hover .cursor-ring { 
-            width: 60px; height: 60px; 
-            border-color: transparent; 
-            background-color: rgba(59, 130, 246, 0.15); 
-            backdrop-filter: blur(4px); 
-        }
+            /* Hardware Acceleration for smooth animations */
+            .will-change-transform { will-change: transform; }
 
-        /* High-End Visual Backgrounds */
-        .ambient-bg {
-            position: fixed; inset: 0; z-index: -2; pointer-events: none;
-            background: radial-gradient(circle at 10% 0%, rgba(59, 130, 246, 0.08), transparent 40%),
-                        radial-gradient(circle at 90% 100%, rgba(139, 92, 246, 0.08), transparent 40%);
-        }
-        .grid-bg {
-            position: fixed; inset: 0; z-index: -1; pointer-events: none;
-            background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-                              linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-            background-size: 40px 40px;
-            mask-image: radial-gradient(ellipse at center, black 10%, transparent 80%);
-            -webkit-mask-image: radial-gradient(ellipse at center, black 10%, transparent 80%);
-        }
+            /* Custom Cursor */
+            @media (hover: hover) and (pointer: fine) {
+                .cursor-dot, .cursor-ring { display: block; }
+            }
+            @media (hover: none) {
+                body { cursor: auto; }
+                .cursor-dot, .cursor-ring { display: none !important; }
+                a, button, input, textarea { cursor: pointer; }
+            }
+            .cursor-dot {
+                position: fixed; top: 0; left: 0; width: 5px; height: 5px;
+                background-color: #fff; border-radius: 50%;
+                transform: translate(-50%, -50%); pointer-events: none; z-index: 9999;
+                transition: width 0.2s, height 0.2s;
+            }
+            .cursor-ring {
+                position: fixed; top: 0; left: 0; width: 36px; height: 36px;
+                border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 50%;
+                transform: translate(-50%, -50%); pointer-events: none; z-index: 9998;
+                transition: width 0.3s, height 0.3s, background-color 0.3s, border-color 0.3s;
+                transition-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+            }
+            .cursor-hover .cursor-dot { width: 0; height: 0; }
+            .cursor-hover .cursor-ring { 
+                width: 60px; height: 60px; border-color: transparent; 
+                background-color: rgba(59, 130, 246, 0.15); backdrop-filter: blur(4px); 
+            }
 
-        /* SPA Architecture: STRICT display:none to fix empty scroll bug completely */
-        .page-container {
-            width: 100%;
-            min-height: calc(100vh - 100px);
-        }
-        .page {
-            display: none; 
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.4s ease, transform 0.4s ease;
-            padding-top: 120px;
-            padding-bottom: 80px;
-        }
-        .page.active {
-            display: block; 
-            opacity: 1;
-            transform: translateY(0);
-        }
+            /* Ambient Backgrounds */
+            .ambient-bg {
+                position: fixed; inset: 0; z-index: -2; pointer-events: none;
+                background: radial-gradient(circle at 10% 0%, rgba(59, 130, 246, 0.08), transparent 40%),
+                            radial-gradient(circle at 90% 100%, rgba(139, 92, 246, 0.08), transparent 40%);
+            }
+            .grid-bg {
+                position: fixed; inset: 0; z-index: -1; pointer-events: none;
+                background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                                  linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+                background-size: 40px 40px;
+                mask-image: radial-gradient(ellipse at center, black 10%, transparent 80%);
+                -webkit-mask-image: radial-gradient(ellipse at center, black 10%, transparent 80%);
+            }
 
-        /* Navigation Lines */
-        .nav-link { position: relative; padding: 0.5rem 0; }
-        .nav-link::after {
-            content: ''; position: absolute; bottom: 0; left: 50%; width: 0%; height: 2px;
-            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
-            transition: width 0.3s ease, left 0.3s ease; border-radius: 2px;
-        }
-        .nav-link.active::after { width: 100%; left: 0; }
+            /* SPA Engine Logic */
+            .page-container { width: 100%; min-height: calc(100vh - 100px); overflow-x: hidden; }
+            .page {
+                display: none; opacity: 0; transform: translateY(20px);
+                transition: opacity 0.4s ease, transform 0.4s ease;
+                padding-top: 100px; padding-bottom: 80px; width: 100%;
+            }
+            .page.active { display: block; opacity: 1; transform: translateY(0); }
 
-        /* Scroll Reveal Logic */
-        .reveal { 
-            opacity: 0; transform: translateY(30px); 
-            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); 
-        }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-        .delay-100 { transition-delay: 100ms; }
-        .delay-200 { transition-delay: 200ms; }
-        .delay-300 { transition-delay: 300ms; }
+            /* Nav Links */
+            .nav-link { position: relative; padding: 0.5rem 0; }
+            .nav-link::after {
+                content: ''; position: absolute; bottom: 0; left: 50%; width: 0%; height: 2px;
+                background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+                transition: width 0.3s ease, left 0.3s ease; border-radius: 2px;
+            }
+            .nav-link.active::after { width: 100%; left: 0; }
 
-        /* Timeline Elements */
-        .timeline-line {
-            position: absolute; left: 24px; top: 0; bottom: 0; width: 2px;
-            background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.1), transparent);
-        }
-        .timeline-node {
-            position: absolute; left: -29px; top: 32px; width: 12px; height: 12px;
-            border-radius: 50%; background: #050508; border: 2px solid #64748b;
-            transition: all 0.3s ease;
-        }
-        .glass-panel:hover .timeline-node {
-            border-color: #3b82f6; background: #3b82f6; box-shadow: 0 0 15px #3b82f6;
-        }
+            /* Scroll Reveal */
+            .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+            .reveal.active { opacity: 1; transform: translateY(0); }
 
-        /* Preloader */
-        #preloader {
-            position: fixed; inset: 0; background-color: #050508; z-index: 10000;
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-            transition: opacity 0.8s ease, visibility 0.8s ease;
-        }
-        .loader-bar {
-            height: 100%; width: 0%; background: linear-gradient(90deg, #3b82f6, #8b5cf6);
-            transition: width 1.2s cubic-bezier(0.8, 0, 0.2, 1);
+            /* Timeline */
+            .timeline-line {
+                position: absolute; left: 24px; top: 0; bottom: 0; width: 2px;
+                background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.1), transparent);
+            }
+            .timeline-node {
+                position: absolute; left: -29px; top: 32px; width: 12px; height: 12px;
+                border-radius: 50%; background: #050508; border: 2px solid #64748b; transition: all 0.3s ease;
+            }
+            .glass-panel:hover .timeline-node { border-color: #3b82f6; background: #3b82f6; box-shadow: 0 0 15px #3b82f6; }
+
+            /* Preloader Base CSS */
+            #preloader {
+                position: fixed; inset: 0; background-color: #050508; z-index: 10000;
+                display: flex; flex-direction: column; align-items: center; justify-content: center;
+                transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+            }
         }
 
         /* ========================================================================= */
         /* BULLETPROOF ATS RESUME PRINT STYLES - STRIPS OUT ALL BROWSER/WEB STYLING  */
         /* ========================================================================= */
-        .print-resume-view { display: none; }
+        #print-resume { display: none; }
         
         @media print {
-            @page { margin: 0.6in; size: letter; }
-            
-            /* Force exact white background, black text, auto sizing, and override web settings */
+            @page { margin: 0.5in; size: letter portrait; }
             html, body {
-                background-color: #ffffff !important;
-                color: #000000 !important;
-                font-family: 'Inter', Arial, sans-serif !important;
-                overflow: visible !important;
-                height: auto !important;
-                width: auto !important;
-                margin: 0 !important;
-                padding: 0 !important;
+                background: #ffffff !important; color: #000000 !important;
+                font-family: 'Inter', Helvetica, Arial, sans-serif !important;
+                -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important;
+                margin: 0 !important; padding: 0 !important; height: auto !important; overflow: visible !important;
                 cursor: auto !important;
             }
-            
-            /* Completely hide the web portfolio and components */
-            .web-view, #chatbot-window, button, header, #mobile-menu, .cursor-dot, .cursor-ring {
-                display: none !important;
-            }
+            /* Hide absolutely everything related to the web UI */
+            .screen-only { display: none !important; }
             
             /* Show only the formatted resume layout */
-            .print-resume-view {
+            #print-resume {
                 display: block !important;
                 width: 100% !important;
-                max-width: 100% !important;
-                box-sizing: border-box !important;
+                position: absolute !important;
+                left: 0 !important;
+                top: 0 !important;
             }
 
             /* Flawless Resume Typography using precise Printer Points (pt) */
-            .print-resume-view h1 { 
-                font-size: 24pt !important; 
-                font-weight: 700 !important; 
-                color: #000 !important; 
-                margin-top: 0 !important;
-                margin-bottom: 4pt !important; 
-                text-align: center; 
-            }
-            .print-resume-view .contact-info { 
-                font-size: 10pt !important; 
-                text-align: center; 
-                margin-bottom: 16pt !important; 
-                color: #333 !important; 
-            }
-            .print-resume-view h2 { 
-                font-size: 12pt !important; 
-                font-weight: 700 !important; 
-                color: #000 !important; 
-                border-bottom: 1pt solid #000 !important; 
-                padding-bottom: 2pt !important; 
-                margin-top: 14pt !important; 
-                margin-bottom: 6pt !important; 
-                text-transform: uppercase; 
-                letter-spacing: 0.5pt; 
-            }
-            .print-resume-view h3 { 
-                font-size: 11pt !important; 
-                font-weight: 700 !important; 
-                color: #000 !important; 
-                margin: 0 !important; 
-                display: inline-block; 
-            }
-            .print-resume-view h4 { 
-                font-size: 10pt !important; 
-                font-weight: 400 !important; 
-                color: #333 !important; 
-                margin: 0 !important; 
-                display: inline-block; 
-                font-style: italic; 
-            }
-            .print-resume-view .date-loc { 
-                font-size: 10pt !important; 
-                font-weight: 600 !important;
-                color: #000 !important; 
-                float: right; 
-            }
-            .print-resume-view p { 
-                font-size: 10pt !important; 
-                line-height: 1.5 !important; 
-                margin-bottom: 6pt !important; 
-            }
-            .print-resume-view ul { 
-                font-size: 10pt !important; 
-                line-height: 1.4 !important; 
-                margin-top: 4pt !important;
-                margin-bottom: 8pt !important; 
-                padding-left: 16pt !important; 
-                list-style-type: disc !important;
-            }
-            .print-resume-view li { 
-                margin-bottom: 3pt !important; 
-            }
-            .print-resume-view .job-block {
-                margin-bottom: 10pt !important;
-                page-break-inside: avoid;
-            }
-            .print-resume-view .job-header { 
-                margin-bottom: 2pt !important; 
-            }
-            .print-resume-view .job-header::after { 
-                content: ""; 
-                display: table; 
-                clear: both; 
-            }
+            #print-resume .header { text-align: center; border-bottom: 2pt solid #1e3a8a; padding-bottom: 8pt; margin-bottom: 12pt; }
+            #print-resume h1 { font-size: 22pt; font-weight: bold; color: #000; margin: 0 0 4pt 0; text-transform: uppercase; letter-spacing: 0.5pt; }
+            #print-resume .contact-info { font-size: 10pt; color: #333; margin-bottom: 10pt; }
+            #print-resume h2 { font-size: 12pt; font-weight: bold; color: #1e3a8a; border-bottom: 1pt solid #ccc; padding-bottom: 2pt; margin: 14pt 0 6pt 0; text-transform: uppercase; letter-spacing: 0.5pt; }
+            #print-resume p { font-size: 10pt; line-height: 1.4; margin: 0 0 6pt 0; }
+            #print-resume ul { font-size: 10pt; line-height: 1.4; margin: 4pt 0 8pt 0; padding-left: 16pt; }
+            #print-resume li { margin-bottom: 3pt; }
+            
+            /* Job blocks */
+            #print-resume .job-block { margin-bottom: 10pt; page-break-inside: avoid; }
+            #print-resume .job-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2pt; }
+            #print-resume .job-title { font-size: 11pt; font-weight: bold; color: #000; }
+            #print-resume .job-company { font-size: 10pt; font-style: italic; color: #444; }
+            #print-resume .job-date { font-size: 10pt; font-weight: bold; color: #000; }
+            #print-resume .bold { font-weight: bold; }
         }
     </style>
 </head>
-<body class="antialiased selection:bg-blue-500/30 selection:text-white">
+<body class="selection:bg-blue-500/30 selection:text-white">
 
-    <!-- ========================================================================================= -->
-    <!-- ATS RESUME GENERATOR (PRINT ONLY) - This guarantees perfect parsing & sizing for PDF/Print-->
-    <!-- ========================================================================================= -->
-    <div class="print-resume-view">
+    <!-- ============================================================================== -->
+    <!-- HIGH-SCORING ATS RESUME GENERATOR (STRICTLY PRINT VIEW)                        -->
+    <!-- ============================================================================== -->
+    <div id="print-resume">
         
-        <h1>Abdullah Paryani</h1>
-        <div class="contact-info">
-            Mississauga, ON | +1 (249) 876-2164 | paryani.abdullah@gmail.com | linkedin.com/in/AP1210
+        <div class="header">
+            <h1>Abdullah Paryani</h1>
+            <div class="contact-info">
+                GTA, Ontario | +1 (249) 876-2164 | paryani.abdullah@gmail.com | linkedin.com/in/AP1210
+            </div>
         </div>
 
         <h2>Professional Summary</h2>
-        <p>Disciplined in Marketing and Business Management; professional with a background in retail, SaaS, digital marketplaces, and the financial sector. Experienced in developing and implementing robust marketing strategies, managing digital operations, and driving process improvements to boost sales and customer relations. Proficient in social media analysis (sensitivity & quality control), consulting media creation, SEO/SEM, CRM workflows, and PR events.</p>
+        <p>My journey in marketing started in Hyderabad's bustling business environment, giving me an early and deep understanding of business operations. I thrive on the operational and analytical side of marketing across retail, SaaS, and tech, using data to build effective strategies. Key highlights include managing communications for products with over 1.5B users at Google Operations Center, devising a scam prevention workflow that cut response times from 6 days to 1 hour, and using market research to drive customer acquisition. I am passionate about tackling complex challenges and utilizing operational strategy to make a real impact.</p>
 
         <h2>Core Competencies</h2>
-        <p>
-            <strong>Marketing Strategy:</strong> Brand Voice & Identity, Campaign Management, Public Relations, Social Media Strategy, Copywriting.<br>
-            <strong>Operations:</strong> Inventory & Order Management, Process Improvement, PDCA (Plan-Do-Check-Act), Crisis Management.<br>
-            <strong>Tools & CRM:</strong> Salesforce, HubSpot, Clover, Hootsuite, Conversocial, Wix, Google Ads, Google Analytics, GCP.<br>
-            <strong>Analytics:</strong> Marketing Analytics, KPI Tracking, Market Research & Reporting, SEO & SEM Optimization.
-        </p>
+        <ul>
+            <li><span class="bold">Marketing Strategy:</span> Brand Voice & Identity, Campaign Management, Public Relations, Social Media Strategy.</li>
+            <li><span class="bold">Operations:</span> Inventory Management, Process Improvement, PDCA (Plan-Do-Check-Act), Crisis Management.</li>
+            <li><span class="bold">Tools & CRM:</span> Salesforce, HubSpot, Clover, Hootsuite, Wix, Google Ads, Google Analytics, GCP.</li>
+            <li><span class="bold">Analytics:</span> Marketing Analytics, KPI Tracking, Market Research & Reporting, SEO & SEM Optimization.</li>
+        </ul>
 
         <h2>Professional Experience</h2>
         
         <div class="job-block">
             <div class="job-header">
-                <h3>Marketing Consultant / Ad Manager</h3> <span class="date-loc">Mar 2024 – Present</span><br>
-                <h4>Greenstone Financial Services | GTA, ON</h4>
+                <div>
+                    <span class="job-title">Marketing Consultant / Ad Manager</span>
+                    <span class="job-company">| Greenstone Financial Services (GTA, Ontario)</span>
+                </div>
+                <span class="job-date">Mar 2024 – Present</span>
             </div>
             <ul>
                 <li>Manage end-to-end ad campaigns focused on generating highly qualified leads for SME clients.</li>
@@ -346,20 +256,41 @@
 
         <div class="job-block">
             <div class="job-header">
-                <h3>Senior Sales Advisor</h3> <span class="date-loc">Nov 2024 – Present</span><br>
-                <h4>Neilson Financial Services | Toronto, ON</h4>
+                <div>
+                    <span class="job-title">Freelance Marketing Consultant</span>
+                    <span class="job-company">| Independent Clients (GTA, Ontario)</span>
+                </div>
+                <span class="job-date">May 2023 – Present</span>
             </div>
             <ul>
-                <li>Operate as a licensed advisor across 10+ provinces responding to life inquiries, adhering strictly to regulatory compliance.</li>
-                <li>Maintain meticulous client interaction records using enterprise CRM systems.</li>
-                <li>Conduct deep-dive needs analyses to advise on coverage, liabilities, and optimal policies.</li>
+                <li>Manage ad campaigns and digital presence for small business clients, focusing on targeted lead generation and ROI.</li>
+                <li>Provide comprehensive advising on marketing fronts including media direction, campaign management, and brand voice.</li>
+                <li>Analyze marketing KPIs to continually refine digital strategies and adapt to evolving consumer trends.</li>
             </ul>
         </div>
 
         <div class="job-block">
             <div class="job-header">
-                <h3>Operations & Marketing Manager</h3> <span class="date-loc">Apr 2024 – Nov 2024</span><br>
-                <h4>Khan Al Sultan Gift Shop INC. | GTA, ON</h4>
+                <div>
+                    <span class="job-title">Senior Sales Advisor</span>
+                    <span class="job-company">| Neilson Financial Services (Toronto, Ontario)</span>
+                </div>
+                <span class="job-date">Nov 2024 – Mar 2025</span>
+            </div>
+            <ul>
+                <li>Operated as a licensed advisor across 10+ provinces responding to life inquiries, adhering strictly to regulatory compliance.</li>
+                <li>Maintained meticulous client interaction records using enterprise CRM systems to ensure high quality metrics.</li>
+                <li>Conducted deep-dive needs analyses to advise on coverage, liabilities, and optimal policies.</li>
+            </ul>
+        </div>
+
+        <div class="job-block">
+            <div class="job-header">
+                <div>
+                    <span class="job-title">Operations & Marketing Manager</span>
+                    <span class="job-company">| Khan Al Sultan Gift Shop INC. (GTA, Ontario)</span>
+                </div>
+                <span class="job-date">Apr 2024 – Nov 2024</span>
             </div>
             <ul>
                 <li>Oversaw business operations and marketing to support business expansion and led promotional events.</li>
@@ -370,20 +301,25 @@
 
         <div class="job-block">
             <div class="job-header">
-                <h3>Marketing & Sales Operations Manager</h3> <span class="date-loc">Aug 2023 – Apr 2024</span><br>
-                <h4>OZIS B&B Cornerstore INC. | Oshawa, ON</h4>
+                <div>
+                    <span class="job-title">Marketing & Sales Operations Manager</span>
+                    <span class="job-company">| OZIS B&B Cornerstore INC. (Oshawa, Ontario)</span>
+                </div>
+                <span class="job-date">Aug 2023 – Apr 2024</span>
             </div>
             <ul>
                 <li>Directed marketing analytics, tracking KPIs for data-driven insights, growth, and reputation management.</li>
-                <li>Conducted market research for product selection and managed vendor communications.</li>
                 <li>Designed and published brand logos, banners, and established core brand voice/identity based on market research.</li>
             </ul>
         </div>
 
         <div class="job-block">
             <div class="job-header">
-                <h3>Benefits Specialist (Producer)</h3> <span class="date-loc">Feb 2023 – Mar 2024</span><br>
-                <h4>American Income Life: AO | Ontario</h4>
+                <div>
+                    <span class="job-title">Benefits Specialist (Producer)</span>
+                    <span class="job-company">| American Income Life: AO (Ontario)</span>
+                </div>
+                <span class="job-date">Feb 2023 – Mar 2024</span>
             </div>
             <ul>
                 <li>Licensed to develop insurance plans for over 45,000 groups (Unions, Federations, Associations).</li>
@@ -393,43 +329,48 @@
 
         <div class="job-block">
             <div class="job-header">
-                <h3>Social Media Analyst</h3> <span class="date-loc">Feb 2019 – Apr 2021</span><br>
-                <h4>Google Operations Centre (via Accenture) | Hyderabad</h4>
+                <div>
+                    <span class="job-title">Social Media Analyst</span>
+                    <span class="job-company">| Google Operations Centre via Accenture (Hyderabad)</span>
+                </div>
+                <span class="job-date">Feb 2019 – Apr 2021</span>
             </div>
             <ul>
-                <li>Managed digital operations for Google Play products with over 1.5 billion active users globally.</li>
-                <li>Maintained social media content strategy and interactions with 20+ million followers.</li>
-                <li>Devised a crucial scam prevention workflow to counter mechanism abuse.</li>
-                <li>Responsible for consistently managing over 38% (avg.) of brand interactions.</li>
+                <li>Managed digital operations for Google Play products representing an ecosystem of 1.5 billion active users globally.</li>
+                <li>Maintained social media content strategy and managed interactions across a network of 20+ million followers.</li>
+                <li>Devised a crucial scam prevention workflow to effectively counter mechanism abuse.</li>
             </ul>
         </div>
 
         <div class="job-block">
             <div class="job-header">
-                <h3>Previous Experience Timeline</h3> <span class="date-loc">2015 – 2019</span>
+                <div>
+                    <span class="job-title">Previous Experience Timeline</span>
+                    <span class="job-company">| Multiple Roles</span>
+                </div>
+                <span class="job-date">2015 – 2019</span>
             </div>
             <ul>
-                <li><strong>Communications Specialist | Khamur IT Solutions</strong> (Feb 2017 – Feb 2019): Designed and launched IMC campaigns for key clients; directed content creation and supervised communication training.</li>
-                <li><strong>Process Associate (Hardware/Pay) | Genpact / Google</strong> (Jul 2018 – Jan 2019): Specialist handling Nexus, Pixel, and Google Pay support; supported Pixel 3 launch.</li>
-                <li><strong>Customer Service Associate | Amazon Development Centre</strong> (Sep 2015 – Feb 2017): Product Development & Support, concession abuse prevention.</li>
+                <li><span class="bold">Communications Specialist</span> | Khamur IT Solutions (Feb 2017 – Feb 2019) — Designed IMC campaigns.</li>
+                <li><span class="bold">Process Associate (Hardware/Pay)</span> | Genpact / Google (Jul 2018 – Jan 2019) — Supported Pixel 3 launch.</li>
+                <li><span class="bold">Customer Service Associate</span> | Amazon Development Centre (Sep 2015 – Feb 2017) — Product Dev & Support.</li>
             </ul>
         </div>
 
-        <h2>Education & Certifications</h2>
+        <h2>Education, Certifications & Awards</h2>
         <p>
-            <strong>Ontario College Graduate Certificate:</strong> Marketing Management | Seneca College (2022)<br>
-            <strong>Bachelor of Commerce:</strong> Advertising & Sales | St. Mary's College (2014 – 2017)<br>
-            <strong>Active Licenses & Certs:</strong> Licensed Life Insurance Advisor (LLQP: ON & 10 Prov), HubSpot (Inbound), Stukent (SEM/SEO), Salesforce (Platform Basics), IBM (Enterprise Design Thinking), Hootsuite.<br>
-            <strong>Awards:</strong> Ideathon & Star Performer (Accenture), The Shield (Khamur), Leadership & Customer Delight (Amazon).
+            <span class="bold">Ontario College Graduate Certificate:</span> Marketing Management | Seneca College (2022)<br/>
+            <span class="bold">Bachelor of Commerce:</span> Advertising & Sales | St. Mary's College (2014 – 2017)<br/>
+            <span class="bold">Active Licenses & Certs:</span> Licensed Life Insurance Advisor (LLQP: ON & 10 Prov), HubSpot (Inbound), Stukent (SEM/SEO), Salesforce (Platform Basics), IBM (Enterprise Design Thinking), Hootsuite.<br/>
+            <span class="bold">Awards:</span> Ideathon & Star Performer (Accenture), The Shield (Khamur), Leadership & Customer Delight (Amazon).
         </p>
-
     </div>
 
 
-    <!-- ===================================================================== -->
-    <!-- MAIN WEBSITE (SCREEN VIEW ONLY) - Flawless Dark Theme SPA Experience  -->
-    <!-- ===================================================================== -->
-    <div class="web-view">
+    <!-- ============================================================================== -->
+    <!-- MAIN WEB PORTFOLIO (SCREEN VIEW ONLY) - Flawless UI/UX & Responsive Layout     -->
+    <!-- ============================================================================== -->
+    <div class="screen-only">
         
         <!-- Ambient Visuals -->
         <div class="ambient-bg"></div>
@@ -439,12 +380,31 @@
         <div class="cursor-dot hidden md:block"></div>
         <div class="cursor-ring hidden md:block"></div>
 
-        <!-- Preloader -->
-        <div id="preloader">
-            <h2 class="font-display text-4xl font-bold tracking-tight text-white">Abdullah Paryani</h2>
-            <div class="text-xs text-blue-400 mt-3 tracking-[0.2em] uppercase font-bold">Initializing Environment</div>
-            <div class="w-[200px] h-[2px] bg-white/10 rounded-full mt-6 overflow-hidden">
-                <div class="loader-bar" id="loader-progress"></div>
+        <!-- Ultra-Premium Preloader -->
+        <div id="preloader" class="h-[100dvh]">
+            <!-- Glowing Monogram -->
+            <div class="relative w-20 h-20 md:w-24 md:h-24 mb-6 md:mb-8 flex items-center justify-center">
+                <div class="absolute inset-0 rounded-2xl border-t-2 border-blue-500 animate-spin-slow opacity-80"></div>
+                <div class="absolute inset-2 rounded-2xl border-b-2 border-purple-500 animate-[spin_3s_linear_infinite_reverse] opacity-80"></div>
+                <div class="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-gradient-to-br from-blue-600/20 to-purple-600/20 border border-white/10 flex items-center justify-center backdrop-blur-md relative z-10 shadow-[0_0_30px_rgba(59,130,246,0.3)]">
+                    <span class="font-display font-bold text-white text-lg md:text-xl tracking-tighter">AP</span>
+                </div>
+            </div>
+
+            <!-- Preloader Text -->
+            <div class="overflow-hidden mb-2">
+                <h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight text-white text-center">Abdullah Paryani</h2>
+            </div>
+            
+            <!-- Progress Container -->
+            <div class="mt-6 flex flex-col items-center w-full max-w-[240px] px-4">
+                <div class="flex justify-between w-full text-[10px] md:text-xs font-display tracking-[0.2em] uppercase font-bold mb-3">
+                    <span id="loader-text" class="text-blue-400 transition-colors duration-300">Initializing</span>
+                    <span id="loader-percentage" class="text-gray-400 font-sans">0%</span>
+                </div>
+                <div class="w-full h-[2px] bg-white/10 rounded-full overflow-hidden relative">
+                    <div id="loader-progress" class="absolute top-0 left-0 h-full w-0 bg-gradient-to-r from-blue-600 to-purple-600 shadow-[0_0_10px_rgba(59,130,246,0.8)] transition-all duration-75 ease-out"></div>
+                </div>
             </div>
         </div>
 
@@ -492,8 +452,8 @@
             <a href="#contact" data-page-target="contact" class="mobile-link text-blue-400 hover:text-white transition-colors mt-4">Contact Me</a>
         </div>
 
-        <!-- Main Container -->
-        <main class="page-container max-w-7xl mx-auto px-6">
+        <!-- Main Container (Overflow hidden ensures no mobile scrolling bugs) -->
+        <main class="page-container max-w-7xl mx-auto px-6 overflow-x-hidden">
 
             <!-- ================= HOME PAGE ================= -->
             <section id="home" class="page active">
@@ -524,7 +484,7 @@
                                 Explore Experience
                             </button>
                             <button onclick="window.print()" class="px-8 py-4 border border-white/20 bg-white/5 hover:bg-white/10 backdrop-blur-md text-white rounded-full font-display font-bold transition-all flex items-center gap-2 hover:scale-105 active:scale-95 cursor-none">
-                                <i data-lucide="printer" class="w-5 h-5"></i> Generate ATS Resume
+                                <i data-lucide="printer" class="w-5 h-5"></i> Extract ATS Resume
                             </button>
                         </div>
 
@@ -552,68 +512,62 @@
                     </div>
 
                     <!-- Highly Impressive Photo Presentation -->
-                    <div class="lg:col-span-5 order-1 lg:order-2 flex justify-center lg:justify-end reveal delay-200 w-full">
-                        <div class="relative w-full max-w-[400px] aspect-[3/4] group mx-auto animate-float mt-10 lg:mt-0">
+                    <div class="lg:col-span-5 order-1 lg:order-2 flex flex-col items-center justify-center reveal delay-200 w-full px-4 sm:px-0">
+                        <div class="relative w-full max-w-[340px] md:max-w-[400px] aspect-[3/4] group animate-float will-change-transform mt-10 lg:mt-0">
                             
-                            <!-- Animated Glowing Aura behind picture -->
-                            <div class="absolute -inset-2 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 rounded-[2.5rem] blur-2xl opacity-40 group-hover:opacity-70 transition duration-700 animate-gradient-xy"></div>
+                            <div class="absolute -inset-2 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 rounded-[2.5rem] blur-2xl opacity-40 group-hover:opacity-70 transition duration-700 animate-gradient-xy will-change-transform"></div>
                             
-                            <!-- Picture Container -->
-                            <div class="relative w-full h-full p-2 rounded-[2.5rem] overflow-hidden bg-[#0f0f13] border border-white/10 shadow-2xl z-10">
-                                <!-- Image itself -->
-                                <img src="Assets/photo/profile.jpg" onerror="this.src='https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800'" alt="Abdullah Paryani" class="w-full h-full rounded-[2rem] object-cover filter brightness-90 group-hover:brightness-110 transition-all duration-700 group-hover:scale-105" />
-                                
-                                <!-- Vignette/Shadow Overlay for depth -->
+                            <div class="relative w-full h-full p-2 rounded-[2.5rem] overflow-hidden bg-[#0c0c10] border border-white/10 shadow-2xl z-10">
+                                <img src="Assets/photo/profile.jpg" onerror="this.src='https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800'" alt="Abdullah Paryani" class="w-full h-full rounded-[2rem] object-cover filter brightness-90 group-hover:brightness-110 transition-all duration-700 group-hover:scale-105 will-change-transform" />
                                 <div class="absolute inset-0 rounded-[2rem] shadow-[inset_0_-100px_100px_-20px_rgba(0,0,0,0.9)] pointer-events-none"></div>
                                 
-                                <!-- Info Overlay -->
-                                <div class="absolute bottom-6 left-6 right-6">
+                                <div class="absolute bottom-4 left-4 right-4 md:bottom-6 md:left-6 md:right-6">
                                     <div class="bg-black/40 backdrop-blur-xl border border-white/10 rounded-2xl p-4 flex justify-between items-center shadow-lg">
                                         <div>
-                                            <h3 class="font-display font-bold text-white text-lg tracking-wide">Abdullah Paryani</h3>
-                                            <p class="text-blue-400 text-sm font-bold tracking-wide">Mississauga, ON</p>
+                                            <h3 class="font-display font-bold text-white text-base md:text-lg tracking-wide">Abdullah Paryani</h3>
+                                            <p class="text-blue-400 text-xs md:text-sm font-bold tracking-wide">GTA, Ontario</p>
                                         </div>
-                                        <div class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center border border-blue-500/30 text-blue-400">
-                                            <i data-lucide="check" class="w-5 h-5"></i>
+                                        <div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-blue-500/20 flex items-center justify-center border border-blue-500/30 text-blue-400">
+                                            <i data-lucide="check" class="w-4 h-4 md:w-5 md:h-5"></i>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
-                            <!-- Floating Stat Badge 1 (Adjusted for accuracy) -->
-                            <div class="absolute -left-8 top-1/4 bg-[#0f0f13]/80 backdrop-blur-md border border-white/10 rounded-2xl px-5 py-3 flex items-center gap-4 shadow-2xl z-20 translate-y-0 group-hover:-translate-y-2 transition-transform duration-500 delay-100">
-                                <div class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 border border-blue-500/30">
+                        <!-- Floating Badges neatly positioned BELOW the image -->
+                        <div class="flex flex-col sm:flex-row gap-4 mt-8 w-full max-w-[340px] md:max-w-[400px]">
+                            <div class="flex-1 bg-[#0c0c10]/95 backdrop-blur-xl border border-white/10 border-t-white/20 rounded-2xl px-4 py-4 flex items-center gap-3 shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:-translate-y-1 transition-transform duration-300">
+                                <div class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 border border-blue-500/30 shrink-0">
                                     <i data-lucide="globe" class="w-5 h-5"></i>
                                 </div>
                                 <div>
-                                    <div class="text-[10px] text-gray-400 font-bold uppercase tracking-widest">Market Reach</div>
-                                    <div class="text-white font-display font-bold text-lg leading-tight">Global Scale</div>
+                                    <div class="text-[10px] text-gray-400 font-bold uppercase tracking-widest whitespace-nowrap">Market Scope</div>
+                                    <div class="text-white font-display font-bold text-sm md:text-[15px] leading-tight whitespace-nowrap">Enterprise</div>
                                 </div>
                             </div>
-
-                            <!-- Floating Stat Badge 2 -->
-                            <div class="absolute -right-6 top-2/3 bg-[#0f0f13]/80 backdrop-blur-md border border-white/10 rounded-2xl px-5 py-3 flex items-center gap-4 shadow-2xl z-20 translate-y-0 group-hover:-translate-y-2 transition-transform duration-500 delay-200">
-                                <div class="w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400 border border-purple-500/30">
+                            <div class="flex-1 bg-[#0c0c10]/95 backdrop-blur-xl border border-white/10 border-t-white/20 rounded-2xl px-4 py-4 flex items-center gap-3 shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:-translate-y-1 transition-transform duration-300">
+                                <div class="w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400 border border-purple-500/30 shrink-0">
                                     <i data-lucide="briefcase" class="w-5 h-5"></i>
                                 </div>
                                 <div>
-                                    <div class="text-[10px] text-gray-400 font-bold uppercase tracking-widest">Experience</div>
-                                    <div class="text-white font-display font-bold text-lg leading-tight">10+ Years</div>
+                                    <div class="text-[10px] text-gray-400 font-bold uppercase tracking-widest whitespace-nowrap">Experience</div>
+                                    <div class="text-white font-display font-bold text-sm md:text-[15px] leading-tight whitespace-nowrap">10+ Years</div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Fixed Logos / Proof Strip: Now fully contained and professional -->
-                <div class="mt-20 lg:mt-32 reveal delay-200 w-full mb-10">
-                    <div class="glass-panel !rounded-[2rem] p-10 flex flex-col items-center border border-white/10 shadow-[0_0_40px_rgba(0,0,0,0.5)]">
-                        <p class="text-center text-xs text-gray-500 font-bold mb-8 uppercase tracking-[0.2em]">Executing strategy & operations for industry leaders</p>
-                        <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 lg:gap-24 opacity-60 grayscale hover:grayscale-0 transition-all duration-700">
-                            <div class="flex items-center gap-3 font-display font-bold text-xl lg:text-2xl text-white hover:text-blue-500 transition-colors"><i data-lucide="shield" class="text-blue-500"></i> Neilson</div>
-                            <div class="flex items-center gap-3 font-display font-bold text-xl lg:text-2xl text-white hover:text-green-500 transition-colors"><i data-lucide="gem" class="text-green-500"></i> Greenstone</div>
-                            <div class="flex items-center gap-3 font-display font-bold text-xl lg:text-2xl text-white hover:text-blue-400 transition-colors"><i data-lucide="cloud" class="text-blue-400"></i> Salesforce</div>
-                            <div class="flex items-center gap-3 font-display font-bold text-xl lg:text-2xl text-white hover:text-red-500 transition-colors"><i data-lucide="chrome" class="text-red-500"></i> Google Ops</div>
+                <!-- Fixed Logos / Proof Strip -->
+                <div class="mt-20 lg:mt-24 reveal delay-200 w-full max-w-[900px] mx-auto mb-10 px-2">
+                    <div class="glass-panel !rounded-[2rem] p-8 md:p-10 flex flex-col items-center border border-white/10 shadow-[0_0_40px_rgba(0,0,0,0.5)]">
+                        <p class="text-center text-xs text-gray-500 font-bold mb-8 uppercase tracking-[0.2em]">Executing operations for industry leaders</p>
+                        <div class="flex flex-wrap justify-center items-center gap-6 md:gap-16 lg:gap-20 opacity-60 grayscale hover:grayscale-0 transition-all duration-700">
+                            <div class="flex items-center gap-2 font-display font-bold text-lg md:text-xl lg:text-2xl text-white hover:text-blue-500 transition-colors"><i data-lucide="shield" class="text-blue-500 w-5 h-5 md:w-6 md:h-6"></i> Neilson</div>
+                            <div class="flex items-center gap-2 font-display font-bold text-lg md:text-xl lg:text-2xl text-white hover:text-green-500 transition-colors"><i data-lucide="gem" class="text-green-500 w-5 h-5 md:w-6 md:h-6"></i> Greenstone</div>
+                            <div class="flex items-center gap-2 font-display font-bold text-lg md:text-xl lg:text-2xl text-white hover:text-blue-400 transition-colors"><i data-lucide="cloud" class="text-blue-400 w-5 h-5 md:w-6 md:h-6"></i> Salesforce</div>
+                            <div class="flex items-center gap-2 font-display font-bold text-lg md:text-xl lg:text-2xl text-white hover:text-red-500 transition-colors"><i data-lucide="chrome" class="text-red-500 w-5 h-5 md:w-6 md:h-6"></i> Google Ops</div>
                         </div>
                     </div>
                 </div>
@@ -628,48 +582,55 @@
                     </div>
                     
                     <div class="grid md:grid-cols-12 gap-8 items-start">
-                        <div class="md:col-span-8 glass-panel p-8 md:p-12 reveal delay-100 relative">
+                        <div class="md:col-span-8 glass-panel p-6 md:p-12 reveal delay-100 relative">
                             <div class="absolute top-0 right-0 p-8 opacity-5">
-                                <i data-lucide="fingerprint" class="w-48 h-48"></i>
+                                <i data-lucide="fingerprint" class="w-32 h-32 md:w-48 md:h-48"></i>
                             </div>
 
-                            <div class="relative z-10 text-lg text-gray-300 leading-relaxed font-light space-y-6">
-                                <p class="text-white font-medium text-xl font-display tracking-wide border-l-2 border-blue-500 pl-4">
-                                    Disciplined in Marketing and Business Management, with a comprehensive background traversing retail, SaaS, digital marketplaces, and the financial sector.
+                            <div class="relative z-10 text-base md:text-lg text-gray-300 leading-relaxed font-light space-y-6">
+                                <p class="text-white font-medium text-lg md:text-xl font-display tracking-wide border-l-2 border-blue-500 pl-4">
+                                    My journey in marketing started in Hyderabad's bustling business environment, where my family's ventures in wholesale and retail gave me an early and deep understanding of business operations.
                                 </p>
                                 <p>
-                                    Based in Mississauga, Ontario, I specialize in architecting and executing robust marketing strategies while overseeing complex digital operations. My core philosophy revolves around continuous process improvement (PDCA) to elevate sales pipelines, enhance product development, and solidify long-term customer relations.
+                                    That entrepreneurial mindset, combined with my education in advertising and marketing, has shaped my career. I thrive on the operational and analytical side of marketing, finding ways to improve processes and using data to build strategies that work. I've applied this across industries, such as retail and technology (heavily SaaS).
                                 </p>
                                 <p>
-                                    Whether orchestrating targeted ad campaigns for SME clients, managing crisis communications for millions of global users at Google Operations Centre, or structuring needs analyses for massive union federations, I apply a meticulous, data-driven methodology to guarantee measurable success.
+                                    Here are a few highlights of what I bring to the table:
                                 </p>
+                                
+                                <ul class="list-none space-y-5 pt-2 pb-2">
+                                    <li class="flex items-start gap-4">
+                                        <i data-lucide="check-circle-2" class="w-6 h-6 text-blue-500 shrink-0 mt-1"></i>
+                                        <div>
+                                            <strong class="text-white font-display text-lg block mb-1">High-Stakes Digital Operations:</strong> As a Social Media Analyst for the Google Operations Center, I managed communications for products with over 1.5 billion users. I learned to be strategic and resilient in a global high-pressure environment.
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start gap-4">
+                                        <i data-lucide="check-circle-2" class="w-6 h-6 text-blue-500 shrink-0 mt-1"></i>
+                                        <div>
+                                            <strong class="text-white font-display text-lg block mb-1">Process Improvement & Risk Management:</strong> I'm most proud of devising a scam prevention workflow that cut our team's average response time from 6 days down to just 1 hour.
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start gap-4">
+                                        <i data-lucide="check-circle-2" class="w-6 h-6 text-blue-500 shrink-0 mt-1"></i>
+                                        <div>
+                                            <strong class="text-white font-display text-lg block mb-1">Data-Driven Strategy:</strong> I have hands-on experience using market research and KPI analysis to guide brand voice, build editorial calendars, and ultimately drive business growth, contributing to customer acquisition on multiple projects.
+                                        </div>
+                                    </li>
+                                </ul>
 
-                                <div class="grid sm:grid-cols-2 gap-8 pt-8 mt-8 border-t border-white/10">
-                                    <div class="flex gap-5">
-                                        <div class="w-14 h-14 rounded-2xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center shrink-0 text-blue-400">
-                                            <i data-lucide="crosshair" class="w-6 h-6"></i>
-                                        </div>
-                                        <div>
-                                            <h4 class="text-white font-display font-bold text-lg mb-1">Strategic Planning</h4>
-                                            <p class="text-sm text-gray-400 leading-relaxed">Campaign management, brand identity, and comprehensive SEO/SEM roadmaps.</p>
-                                        </div>
-                                    </div>
-                                    <div class="flex gap-5">
-                                        <div class="w-14 h-14 rounded-2xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center shrink-0 text-purple-400">
-                                            <i data-lucide="git-merge" class="w-6 h-6"></i>
-                                        </div>
-                                        <div>
-                                            <h4 class="text-white font-display font-bold text-lg mb-1">Operational Excellence</h4>
-                                            <p class="text-sm text-gray-400 leading-relaxed">Process improvement, crisis management, and data-driven KPI tracking.</p>
-                                        </div>
-                                    </div>
-                                </div>
+                                <p class="pt-2">
+                                    I'm passionate about tackling complex challenges and am always looking for opportunities where I can use my skills in analysis and operational strategy to make a real impact.
+                                </p>
+                                <p>
+                                    Feel free to connect with me to talk about marketing, digital operations, or brand strategy.
+                                </p>
                             </div>
                         </div>
                         
                         <div class="md:col-span-4 space-y-6 reveal delay-200">
                             <!-- Education Card -->
-                            <div class="glass-panel p-8">
+                            <div class="glass-panel p-6 md:p-8">
                                 <h3 class="text-xl font-display font-bold text-white mb-6 flex items-center gap-3">
                                     <i data-lucide="graduation-cap" class="text-blue-400 w-6 h-6"></i> Education
                                 </h3>
@@ -700,6 +661,19 @@
                                 <button onclick="window.print()" class="w-full py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:opacity-90 text-white transition-all font-display font-bold flex items-center justify-center gap-3 rounded-2xl text-sm shadow-[0_0_20px_rgba(59,130,246,0.3)] hover:scale-105 active:scale-95 cursor-none">
                                     <i data-lucide="download" class="w-5 h-5"></i> Extract ATS Resume
                                 </button>
+                                
+                                <!-- Contact Strip Addition -->
+                                <div class="mt-2 flex items-center justify-center gap-4 pt-4 border-t border-white/10">
+                                    <a href="mailto:paryani.abdullah@gmail.com" class="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-blue-400 hover:bg-blue-500/20 hover:border-blue-500/30 transition-all cursor-none group" title="Email">
+                                        <i data-lucide="mail" class="w-5 h-5 group-hover:scale-110 transition-transform"></i>
+                                    </a>
+                                    <a href="tel:+12498762164" class="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-purple-400 hover:bg-purple-500/20 hover:border-purple-500/30 transition-all cursor-none group" title="Phone">
+                                        <i data-lucide="phone" class="w-5 h-5 group-hover:scale-110 transition-transform"></i>
+                                    </a>
+                                    <a href="https://wa.me/12498762164" target="_blank" class="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-green-400 hover:bg-green-500/20 hover:border-green-500/30 transition-all cursor-none group" title="WhatsApp">
+                                        <i data-lucide="message-circle" class="w-5 h-5 group-hover:scale-110 transition-transform"></i>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -724,17 +698,17 @@
                         
                         <div class="space-y-10 pl-6 md:pl-12">
                             
-                            <!-- Job 1 -->
+                            <!-- Job 1: Greenstone -->
                             <div class="relative reveal">
                                 <div class="timeline-node md:-left-[65px]"></div>
-                                <div class="glass-panel p-8 group relative">
-                                    <div class="absolute top-0 right-0 bg-blue-500/10 text-blue-400 px-5 py-2 rounded-bl-2xl rounded-tr-[24px] text-xs font-bold tracking-widest uppercase border-b border-l border-blue-500/30">Current</div>
-                                    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6 mt-2">
+                                <div class="glass-panel p-6 md:p-8 group relative">
+                                    <div class="absolute top-0 right-0 bg-blue-500/10 text-blue-400 px-4 md:px-5 py-1.5 md:py-2 rounded-bl-2xl rounded-tr-[24px] text-[10px] md:text-xs font-bold tracking-widest uppercase border-b border-l border-blue-500/30">Current</div>
+                                    <div class="flex flex-col md:flex-row md:items-end justify-between gap-2 md:gap-4 mb-6 mt-4 md:mt-2">
                                         <div>
-                                            <h3 class="text-2xl font-display font-bold text-white mb-1">Marketing Consultant / Ad Manager</h3>
-                                            <h4 class="text-blue-400 font-bold">Greenstone Financial Services</h4>
+                                            <h3 class="text-xl md:text-2xl font-display font-bold text-white mb-1">Marketing Consultant / Ad Manager</h3>
+                                            <h4 class="text-blue-400 font-bold text-sm md:text-base">Greenstone Financial Services</h4>
                                         </div>
-                                        <span class="text-sm font-bold text-gray-400 whitespace-nowrap bg-white/5 px-4 py-2 rounded-lg border border-white/10">Mar 2024 - Present</span>
+                                        <span class="text-xs md:text-sm font-bold text-gray-400 whitespace-nowrap bg-white/5 px-3 py-1.5 md:px-4 md:py-2 rounded-lg border border-white/10 inline-block w-fit">Mar 2024 - Present</span>
                                     </div>
                                     <ul class="space-y-3 text-gray-300 text-sm md:text-base font-light">
                                         <li class="flex gap-3"><i data-lucide="chevron-right" class="w-5 h-5 text-blue-500 shrink-0 mt-0.5"></i> <span>Managing end-to-end ad campaigns focused on generating highly qualified leads for SME clients.</span></li>
@@ -744,35 +718,55 @@
                                 </div>
                             </div>
 
-                            <!-- Job 2 -->
+                            <!-- Job 2: Freelance -->
                             <div class="relative reveal delay-100">
                                 <div class="timeline-node md:-left-[65px]"></div>
-                                <div class="glass-panel p-8 group">
-                                    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
+                                <div class="glass-panel p-6 md:p-8 group relative">
+                                    <div class="absolute top-0 right-0 bg-blue-500/10 text-blue-400 px-4 md:px-5 py-1.5 md:py-2 rounded-bl-2xl rounded-tr-[24px] text-[10px] md:text-xs font-bold tracking-widest uppercase border-b border-l border-blue-500/30">Current</div>
+                                    <div class="flex flex-col md:flex-row md:items-end justify-between gap-2 md:gap-4 mb-6 mt-4 md:mt-2">
                                         <div>
-                                            <h3 class="text-2xl font-display font-bold text-white mb-1">Senior Sales Advisor</h3>
-                                            <h4 class="text-blue-400 font-bold">Neilson Financial Services</h4>
+                                            <h3 class="text-xl md:text-2xl font-display font-bold text-white mb-1">Freelance Marketing Consultant</h3>
+                                            <h4 class="text-blue-400 font-bold text-sm md:text-base">Independent Clients</h4>
                                         </div>
-                                        <span class="text-sm font-bold text-gray-400 whitespace-nowrap bg-white/5 px-4 py-2 rounded-lg border border-white/10">Nov 2024 - Present</span>
+                                        <span class="text-xs md:text-sm font-bold text-gray-400 whitespace-nowrap bg-white/5 px-3 py-1.5 md:px-4 md:py-2 rounded-lg border border-white/10 inline-block w-fit">May 2023 - Present</span>
                                     </div>
                                     <ul class="space-y-3 text-gray-300 text-sm md:text-base font-light">
-                                        <li class="flex gap-3"><i data-lucide="chevron-right" class="w-5 h-5 text-gray-600 shrink-0 mt-0.5 group-hover:text-blue-500 transition-colors"></i> <span>Operating as a licensed advisor across 10+ provinces, adhering strictly to complex regulatory compliance.</span></li>
-                                        <li class="flex gap-3"><i data-lucide="chevron-right" class="w-5 h-5 text-gray-600 shrink-0 mt-0.5 group-hover:text-blue-500 transition-colors"></i> <span>Maintaining meticulous client interaction records using enterprise-grade CRM systems.</span></li>
-                                        <li class="flex gap-3"><i data-lucide="chevron-right" class="w-5 h-5 text-gray-600 shrink-0 mt-0.5 group-hover:text-blue-500 transition-colors"></i> <span>Conducting deep-dive needs analyses to accurately advise on coverage, liabilities, and optimal policies.</span></li>
+                                        <li class="flex gap-3"><i data-lucide="chevron-right" class="w-5 h-5 text-blue-500 shrink-0 mt-0.5"></i> <span>Managing ad campaigns and digital presence for small business clients, focusing on targeted lead generation and ROI.</span></li>
+                                        <li class="flex gap-3"><i data-lucide="chevron-right" class="w-5 h-5 text-blue-500 shrink-0 mt-0.5"></i> <span>Advising on comprehensive marketing fronts including media direction, campaign management, and brand voice.</span></li>
+                                        <li class="flex gap-3"><i data-lucide="chevron-right" class="w-5 h-5 text-blue-500 shrink-0 mt-0.5"></i> <span>Analyzing marketing KPIs to continually refine digital strategies and adapt to evolving consumer trends.</span></li>
                                     </ul>
                                 </div>
                             </div>
 
-                            <!-- Job 3 -->
+                            <!-- Job 3: Neilson -->
                             <div class="relative reveal">
                                 <div class="timeline-node md:-left-[65px]"></div>
-                                <div class="glass-panel p-8 group">
-                                    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
+                                <div class="glass-panel p-6 md:p-8 group">
+                                    <div class="flex flex-col md:flex-row md:items-end justify-between gap-2 md:gap-4 mb-6">
                                         <div>
-                                            <h3 class="text-2xl font-display font-bold text-white mb-1">Operations & Marketing Manager</h3>
-                                            <h4 class="text-gray-300 font-bold">Khan Al Sultan Gift Shop INC.</h4>
+                                            <h3 class="text-xl md:text-2xl font-display font-bold text-white mb-1">Senior Sales Advisor</h3>
+                                            <h4 class="text-gray-300 font-bold text-sm md:text-base">Neilson Financial Services</h4>
                                         </div>
-                                        <span class="text-sm font-bold text-gray-400 whitespace-nowrap bg-white/5 px-4 py-2 rounded-lg border border-white/10">Apr 2024 - Nov 2024</span>
+                                        <span class="text-xs md:text-sm font-bold text-gray-400 whitespace-nowrap bg-white/5 px-3 py-1.5 md:px-4 md:py-2 rounded-lg border border-white/10 inline-block w-fit">Nov 2024 - Mar 2025</span>
+                                    </div>
+                                    <ul class="space-y-3 text-gray-300 text-sm md:text-base font-light">
+                                        <li class="flex gap-3"><i data-lucide="chevron-right" class="w-5 h-5 text-gray-600 shrink-0 mt-0.5 group-hover:text-white transition-colors"></i> <span>Operated as a licensed advisor across 10+ provinces, adhering strictly to complex regulatory compliance.</span></li>
+                                        <li class="flex gap-3"><i data-lucide="chevron-right" class="w-5 h-5 text-gray-600 shrink-0 mt-0.5 group-hover:text-white transition-colors"></i> <span>Maintained meticulous client interaction records using enterprise-grade CRM systems.</span></li>
+                                        <li class="flex gap-3"><i data-lucide="chevron-right" class="w-5 h-5 text-gray-600 shrink-0 mt-0.5 group-hover:text-white transition-colors"></i> <span>Conducted deep-dive needs analyses to accurately advise on coverage, liabilities, and optimal policies.</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Job 4: Khan Al Sultan -->
+                            <div class="relative reveal">
+                                <div class="timeline-node md:-left-[65px]"></div>
+                                <div class="glass-panel p-6 md:p-8 group">
+                                    <div class="flex flex-col md:flex-row md:items-end justify-between gap-2 md:gap-4 mb-6">
+                                        <div>
+                                            <h3 class="text-xl md:text-2xl font-display font-bold text-white mb-1">Operations & Marketing Manager</h3>
+                                            <h4 class="text-gray-300 font-bold text-sm md:text-base">Khan Al Sultan Gift Shop INC.</h4>
+                                        </div>
+                                        <span class="text-xs md:text-sm font-bold text-gray-400 whitespace-nowrap bg-white/5 px-3 py-1.5 md:px-4 md:py-2 rounded-lg border border-white/10 inline-block w-fit">Apr 2024 - Nov 2024</span>
                                     </div>
                                     <ul class="space-y-3 text-gray-300 text-sm md:text-base font-light">
                                         <li class="flex gap-3"><i data-lucide="chevron-right" class="w-5 h-5 text-gray-600 shrink-0 mt-0.5 group-hover:text-white transition-colors"></i> <span>Digitized comprehensive inventory systems and managed the webstore including product listings and SEO.</span></li>
@@ -781,16 +775,16 @@
                                 </div>
                             </div>
 
-                            <!-- Job 4 -->
+                            <!-- Job 5: OZIS B&B -->
                             <div class="relative reveal">
                                 <div class="timeline-node md:-left-[65px]"></div>
-                                <div class="glass-panel p-8 group">
-                                    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
+                                <div class="glass-panel p-6 md:p-8 group">
+                                    <div class="flex flex-col md:flex-row md:items-end justify-between gap-2 md:gap-4 mb-6">
                                         <div>
-                                            <h3 class="text-2xl font-display font-bold text-white mb-1">Marketing & Sales Operations Manager</h3>
-                                            <h4 class="text-gray-300 font-bold">OZIS B&B Cornerstore INC.</h4>
+                                            <h3 class="text-xl md:text-2xl font-display font-bold text-white mb-1">Marketing & Sales Operations Manager</h3>
+                                            <h4 class="text-gray-300 font-bold text-sm md:text-base">OZIS B&B Cornerstore INC.</h4>
                                         </div>
-                                        <span class="text-sm font-bold text-gray-400 whitespace-nowrap bg-white/5 px-4 py-2 rounded-lg border border-white/10">Aug 2023 - Apr 2024</span>
+                                        <span class="text-xs md:text-sm font-bold text-gray-400 whitespace-nowrap bg-white/5 px-3 py-1.5 md:px-4 md:py-2 rounded-lg border border-white/10 inline-block w-fit">Aug 2023 - Apr 2024</span>
                                     </div>
                                     <ul class="space-y-3 text-gray-300 text-sm md:text-base font-light">
                                         <li class="flex gap-3"><i data-lucide="chevron-right" class="w-5 h-5 text-gray-600 shrink-0 mt-0.5 group-hover:text-white transition-colors"></i> <span>Directed marketing analytics, tracking vital KPIs to provide data-driven insights for growth and reputation management.</span></li>
@@ -799,16 +793,16 @@
                                 </div>
                             </div>
 
-                            <!-- Job 5 -->
+                            <!-- Job 6: Benefits Specialist -->
                             <div class="relative reveal">
                                 <div class="timeline-node md:-left-[65px]"></div>
-                                <div class="glass-panel p-8 group">
-                                    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
+                                <div class="glass-panel p-6 md:p-8 group">
+                                    <div class="flex flex-col md:flex-row md:items-end justify-between gap-2 md:gap-4 mb-6">
                                         <div>
-                                            <h3 class="text-2xl font-display font-bold text-white mb-1">Benefits Specialist (Producer)</h3>
-                                            <h4 class="text-gray-300 font-bold">American Income Life: AO</h4>
+                                            <h3 class="text-xl md:text-2xl font-display font-bold text-white mb-1">Benefits Specialist (Producer)</h3>
+                                            <h4 class="text-gray-300 font-bold text-sm md:text-base">American Income Life: AO</h4>
                                         </div>
-                                        <span class="text-sm font-bold text-gray-400 whitespace-nowrap bg-white/5 px-4 py-2 rounded-lg border border-white/10">Feb 2023 - Mar 2024</span>
+                                        <span class="text-xs md:text-sm font-bold text-gray-400 whitespace-nowrap bg-white/5 px-3 py-1.5 md:px-4 md:py-2 rounded-lg border border-white/10 inline-block w-fit">Feb 2023 - Mar 2024</span>
                                     </div>
                                     <ul class="space-y-3 text-gray-300 text-sm md:text-base font-light">
                                         <li class="flex gap-3"><i data-lucide="chevron-right" class="w-5 h-5 text-gray-600 shrink-0 mt-0.5 group-hover:text-white transition-colors"></i> <span>Licensed and trained to develop insurance plans for a diversified collection of over 45,000 groups (Unions, Associations).</span></li>
@@ -817,20 +811,20 @@
                                 </div>
                             </div>
 
-                            <!-- Job 6 (Google Focus) -->
+                            <!-- Job 7: Google (Accenture) -->
                             <div class="relative reveal">
                                 <div class="timeline-node md:-left-[65px]" style="border-color: theme('colors.accent');"></div>
-                                <div class="glass-panel p-8 group border-l-4 border-l-purple-500 relative overflow-hidden">
-                                    <i data-lucide="chrome" class="absolute -right-6 -bottom-6 w-48 h-48 text-purple-500 opacity-5 group-hover:opacity-10 transition-opacity animate-spin-slow"></i>
-                                    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6 relative z-10">
+                                <div class="glass-panel p-6 md:p-8 group border-l-4 border-l-purple-500 relative overflow-hidden">
+                                    <i data-lucide="chrome" class="absolute -right-6 -bottom-6 w-32 h-32 md:w-48 md:h-48 text-purple-500 opacity-5 group-hover:opacity-10 transition-opacity animate-spin-slow"></i>
+                                    <div class="flex flex-col md:flex-row md:items-end justify-between gap-2 md:gap-4 mb-6 relative z-10">
                                         <div>
-                                            <h3 class="text-2xl font-display font-bold text-white mb-1">Social Media Analyst</h3>
-                                            <h4 class="text-purple-400 font-bold">Google Operations Centre (via Accenture)</h4>
+                                            <h3 class="text-xl md:text-2xl font-display font-bold text-white mb-1">Social Media Analyst</h3>
+                                            <h4 class="text-purple-400 font-bold text-sm md:text-base">Google Operations Centre (via Accenture)</h4>
                                         </div>
-                                        <span class="text-sm font-bold text-gray-400 whitespace-nowrap bg-white/5 px-4 py-2 rounded-lg border border-white/10">Feb 2019 - Apr 2021</span>
+                                        <span class="text-xs md:text-sm font-bold text-gray-400 whitespace-nowrap bg-white/5 px-3 py-1.5 md:px-4 md:py-2 rounded-lg border border-white/10 inline-block w-fit">Feb 2019 - Apr 2021</span>
                                     </div>
-                                    <div class="mb-5 inline-block bg-purple-500/10 border border-purple-500/30 px-5 py-2.5 rounded-xl relative z-10">
-                                        <p class="text-purple-300 text-sm font-bold">Managed digital ops for Google Play products with over 1.5 billion active users globally.</p>
+                                    <div class="mb-5 inline-block bg-purple-500/10 border border-purple-500/30 px-4 py-2 md:px-5 md:py-2.5 rounded-xl relative z-10">
+                                        <p class="text-purple-300 text-xs md:text-sm font-bold">Managed digital ops for Google Play products with over 1.5 billion active users globally.</p>
                                     </div>
                                     <ul class="space-y-3 text-gray-300 text-sm md:text-base font-light relative z-10">
                                         <li class="flex gap-3"><i data-lucide="chevron-right" class="w-5 h-5 text-purple-500 shrink-0 mt-0.5"></i> <span>Maintained complex social media content strategies and interactions with 20+ million followers.</span></li>
@@ -840,16 +834,16 @@
                                 </div>
                             </div>
 
-                            <!-- Job 7 -->
+                            <!-- Job 8: Genpact -->
                             <div class="relative reveal">
                                 <div class="timeline-node md:-left-[65px]"></div>
-                                <div class="glass-panel p-8 group">
-                                    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
+                                <div class="glass-panel p-6 md:p-8 group">
+                                    <div class="flex flex-col md:flex-row md:items-end justify-between gap-2 md:gap-4 mb-6">
                                         <div>
-                                            <h3 class="text-2xl font-display font-bold text-white mb-1">Process Associate (Google Hardware/Pay)</h3>
-                                            <h4 class="text-gray-300 font-bold">Genpact</h4>
+                                            <h3 class="text-xl md:text-2xl font-display font-bold text-white mb-1">Process Associate (Google Hardware/Pay)</h3>
+                                            <h4 class="text-gray-300 font-bold text-sm md:text-base">Genpact</h4>
                                         </div>
-                                        <span class="text-sm font-bold text-gray-400 whitespace-nowrap bg-white/5 px-4 py-2 rounded-lg border border-white/10">Jul 2018 - Jan 2019</span>
+                                        <span class="text-xs md:text-sm font-bold text-gray-400 whitespace-nowrap bg-white/5 px-3 py-1.5 md:px-4 md:py-2 rounded-lg border border-white/10 inline-block w-fit">Jul 2018 - Jan 2019</span>
                                     </div>
                                     <ul class="space-y-3 text-gray-300 text-sm md:text-base font-light">
                                         <li class="flex gap-3"><i data-lucide="chevron-right" class="w-5 h-5 text-gray-600 shrink-0 mt-0.5 group-hover:text-white transition-colors"></i> <span>Trained specialist supporting Google Hardware (Pixel 3 launch) and Google Pay India.</span></li>
@@ -857,16 +851,16 @@
                                 </div>
                             </div>
 
-                            <!-- Job 8 -->
+                            <!-- Job 9: Khamur -->
                             <div class="relative reveal">
                                 <div class="timeline-node md:-left-[65px]"></div>
-                                <div class="glass-panel p-8 group">
-                                    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
+                                <div class="glass-panel p-6 md:p-8 group">
+                                    <div class="flex flex-col md:flex-row md:items-end justify-between gap-2 md:gap-4 mb-6">
                                         <div>
-                                            <h3 class="text-2xl font-display font-bold text-white mb-1">Communications Specialist</h3>
-                                            <h4 class="text-gray-300 font-bold">Khamur IT Solutions</h4>
+                                            <h3 class="text-xl md:text-2xl font-display font-bold text-white mb-1">Communications Specialist</h3>
+                                            <h4 class="text-gray-300 font-bold text-sm md:text-base">Khamur IT Solutions</h4>
                                         </div>
-                                        <span class="text-sm font-bold text-gray-400 whitespace-nowrap bg-white/5 px-4 py-2 rounded-lg border border-white/10">Feb 2017 - Feb 2019</span>
+                                        <span class="text-xs md:text-sm font-bold text-gray-400 whitespace-nowrap bg-white/5 px-3 py-1.5 md:px-4 md:py-2 rounded-lg border border-white/10 inline-block w-fit">Feb 2017 - Feb 2019</span>
                                     </div>
                                     <ul class="space-y-3 text-gray-300 text-sm md:text-base font-light">
                                         <li class="flex gap-3"><i data-lucide="chevron-right" class="w-5 h-5 text-gray-600 shrink-0 mt-0.5 group-hover:text-white transition-colors"></i> <span>Designed and launched multiple integrated marketing communication (IMC) campaigns for key clients.</span></li>
@@ -875,16 +869,16 @@
                                 </div>
                             </div>
 
-                            <!-- Job 9 -->
+                            <!-- Job 10: Amazon -->
                             <div class="relative reveal">
                                 <div class="timeline-node md:-left-[65px]"></div>
-                                <div class="glass-panel p-8 group">
-                                    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
+                                <div class="glass-panel p-6 md:p-8 group">
+                                    <div class="flex flex-col md:flex-row md:items-end justify-between gap-2 md:gap-4 mb-6">
                                         <div>
-                                            <h3 class="text-2xl font-display font-bold text-white mb-1">Customer Service Associate</h3>
-                                            <h4 class="text-gray-300 font-bold">Amazon Development Centre</h4>
+                                            <h3 class="text-xl md:text-2xl font-display font-bold text-white mb-1">Customer Service Associate</h3>
+                                            <h4 class="text-gray-300 font-bold text-sm md:text-base">Amazon Development Centre</h4>
                                         </div>
-                                        <span class="text-sm font-bold text-gray-400 whitespace-nowrap bg-white/5 px-4 py-2 rounded-lg border border-white/10">Sep 2015 - Feb 2017</span>
+                                        <span class="text-xs md:text-sm font-bold text-gray-400 whitespace-nowrap bg-white/5 px-3 py-1.5 md:px-4 md:py-2 rounded-lg border border-white/10 inline-block w-fit">Sep 2015 - Feb 2017</span>
                                     </div>
                                     <ul class="space-y-3 text-gray-300 text-sm md:text-base font-light">
                                         <li class="flex gap-3"><i data-lucide="chevron-right" class="w-5 h-5 text-gray-600 shrink-0 mt-0.5 group-hover:text-white transition-colors"></i> <span>Product Development & Support for IN & NA Markets, including concession abuse prevention.</span></li>
@@ -907,9 +901,9 @@
 
                     <div class="grid md:grid-cols-2 gap-8">
                         <!-- Core Competencies -->
-                        <div class="glass-panel p-8 md:p-10 reveal delay-100">
-                            <h3 class="text-xl font-display font-bold text-white mb-8 border-b border-white/10 pb-5 flex items-center gap-3">
-                                <div class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400"><i data-lucide="bar-chart-2" class="w-6 h-6"></i></div>
+                        <div class="glass-panel p-6 md:p-10 reveal delay-100">
+                            <h3 class="text-lg md:text-xl font-display font-bold text-white mb-8 border-b border-white/10 pb-5 flex items-center gap-3">
+                                <div class="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400"><i data-lucide="bar-chart-2" class="w-5 h-5 md:w-6 md:h-6"></i></div>
                                 Strategic Metrics
                             </h3>
                             
@@ -950,31 +944,31 @@
                         </div>
 
                         <!-- Tools & CRM -->
-                        <div class="glass-panel p-8 md:p-10 reveal delay-200">
-                            <h3 class="text-xl font-display font-bold text-white mb-8 border-b border-white/10 pb-5 flex items-center gap-3">
-                                <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400"><i class="w-6 h-6" data-lucide="layers"></i></div>
+                        <div class="glass-panel p-6 md:p-10 reveal delay-200">
+                            <h3 class="text-lg md:text-xl font-display font-bold text-white mb-8 border-b border-white/10 pb-5 flex items-center gap-3">
+                                <div class="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400"><i class="w-5 h-5 md:w-6 md:h-6" data-lucide="layers"></i></div>
                                 Platforms & CRM
                             </h3>
                             
-                            <div class="flex flex-wrap gap-3 mb-10">
-                                <span class="px-5 py-2.5 rounded-xl bg-white/5 border border-white/10 text-sm font-bold text-gray-200 hover:bg-white/10 hover:border-purple-500/50 transition-all cursor-default shadow-sm">Salesforce</span>
-                                <span class="px-5 py-2.5 rounded-xl bg-white/5 border border-white/10 text-sm font-bold text-gray-200 hover:bg-white/10 hover:border-purple-500/50 transition-all cursor-default shadow-sm">HubSpot</span>
-                                <span class="px-5 py-2.5 rounded-xl bg-white/5 border border-white/10 text-sm font-bold text-gray-200 hover:bg-white/10 hover:border-blue-500/50 transition-all cursor-default shadow-sm">Google Ads/GCP</span>
-                                <span class="px-5 py-2.5 rounded-xl bg-white/5 border border-white/10 text-sm font-bold text-gray-200 hover:bg-white/10 hover:border-blue-500/50 transition-all cursor-default shadow-sm">Analytics</span>
-                                <span class="px-5 py-2.5 rounded-xl bg-white/5 border border-white/10 text-sm font-bold text-gray-200 hover:bg-white/10 hover:border-white/30 transition-all cursor-default shadow-sm">Hootsuite</span>
-                                <span class="px-5 py-2.5 rounded-xl bg-white/5 border border-white/10 text-sm font-bold text-gray-200 hover:bg-white/10 hover:border-white/30 transition-all cursor-default shadow-sm">Conversocial</span>
-                                <span class="px-5 py-2.5 rounded-xl bg-white/5 border border-white/10 text-sm font-bold text-gray-200 hover:bg-white/10 hover:border-white/30 transition-all cursor-default shadow-sm">Figma</span>
-                                <span class="px-5 py-2.5 rounded-xl bg-white/5 border border-white/10 text-sm font-bold text-gray-200 hover:bg-white/10 hover:border-white/30 transition-all cursor-default shadow-sm">Wix / WP</span>
-                                <span class="px-5 py-2.5 rounded-xl bg-white/5 border border-white/10 text-sm font-bold text-gray-200 hover:bg-white/10 hover:border-white/30 transition-all cursor-default shadow-sm">Clover</span>
+                            <div class="flex flex-wrap gap-2 md:gap-3 mb-10">
+                                <span class="px-4 py-2 md:px-5 md:py-2.5 rounded-xl bg-white/5 border border-white/10 text-[11px] md:text-sm font-bold text-gray-200 hover:bg-white/10 hover:border-purple-500/50 transition-all cursor-default shadow-sm">Salesforce</span>
+                                <span class="px-4 py-2 md:px-5 md:py-2.5 rounded-xl bg-white/5 border border-white/10 text-[11px] md:text-sm font-bold text-gray-200 hover:bg-white/10 hover:border-purple-500/50 transition-all cursor-default shadow-sm">HubSpot</span>
+                                <span class="px-4 py-2 md:px-5 md:py-2.5 rounded-xl bg-white/5 border border-white/10 text-[11px] md:text-sm font-bold text-gray-200 hover:bg-white/10 hover:border-blue-500/50 transition-all cursor-default shadow-sm">Google Ads/GCP</span>
+                                <span class="px-4 py-2 md:px-5 md:py-2.5 rounded-xl bg-white/5 border border-white/10 text-[11px] md:text-sm font-bold text-gray-200 hover:bg-white/10 hover:border-blue-500/50 transition-all cursor-default shadow-sm">Analytics</span>
+                                <span class="px-4 py-2 md:px-5 md:py-2.5 rounded-xl bg-white/5 border border-white/10 text-[11px] md:text-sm font-bold text-gray-200 hover:bg-white/10 hover:border-white/30 transition-all cursor-default shadow-sm">Hootsuite</span>
+                                <span class="px-4 py-2 md:px-5 md:py-2.5 rounded-xl bg-white/5 border border-white/10 text-[11px] md:text-sm font-bold text-gray-200 hover:bg-white/10 hover:border-white/30 transition-all cursor-default shadow-sm">Conversocial</span>
+                                <span class="px-4 py-2 md:px-5 md:py-2.5 rounded-xl bg-white/5 border border-white/10 text-[11px] md:text-sm font-bold text-gray-200 hover:bg-white/10 hover:border-white/30 transition-all cursor-default shadow-sm">Figma</span>
+                                <span class="px-4 py-2 md:px-5 md:py-2.5 rounded-xl bg-white/5 border border-white/10 text-[11px] md:text-sm font-bold text-gray-200 hover:bg-white/10 hover:border-white/30 transition-all cursor-default shadow-sm">Wix / WP</span>
+                                <span class="px-4 py-2 md:px-5 md:py-2.5 rounded-xl bg-white/5 border border-white/10 text-[11px] md:text-sm font-bold text-gray-200 hover:bg-white/10 hover:border-white/30 transition-all cursor-default shadow-sm">Clover</span>
                             </div>
                             
-                            <h3 class="text-xs font-bold mb-5 text-gray-500 uppercase tracking-widest font-display">Methodologies & Languages</h3>
-                            <div class="flex flex-wrap gap-3">
-                                <span class="text-xs text-gray-300 font-bold px-4 py-2 border border-white/10 bg-white/5 rounded-lg">PDCA Cycle</span>
-                                <span class="text-xs text-gray-300 font-bold px-4 py-2 border border-white/10 bg-white/5 rounded-lg">Agile/Scrum</span>
-                                <span class="text-xs text-gray-300 font-bold px-4 py-2 border border-white/10 bg-white/5 rounded-lg">Design Thinking</span>
-                                <span class="text-xs text-gray-300 font-bold px-4 py-2 border border-white/10 bg-white/5 rounded-lg">Crisis Mgmt</span>
-                                <span class="text-xs text-purple-300 font-bold px-4 py-2 border border-purple-500/20 bg-purple-500/10 rounded-lg">Hindi, Gujarati, Urdu</span>
+                            <h3 class="text-[10px] md:text-xs font-bold mb-4 md:mb-5 text-gray-500 uppercase tracking-widest font-display">Methodologies & Languages</h3>
+                            <div class="flex flex-wrap gap-2 md:gap-3">
+                                <span class="text-[10px] md:text-xs text-gray-300 font-bold px-3 py-1.5 md:px-4 md:py-2 border border-white/10 bg-white/5 rounded-lg">PDCA Cycle</span>
+                                <span class="text-[10px] md:text-xs text-gray-300 font-bold px-3 py-1.5 md:px-4 md:py-2 border border-white/10 bg-white/5 rounded-lg">Agile/Scrum</span>
+                                <span class="text-[10px] md:text-xs text-gray-300 font-bold px-3 py-1.5 md:px-4 md:py-2 border border-white/10 bg-white/5 rounded-lg">Design Thinking</span>
+                                <span class="text-[10px] md:text-xs text-gray-300 font-bold px-3 py-1.5 md:px-4 md:py-2 border border-white/10 bg-white/5 rounded-lg">Crisis Mgmt</span>
+                                <span class="text-[10px] md:text-xs text-purple-300 font-bold px-3 py-1.5 md:px-4 md:py-2 border border-purple-500/20 bg-purple-500/10 rounded-lg">English, Hindi, Gujarati, Urdu</span>
                             </div>
                         </div>
                     </div>
@@ -991,86 +985,86 @@
                         </div>
                     </div>
 
-                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-20">
                         <!-- Award 1 -->
-                        <div class="glass-panel p-8 reveal group">
-                            <div class="w-16 h-16 rounded-2xl border border-purple-500/30 bg-purple-500/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500 text-purple-400 shadow-[0_0_15px_rgba(139,92,246,0.15)]">
-                                <i data-lucide="award" class="w-8 h-8"></i>
+                        <div class="glass-panel p-6 md:p-8 reveal group">
+                            <div class="w-14 h-14 md:w-16 md:h-16 rounded-2xl border border-purple-500/30 bg-purple-500/10 flex items-center justify-center mb-6 md:mb-8 group-hover:scale-110 transition-transform duration-500 text-purple-400 shadow-[0_0_15px_rgba(139,92,246,0.15)]">
+                                <i data-lucide="award" class="w-6 h-6 md:w-8 h-8"></i>
                             </div>
-                            <h4 class="text-xl font-display font-bold text-white mb-2">Ideathon & Star Performer</h4>
-                            <p class="text-xs text-purple-400 mb-5 font-bold uppercase tracking-wider">Accenture</p>
-                            <p class="text-gray-300 text-sm leading-relaxed font-light">
+                            <h4 class="text-lg md:text-xl font-display font-bold text-white mb-2">Ideathon & Star Performer</h4>
+                            <p class="text-[10px] md:text-xs text-purple-400 mb-4 md:mb-5 font-bold uppercase tracking-wider">Accenture</p>
+                            <p class="text-gray-300 text-xs md:text-sm leading-relaxed font-light">
                                 Qualified for the prestigious Ideathon program by providing a new scam prevention workflow. Awarded Star Performer 3 times for meeting quality scores and ranking as a principal performer.
                             </p>
                         </div>
 
                         <!-- Award 2 -->
-                        <div class="glass-panel p-8 reveal delay-100 group">
-                            <div class="w-16 h-16 rounded-2xl border border-blue-500/30 bg-blue-500/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500 text-blue-400 shadow-[0_0_15px_rgba(59,130,246,0.15)]">
-                                <i data-lucide="shield-check" class="w-8 h-8"></i>
+                        <div class="glass-panel p-6 md:p-8 reveal delay-100 group">
+                            <div class="w-14 h-14 md:w-16 md:h-16 rounded-2xl border border-blue-500/30 bg-blue-500/10 flex items-center justify-center mb-6 md:mb-8 group-hover:scale-110 transition-transform duration-500 text-blue-400 shadow-[0_0_15px_rgba(59,130,246,0.15)]">
+                                <i data-lucide="shield-check" class="w-6 h-6 md:w-8 md:h-8"></i>
                             </div>
-                            <h4 class="text-xl font-display font-bold text-white mb-2">The Shield & Leadership</h4>
-                            <p class="text-xs text-blue-400 mb-5 font-bold uppercase tracking-wider">Khamur & Amazon</p>
-                            <p class="text-gray-300 text-sm leading-relaxed font-light">
+                            <h4 class="text-lg md:text-xl font-display font-bold text-white mb-2">The Shield & Leadership</h4>
+                            <p class="text-[10px] md:text-xs text-blue-400 mb-4 md:mb-5 font-bold uppercase tracking-wider">Khamur & Amazon</p>
+                            <p class="text-gray-300 text-xs md:text-sm leading-relaxed font-light">
                                 Exceeded Tier 1 expectations for 8 months to win "The Shield" 2 times at Khamur. Recognized for Leadership principles and Customer Delight (perfect CS score average) at Amazon.
                             </p>
                         </div>
 
                         <!-- Case Study -->
-                        <div class="glass-panel p-8 reveal delay-200 group">
-                            <div class="w-16 h-16 rounded-2xl border border-white/20 bg-white/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500 text-white shadow-[0_0_15px_rgba(255,255,255,0.1)]">
-                                <i data-lucide="pie-chart" class="w-8 h-8"></i>
+                        <div class="glass-panel p-6 md:p-8 reveal delay-200 group">
+                            <div class="w-14 h-14 md:w-16 md:h-16 rounded-2xl border border-white/20 bg-white/10 flex items-center justify-center mb-6 md:mb-8 group-hover:scale-110 transition-transform duration-500 text-white shadow-[0_0_15px_rgba(255,255,255,0.1)]">
+                                <i data-lucide="pie-chart" class="w-6 h-6 md:w-8 md:h-8"></i>
                             </div>
-                            <h4 class="text-xl font-display font-bold text-white mb-2">Market Research Lead</h4>
-                            <p class="text-xs text-gray-400 mb-5 font-bold uppercase tracking-wider">Ad-Din - Immense Inc.</p>
-                            <p class="text-gray-300 text-sm leading-relaxed font-light">
+                            <h4 class="text-lg md:text-xl font-display font-bold text-white mb-2">Market Research Lead</h4>
+                            <p class="text-[10px] md:text-xs text-gray-400 mb-4 md:mb-5 font-bold uppercase tracking-wider">Ad-Din - Immense Inc.</p>
+                            <p class="text-gray-300 text-xs md:text-sm leading-relaxed font-light">
                                 Led comprehensive market research for a community-based learning & scheduling platform. Delivered actionable insights focusing on best practices and scaling methodologies for educational institutions.
                             </p>
                         </div>
                     </div>
 
-                    <h3 class="text-3xl font-display font-bold mb-10 text-white tracking-tight reveal">Licenses & Certifications</h3>
-                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5 reveal delay-100">
-                        <div class="glass-panel p-6 flex flex-col items-center text-center gap-4 hover:-translate-y-2 transition-transform">
-                            <i data-lucide="award" class="w-8 h-8 text-gray-400"></i>
+                    <h3 class="text-2xl md:text-3xl font-display font-bold mb-8 md:mb-10 text-white tracking-tight reveal">Licenses & Certifications</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-5 reveal delay-100">
+                        <div class="glass-panel p-4 md:p-6 flex flex-col items-center text-center gap-3 md:gap-4 hover:-translate-y-2 transition-transform">
+                            <i data-lucide="award" class="w-6 h-6 md:w-8 md:h-8 text-gray-400"></i>
                             <div>
-                                <div class="font-bold text-sm text-white mb-1">LLQP License</div>
-                                <div class="text-[10px] uppercase tracking-wider text-gray-500 font-bold">ON & 10 Prov.</div>
+                                <div class="font-bold text-xs md:text-sm text-white mb-1">LLQP License</div>
+                                <div class="text-[9px] md:text-[10px] uppercase tracking-wider text-gray-500 font-bold">ON & 10 Prov.</div>
                             </div>
                         </div>
-                        <div class="glass-panel p-6 flex flex-col items-center text-center gap-4 hover:-translate-y-2 transition-transform">
-                            <i data-lucide="check-circle" class="w-8 h-8 text-gray-400"></i>
+                        <div class="glass-panel p-4 md:p-6 flex flex-col items-center text-center gap-3 md:gap-4 hover:-translate-y-2 transition-transform">
+                            <i data-lucide="check-circle" class="w-6 h-6 md:w-8 md:h-8 text-gray-400"></i>
                             <div>
-                                <div class="font-bold text-sm text-white mb-1">HubSpot</div>
-                                <div class="text-[10px] uppercase tracking-wider text-gray-500 font-bold">Inbound Mktg</div>
+                                <div class="font-bold text-xs md:text-sm text-white mb-1">HubSpot</div>
+                                <div class="text-[9px] md:text-[10px] uppercase tracking-wider text-gray-500 font-bold">Inbound Mktg</div>
                             </div>
                         </div>
-                        <div class="glass-panel p-6 flex flex-col items-center text-center gap-4 hover:-translate-y-2 transition-transform">
-                            <i data-lucide="bar-chart-2" class="w-8 h-8 text-gray-400"></i>
+                        <div class="glass-panel p-4 md:p-6 flex flex-col items-center text-center gap-3 md:gap-4 hover:-translate-y-2 transition-transform">
+                            <i data-lucide="bar-chart-2" class="w-6 h-6 md:w-8 md:h-8 text-gray-400"></i>
                             <div>
-                                <div class="font-bold text-sm text-white mb-1">Stukent</div>
-                                <div class="text-[10px] uppercase tracking-wider text-gray-500 font-bold">SEM & Adv. SEO</div>
+                                <div class="font-bold text-xs md:text-sm text-white mb-1">Stukent</div>
+                                <div class="text-[9px] md:text-[10px] uppercase tracking-wider text-gray-500 font-bold">SEM & Adv. SEO</div>
                             </div>
                         </div>
-                        <div class="glass-panel p-6 flex flex-col items-center text-center gap-4 hover:-translate-y-2 transition-transform">
-                            <i data-lucide="cloud" class="w-8 h-8 text-gray-400"></i>
+                        <div class="glass-panel p-4 md:p-6 flex flex-col items-center text-center gap-3 md:gap-4 hover:-translate-y-2 transition-transform">
+                            <i data-lucide="cloud" class="w-6 h-6 md:w-8 md:h-8 text-gray-400"></i>
                             <div>
-                                <div class="font-bold text-sm text-white mb-1">Salesforce</div>
-                                <div class="text-[10px] uppercase tracking-wider text-gray-500 font-bold">Platform Basics</div>
+                                <div class="font-bold text-xs md:text-sm text-white mb-1">Salesforce</div>
+                                <div class="text-[9px] md:text-[10px] uppercase tracking-wider text-gray-500 font-bold">Platform Basics</div>
                             </div>
                         </div>
-                        <div class="glass-panel p-6 flex flex-col items-center text-center gap-4 hover:-translate-y-2 transition-transform">
-                            <i data-lucide="cpu" class="w-8 h-8 text-gray-400"></i>
+                        <div class="glass-panel p-4 md:p-6 flex flex-col items-center text-center gap-3 md:gap-4 hover:-translate-y-2 transition-transform">
+                            <i data-lucide="cpu" class="w-6 h-6 md:w-8 md:h-8 text-gray-400"></i>
                             <div>
-                                <div class="font-bold text-sm text-white mb-1">IBM</div>
-                                <div class="text-[10px] uppercase tracking-wider text-gray-500 font-bold">Design Thinking</div>
+                                <div class="font-bold text-xs md:text-sm text-white mb-1">IBM</div>
+                                <div class="text-[9px] md:text-[10px] uppercase tracking-wider text-gray-500 font-bold">Design Thinking</div>
                             </div>
                         </div>
-                        <div class="glass-panel p-6 flex flex-col items-center text-center gap-4 hover:-translate-y-2 transition-transform">
-                            <i data-lucide="message-square" class="w-8 h-8 text-gray-400"></i>
+                        <div class="glass-panel p-4 md:p-6 flex flex-col items-center text-center gap-3 md:gap-4 hover:-translate-y-2 transition-transform">
+                            <i data-lucide="message-square" class="w-6 h-6 md:w-8 md:h-8 text-gray-400"></i>
                             <div>
-                                <div class="font-bold text-sm text-white mb-1">Hootsuite</div>
-                                <div class="text-[10px] uppercase tracking-wider text-gray-500 font-bold">Social Mktg</div>
+                                <div class="font-bold text-xs md:text-sm text-white mb-1">Hootsuite</div>
+                                <div class="text-[9px] md:text-[10px] uppercase tracking-wider text-gray-500 font-bold">Social Mktg</div>
                             </div>
                         </div>
                     </div>
@@ -1085,54 +1079,54 @@
                         <div class="w-24 h-1.5 bg-gradient-to-r from-blue-500 to-purple-500 mt-6 rounded-full"></div>
                     </div>
 
-                    <div class="grid md:grid-cols-12 gap-10">
-                        <div class="md:col-span-5 space-y-5 reveal delay-100">
-                            <div class="glass-panel p-6 flex items-center gap-5 group cursor-pointer hover:border-blue-500/50">
-                                <div class="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-white group-hover:bg-blue-500/20 group-hover:text-blue-400 transition-colors">
-                                    <i data-lucide="mail" class="w-6 h-6"></i>
+                    <div class="grid md:grid-cols-12 gap-8 md:gap-10">
+                        <div class="md:col-span-5 space-y-4 md:space-y-5 reveal delay-100">
+                            <div class="glass-panel p-5 md:p-6 flex items-center gap-4 md:gap-5 group cursor-pointer hover:border-blue-500/50" onclick="window.location.href='mailto:paryani.abdullah@gmail.com'">
+                                <div class="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-white group-hover:bg-blue-500/20 group-hover:text-blue-400 transition-colors shrink-0">
+                                    <i data-lucide="mail" class="w-5 h-5 md:w-6 md:h-6"></i>
                                 </div>
                                 <div>
-                                    <p class="text-[10px] text-gray-400 font-bold uppercase tracking-widest mb-1">Email</p>
-                                    <a href="mailto:paryani.abdullah@gmail.com" class="font-display font-bold text-lg text-white group-hover:text-blue-400 transition-colors cursor-none">paryani.abdullah@gmail.com</a>
+                                    <p class="text-[9px] md:text-[10px] text-gray-400 font-bold uppercase tracking-widest mb-1">Email</p>
+                                    <a href="mailto:paryani.abdullah@gmail.com" class="font-display font-bold text-sm md:text-lg text-white group-hover:text-blue-400 transition-colors cursor-none break-all">paryani.abdullah@gmail.com</a>
                                 </div>
                             </div>
-                            <div class="glass-panel p-6 flex items-center gap-5 group cursor-pointer hover:border-purple-500/50">
-                                <div class="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-white group-hover:bg-purple-500/20 group-hover:text-purple-400 transition-colors">
-                                    <i data-lucide="phone" class="w-6 h-6"></i>
+                            <div class="glass-panel p-5 md:p-6 flex items-center gap-4 md:gap-5 group cursor-pointer hover:border-purple-500/50" onclick="window.location.href='tel:+12498762164'">
+                                <div class="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-white group-hover:bg-purple-500/20 group-hover:text-purple-400 transition-colors shrink-0">
+                                    <i data-lucide="phone" class="w-5 h-5 md:w-6 md:h-6"></i>
                                 </div>
                                 <div>
-                                    <p class="text-[10px] text-gray-400 font-bold uppercase tracking-widest mb-1">Phone</p>
-                                    <a href="tel:+12498762164" class="font-display font-bold text-lg text-white group-hover:text-purple-400 transition-colors cursor-none">+1 (249) 876-2164</a>
+                                    <p class="text-[9px] md:text-[10px] text-gray-400 font-bold uppercase tracking-widest mb-1">Phone</p>
+                                    <a href="tel:+12498762164" class="font-display font-bold text-sm md:text-lg text-white group-hover:text-purple-400 transition-colors cursor-none">+1 (249) 876-2164</a>
                                 </div>
                             </div>
-                            <div class="glass-panel p-6 flex items-center gap-5 group cursor-pointer hover:border-green-500/50">
-                                <div class="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-white group-hover:bg-green-500/20 group-hover:text-green-400 transition-colors">
-                                    <i data-lucide="message-circle" class="w-6 h-6"></i>
+                            <div class="glass-panel p-5 md:p-6 flex items-center gap-4 md:gap-5 group cursor-pointer hover:border-green-500/50" onclick="window.open('https://wa.me/12498762164', '_blank')">
+                                <div class="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-white group-hover:bg-green-500/20 group-hover:text-green-400 transition-colors shrink-0">
+                                    <i data-lucide="message-circle" class="w-5 h-5 md:w-6 md:h-6"></i>
                                 </div>
                                 <div>
-                                    <p class="text-[10px] text-gray-400 font-bold uppercase tracking-widest mb-1">WhatsApp Message</p>
-                                    <a href="https://wa.me/12498762164" target="_blank" class="font-display font-bold text-lg text-white group-hover:text-green-400 transition-colors cursor-none">Direct Chat</a>
+                                    <p class="text-[9px] md:text-[10px] text-gray-400 font-bold uppercase tracking-widest mb-1">WhatsApp Message</p>
+                                    <a href="https://wa.me/12498762164" target="_blank" class="font-display font-bold text-sm md:text-lg text-white group-hover:text-green-400 transition-colors cursor-none">Direct Chat</a>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="md:col-span-7 glass-panel p-8 md:p-10 reveal delay-200">
-                            <form id="contact-form" class="space-y-6" onsubmit="event.preventDefault(); alert('Message Transmission successful.');">
-                                <div class="grid grid-cols-2 gap-6">
+                        <div class="md:col-span-7 glass-panel p-6 md:p-10 reveal delay-200">
+                            <form id="contact-form" class="space-y-5 md:space-y-6" onsubmit="event.preventDefault(); alert('Message Transmission successful.');">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
                                     <div>
-                                        <label class="block text-xs font-bold text-gray-400 mb-2 uppercase tracking-widest">Name</label>
-                                        <input type="text" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-blue-500 focus:bg-white/10 transition-all placeholder-gray-500 font-light" placeholder="John Doe">
+                                        <label class="block text-[10px] md:text-xs font-bold text-gray-400 mb-2 uppercase tracking-widest">Name</label>
+                                        <input type="text" required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 md:px-5 py-3 md:py-4 text-white focus:outline-none focus:border-blue-500 focus:bg-white/10 transition-all placeholder-gray-500 font-light text-sm" placeholder="John Doe">
                                     </div>
                                     <div>
-                                        <label class="block text-xs font-bold text-gray-400 mb-2 uppercase tracking-widest">Email</label>
-                                        <input type="email" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-blue-500 focus:bg-white/10 transition-all placeholder-gray-500 font-light" placeholder="john@company.com">
+                                        <label class="block text-[10px] md:text-xs font-bold text-gray-400 mb-2 uppercase tracking-widest">Email</label>
+                                        <input type="email" required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 md:px-5 py-3 md:py-4 text-white focus:outline-none focus:border-blue-500 focus:bg-white/10 transition-all placeholder-gray-500 font-light text-sm" placeholder="john@company.com">
                                     </div>
                                 </div>
                                 <div>
-                                    <label class="block text-xs font-bold text-gray-400 mb-2 uppercase tracking-widest">Message</label>
-                                    <textarea rows="5" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-blue-500 focus:bg-white/10 transition-all resize-none placeholder-gray-500 font-light" placeholder="How can I help you?"></textarea>
+                                    <label class="block text-[10px] md:text-xs font-bold text-gray-400 mb-2 uppercase tracking-widest">Message</label>
+                                    <textarea rows="4" md:rows="5" required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 md:px-5 py-3 md:py-4 text-white focus:outline-none focus:border-blue-500 focus:bg-white/10 transition-all resize-none placeholder-gray-500 font-light text-sm" placeholder="How can I help you?"></textarea>
                                 </div>
-                                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-display font-bold py-4 rounded-xl transition-all text-lg shadow-[0_0_20px_rgba(59,130,246,0.3)] hover:shadow-[0_0_30px_rgba(59,130,246,0.5)] active:scale-[0.98] cursor-none">
+                                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-display font-bold py-3 md:py-4 rounded-xl transition-all text-base md:text-lg shadow-[0_0_20px_rgba(59,130,246,0.3)] hover:shadow-[0_0_30px_rgba(59,130,246,0.5)] active:scale-[0.98] cursor-none">
                                     Send Message
                                 </button>
                             </form>
@@ -1145,30 +1139,30 @@
 
         <!-- Premium Chatbot Widget -->
         <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
-            <div id="chatbot-window" class="glass-panel w-[340px] mb-4 overflow-hidden flex flex-col origin-bottom-right transition-all duration-400 transform scale-0 opacity-0 pointer-events-none">
-                <div class="bg-white/5 border-b border-white/10 p-5 flex items-center justify-between text-white backdrop-blur-md">
+            <div id="chatbot-window" class="glass-panel w-[300px] md:w-[340px] mb-4 overflow-hidden flex flex-col origin-bottom-right transition-all duration-400 transform scale-0 opacity-0 pointer-events-none">
+                <div class="bg-white/5 border-b border-white/10 p-4 md:p-5 flex items-center justify-between text-white backdrop-blur-md">
                     <div class="flex items-center gap-3">
-                        <span class="relative flex h-2.5 w-2.5">
+                        <span class="relative flex h-2 w-2 md:h-2.5 md:w-2.5">
                             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 md:h-2.5 md:w-2.5 bg-green-500"></span>
                         </span>
-                        <span class="font-display font-bold text-sm tracking-wide">AI Assistant</span>
+                        <span class="font-display font-bold text-xs md:text-sm tracking-wide">AI Assistant</span>
                     </div>
-                    <button onclick="app.toggleChat()" class="text-gray-400 hover:text-white transition-colors cursor-none"><i data-lucide="x" class="w-5 h-5"></i></button>
+                    <button onclick="app.toggleChat()" class="text-gray-400 hover:text-white transition-colors cursor-none"><i data-lucide="x" class="w-4 h-4 md:w-5 md:h-5"></i></button>
                 </div>
-                <div class="p-5 h-[300px] overflow-y-auto space-y-4 text-sm bg-black/40 scroll-smooth" id="chat-messages">
-                    <div class="bg-white/10 text-white p-4 rounded-2xl rounded-tl-sm inline-block max-w-[85%] font-light leading-relaxed border border-white/5 shadow-lg">
+                <div class="p-4 md:p-5 h-[250px] md:h-[300px] overflow-y-auto space-y-4 text-xs md:text-sm bg-black/40 scroll-smooth" id="chat-messages">
+                    <div class="bg-white/10 text-white p-3 md:p-4 rounded-2xl rounded-tl-sm inline-block max-w-[85%] font-light leading-relaxed border border-white/5 shadow-lg">
                         Hi! I'm Abdullah's virtual assistant. How can I help you navigate the portfolio today?
                     </div>
                 </div>
-                <div class="p-4 border-t border-white/10 bg-white/5 flex gap-3 items-center backdrop-blur-md">
-                    <input type="text" id="chat-input" placeholder="Ask a question..." class="flex-1 bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500 transition-colors placeholder-gray-500 cursor-none">
-                    <button onclick="app.sendChat()" class="bg-blue-600 hover:bg-blue-500 text-white p-3 rounded-xl transition-colors shadow-lg cursor-none"><i data-lucide="send" class="w-4 h-4"></i></button>
+                <div class="p-3 md:p-4 border-t border-white/10 bg-white/5 flex gap-2 md:gap-3 items-center backdrop-blur-md">
+                    <input type="text" id="chat-input" placeholder="Ask a question..." class="flex-1 bg-white/5 border border-white/10 rounded-lg md:rounded-xl px-3 py-2 md:px-4 md:py-3 text-xs md:text-sm text-white focus:outline-none focus:border-blue-500 transition-colors placeholder-gray-500 cursor-none">
+                    <button onclick="app.sendChat()" class="bg-blue-600 hover:bg-blue-500 text-white p-2 md:p-3 rounded-lg md:rounded-xl transition-colors shadow-lg cursor-none"><i data-lucide="send" class="w-4 h-4"></i></button>
                 </div>
             </div>
             
-            <button onclick="app.toggleChat()" class="w-14 h-14 bg-blue-600 text-white rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(59,130,246,0.4)] hover:shadow-[0_0_30px_rgba(59,130,246,0.6)] hover:scale-105 active:scale-95 transition-all cursor-none">
-                <i data-lucide="message-square" class="w-6 h-6"></i>
+            <button onclick="app.toggleChat()" class="w-12 h-12 md:w-14 md:h-14 bg-blue-600 text-white rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(59,130,246,0.4)] hover:shadow-[0_0_30px_rgba(59,130,246,0.6)] hover:scale-105 active:scale-95 transition-all cursor-none">
+                <i data-lucide="message-square" class="w-5 h-5 md:w-6 md:h-6"></i>
             </button>
         </div>
     </div>
@@ -1198,15 +1192,40 @@
 
             handlePreloader() {
                 const bar = document.getElementById('loader-progress');
+                const pct = document.getElementById('loader-percentage');
                 const loader = document.getElementById('preloader');
+                const text = document.getElementById('loader-text');
                 
-                setTimeout(() => { bar.style.width = '100%'; }, 100);
+                let progress = 0;
                 
-                setTimeout(() => {
-                    loader.style.opacity = '0';
-                    loader.style.visibility = 'hidden';
-                    this.triggerReveals(); 
-                }, 1400); 
+                const progressInterval = setInterval(() => {
+                    // Random increment for organic loading feel
+                    progress += Math.floor(Math.random() * 15) + 1;
+                    
+                    if (progress >= 100) {
+                        progress = 100;
+                        clearInterval(progressInterval);
+                        
+                        bar.style.width = '100%';
+                        pct.textContent = '100%';
+                        text.textContent = 'System Ready';
+                        text.classList.replace('text-blue-400', 'text-green-400');
+                        
+                        // Wait a beat before fading out
+                        setTimeout(() => {
+                            loader.style.opacity = '0';
+                            loader.style.transform = 'scale(1.05)';
+                            
+                            setTimeout(() => {
+                                loader.style.display = 'none';
+                                this.triggerReveals(); 
+                            }, 700); 
+                        }, 500); 
+                    } else {
+                        bar.style.width = `${progress}%`;
+                        pct.textContent = `${progress}%`;
+                    }
+                }, 150);
             },
 
             setupRouting() {
@@ -1302,7 +1321,7 @@
                 const loop = () => {
                     ringX += (mouseX - ringX) * 0.15;
                     ringY += (mouseY - ringY) * 0.15;
-                    cursorRing.style.transform = `translate(calc(-50% + ${ringX}px), calc(-50% + ${ringY}px))`;
+                    cursorRing.style.transform = `translate3d(calc(-50% + ${ringX}px), calc(-50% + ${ringY}px), 0)`;
                     requestAnimationFrame(loop);
                 };
                 requestAnimationFrame(loop);
@@ -1311,7 +1330,7 @@
                     if (window.matchMedia("(pointer: coarse)").matches) return; 
                     mouseX = e.clientX;
                     mouseY = e.clientY;
-                    cursorDot.style.transform = `translate(calc(-50% + ${mouseX}px), calc(-50% + ${mouseY}px))`;
+                    cursorDot.style.transform = `translate3d(calc(-50% + ${mouseX}px), calc(-50% + ${mouseY}px), 0)`;
                 });
 
                 const interactives = document.querySelectorAll('a, button, input, textarea');
@@ -1378,7 +1397,7 @@
                 const chatArea = document.getElementById('chat-messages');
                 
                 const userDiv = document.createElement('div');
-                userDiv.className = 'bg-blue-600 text-white p-4 rounded-2xl rounded-tr-sm inline-block max-w-[85%] self-end ml-auto text-sm shadow-lg font-light';
+                userDiv.className = 'bg-blue-600 text-white p-3 md:p-4 rounded-2xl rounded-tr-sm inline-block max-w-[85%] self-end ml-auto text-xs md:text-sm shadow-lg font-light';
                 userDiv.textContent = msg;
                 
                 const wrapper = document.createElement('div');
@@ -1391,7 +1410,7 @@
 
                 setTimeout(() => {
                     const aiDiv = document.createElement('div');
-                    aiDiv.className = 'bg-white/10 text-white p-4 rounded-2xl rounded-tl-sm inline-block max-w-[85%] mt-4 text-sm font-light leading-relaxed border border-white/5 shadow-lg';
+                    aiDiv.className = 'bg-white/10 text-white p-3 md:p-4 rounded-2xl rounded-tl-sm inline-block max-w-[85%] mt-4 text-xs md:text-sm font-light leading-relaxed border border-white/5 shadow-lg';
                     
                     if(msg.toLowerCase().includes('resume') || msg.toLowerCase().includes('cv') || msg.toLowerCase().includes('download')) {
                         aiDiv.innerHTML = "You can download the perfectly formatted ATS CV by clicking the button on the Home or About section, or typing 'print' here! <button onclick=\"window.print()\" class='text-blue-400 font-bold mt-2 block hover:underline'>Print Resume Now</button>";
