@@ -6,7 +6,7 @@
     <title>Abdullah Paryani | Strategic Marketing & Operations</title>
     <meta name="description" content="Portfolio of Abdullah Paryani - Marketing & Business Management Professional specializing in SaaS, digital operations, and strategic campaigns.">
     
-    <!-- Premium Fonts -->
+    <!-- Premium Fonts Preloaded for Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -36,8 +36,8 @@
                     },
                     keyframes: {
                         float: {
-                            '0%, 100%': { transform: 'translate3d(0, 0, 0)' },
-                            '50%': { transform: 'translate3d(0, -12px, 0)' },
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-12px)' },
                         },
                         'gradient-xy': {
                             '0%, 100%': { 'background-size': '400% 400%', 'background-position': 'left center' },
@@ -49,8 +49,8 @@
         }
     </script>
 
-    <!-- Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Icons Library -->
+    <script src="https://unpkg.com/lucide@latest" defer></script>
 
     <style type="text/tailwindcss">
         @layer utilities {
@@ -80,9 +80,6 @@
             ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 10px; }
             ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.3); }
 
-            /* Hardware Acceleration for smooth animations */
-            .will-change-transform { will-change: transform; }
-
             /* Custom Cursor */
             @media (hover: hover) and (pointer: fine) {
                 .cursor-dot, .cursor-ring { display: block; }
@@ -96,13 +93,13 @@
                 position: fixed; top: 0; left: 0; width: 5px; height: 5px;
                 background-color: #fff; border-radius: 50%;
                 transform: translate(-50%, -50%); pointer-events: none; z-index: 9999;
-                transition: width 0.2s, height 0.2s;
+                transition: width 0.15s, height 0.15s;
             }
             .cursor-ring {
                 position: fixed; top: 0; left: 0; width: 36px; height: 36px;
                 border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 50%;
                 transform: translate(-50%, -50%); pointer-events: none; z-index: 9998;
-                transition: width 0.3s, height 0.3s, background-color 0.3s, border-color 0.3s;
+                transition: width 0.25s, height 0.25s, background-color 0.25s, border-color 0.25s;
                 transition-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
             }
             .cursor-hover .cursor-dot { width: 0; height: 0; }
@@ -126,11 +123,11 @@
                 -webkit-mask-image: radial-gradient(ellipse at center, black 10%, transparent 80%);
             }
 
-            /* SPA Engine Logic */
+            /* SPA Engine Logic - Flawless No-Scroll-Gap Implementation */
             .page-container { width: 100%; min-height: calc(100vh - 100px); overflow-x: hidden; }
             .page {
-                display: none; opacity: 0; transform: translateY(20px);
-                transition: opacity 0.4s ease, transform 0.4s ease;
+                display: none; opacity: 0; transform: translateY(15px);
+                transition: opacity 0.3s ease, transform 0.3s ease;
                 padding-top: 100px; padding-bottom: 80px; width: 100%;
             }
             .page.active { display: block; opacity: 1; transform: translateY(0); }
@@ -144,26 +141,15 @@
             }
             .nav-link.active::after { width: 100%; left: 0; }
 
-            /* Scroll Reveal */
-            .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+            /* Scroll Reveal - Optimized timing */
+            .reveal { opacity: 0; transform: translateY(20px); transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
             .reveal.active { opacity: 1; transform: translateY(0); }
-
-            /* Timeline */
-            .timeline-line {
-                position: absolute; left: 24px; top: 0; bottom: 0; width: 2px;
-                background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.1), transparent);
-            }
-            .timeline-node {
-                position: absolute; left: -29px; top: 32px; width: 12px; height: 12px;
-                border-radius: 50%; background: #050508; border: 2px solid #64748b; transition: all 0.3s ease;
-            }
-            .glass-panel:hover .timeline-node { border-color: #3b82f6; background: #3b82f6; box-shadow: 0 0 15px #3b82f6; }
 
             /* Preloader Base CSS */
             #preloader {
                 position: fixed; inset: 0; background-color: #050508; z-index: 10000;
                 display: flex; flex-direction: column; align-items: center; justify-content: center;
-                transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+                transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
             }
         }
 
@@ -181,19 +167,14 @@
                 margin: 0 !important; padding: 0 !important; height: auto !important; overflow: visible !important;
                 cursor: auto !important;
             }
-            /* Hide absolutely everything related to the web UI */
             .screen-only { display: none !important; }
             
-            /* Show only the formatted resume layout */
             #print-resume {
-                display: block !important;
-                width: 100% !important;
-                position: absolute !important;
-                left: 0 !important;
-                top: 0 !important;
+                display: block !important; width: 100% !important; position: absolute !important;
+                left: 0 !important; top: 0 !important;
             }
 
-            /* Flawless Resume Typography using precise Printer Points (pt) */
+            /* Precise Printer Typography */
             #print-resume .header { text-align: center; border-bottom: 2pt solid #1e3a8a; padding-bottom: 8pt; margin-bottom: 12pt; }
             #print-resume h1 { font-size: 22pt; font-weight: bold; color: #000; margin: 0 0 4pt 0; text-transform: uppercase; letter-spacing: 0.5pt; }
             #print-resume .contact-info { font-size: 10pt; color: #333; margin-bottom: 10pt; }
@@ -202,7 +183,6 @@
             #print-resume ul { font-size: 10pt; line-height: 1.4; margin: 4pt 0 8pt 0; padding-left: 16pt; }
             #print-resume li { margin-bottom: 3pt; }
             
-            /* Job blocks */
             #print-resume .job-block { margin-bottom: 10pt; page-break-inside: avoid; }
             #print-resume .job-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2pt; }
             #print-resume .job-title { font-size: 11pt; font-weight: bold; color: #000; }
@@ -212,13 +192,12 @@
         }
     </style>
 </head>
-<body class="selection:bg-blue-500/30 selection:text-white">
+<body class="selection:bg-blue-500/30 selection:text-white overflow-hidden"> <!-- Locked during preload -->
 
     <!-- ============================================================================== -->
     <!-- HIGH-SCORING ATS RESUME GENERATOR (STRICTLY PRINT VIEW)                        -->
     <!-- ============================================================================== -->
     <div id="print-resume">
-        
         <div class="header">
             <h1>Abdullah Paryani</h1>
             <div class="contact-info">
@@ -366,7 +345,6 @@
         </p>
     </div>
 
-
     <!-- ============================================================================== -->
     <!-- MAIN WEB PORTFOLIO (SCREEN VIEW ONLY) - Flawless UI/UX & Responsive Layout     -->
     <!-- ============================================================================== -->
@@ -382,7 +360,6 @@
 
         <!-- Ultra-Premium Preloader -->
         <div id="preloader" class="h-[100dvh]">
-            <!-- Glowing Monogram -->
             <div class="relative w-20 h-20 md:w-24 md:h-24 mb-6 md:mb-8 flex items-center justify-center">
                 <div class="absolute inset-0 rounded-2xl border-t-2 border-blue-500 animate-spin-slow opacity-80"></div>
                 <div class="absolute inset-2 rounded-2xl border-b-2 border-purple-500 animate-[spin_3s_linear_infinite_reverse] opacity-80"></div>
@@ -390,13 +367,9 @@
                     <span class="font-display font-bold text-white text-lg md:text-xl tracking-tighter">AP</span>
                 </div>
             </div>
-
-            <!-- Preloader Text -->
             <div class="overflow-hidden mb-2">
                 <h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight text-white text-center">Abdullah Paryani</h2>
             </div>
-            
-            <!-- Progress Container -->
             <div class="mt-6 flex flex-col items-center w-full max-w-[240px] px-4">
                 <div class="flex justify-between w-full text-[10px] md:text-xs font-display tracking-[0.2em] uppercase font-bold mb-3">
                     <span id="loader-text" class="text-blue-400 transition-colors duration-300">Initializing</span>
@@ -410,15 +383,15 @@
 
         <!-- Header Navigation -->
         <header class="fixed top-0 w-full z-50 bg-[#050508]/80 backdrop-blur-xl border-b border-white/5 shadow-[0_4px_30px_rgba(0,0,0,0.8)] transition-all duration-300">
-            <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
                 <!-- Logo -->
-                <div class="flex items-center gap-4 cursor-pointer group" onclick="app.navigate('home')">
-                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600/20 to-purple-600/20 border border-blue-500/30 flex items-center justify-center group-hover:scale-105 transition-transform duration-300 relative overflow-hidden shadow-[0_0_15px_rgba(59,130,246,0.15)]">
+                <div class="flex items-center gap-3 md:gap-4 cursor-pointer group" onclick="app.navigate('home')">
+                    <div class="w-9 h-9 md:w-10 md:h-10 rounded-xl bg-gradient-to-br from-blue-600/20 to-purple-600/20 border border-blue-500/30 flex items-center justify-center group-hover:scale-105 transition-transform duration-300 relative overflow-hidden shadow-[0_0_15px_rgba(59,130,246,0.15)] shrink-0">
                         <span class="font-display font-bold text-white text-sm tracking-tighter relative z-10">AP</span>
                     </div>
                     <div class="flex flex-col">
-                        <span class="font-display font-bold text-white tracking-wide text-lg leading-tight">Abdullah Paryani</span>
-                        <span class="text-[10px] text-gray-400 font-bold tracking-widest uppercase">Strategic Ops</span>
+                        <span class="font-display font-bold text-white tracking-wide text-base md:text-lg leading-tight truncate">Abdullah Paryani</span>
+                        <span class="text-[9px] md:text-[10px] text-gray-400 font-bold tracking-widest uppercase">Strategic Ops</span>
                     </div>
                 </div>
                 
@@ -433,27 +406,34 @@
 
                 <div class="flex items-center gap-4">
                     <button onclick="app.navigate('contact')" class="hidden md:flex items-center gap-2 px-6 py-2.5 rounded-full bg-blue-600 hover:bg-blue-500 text-white font-display font-bold text-sm transition-all shadow-[0_0_20px_rgba(59,130,246,0.3)] hover:shadow-[0_0_30px_rgba(59,130,246,0.5)] cursor-none">
-                        Connect <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        Connect <!-- Inline SVG for guarantee -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                     </button>
-                    <button class="md:hidden p-2 text-white border border-white/10 rounded-lg bg-white/5" id="mobile-menu-btn">
-                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    <!-- MOBILE MENU TOGGLE (Using robust inline SVG to guarantee it NEVER fails to load) -->
+                    <button class="md:hidden p-2 text-white border border-white/10 rounded-lg bg-white/5 flex items-center justify-center" id="mobile-menu-btn" aria-label="Toggle Mobile Menu">
+                        <svg id="hamburger-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
                     </button>
                 </div>
             </div>
         </header>
 
-        <!-- Mobile Menu Overlay -->
-        <div id="mobile-menu" class="fixed inset-0 bg-[#050508]/98 backdrop-blur-3xl z-40 hidden flex-col items-center justify-center gap-8 text-2xl font-display font-bold opacity-0 transition-opacity duration-300">
-            <a href="#home" data-page-target="home" class="mobile-link text-gray-400 hover:text-white transition-colors">Home</a>
-            <a href="#about" data-page-target="about" class="mobile-link text-gray-400 hover:text-white transition-colors">About</a>
-            <a href="#experience" data-page-target="experience" class="mobile-link text-gray-400 hover:text-white transition-colors">Experience</a>
-            <a href="#skills" data-page-target="skills" class="mobile-link text-gray-400 hover:text-white transition-colors">Expertise</a>
-            <a href="#projects" data-page-target="projects" class="mobile-link text-gray-400 hover:text-white transition-colors">Projects & Awards</a>
-            <a href="#contact" data-page-target="contact" class="mobile-link text-blue-400 hover:text-white transition-colors mt-4">Contact Me</a>
+        <!-- Mobile Menu Overlay (Bulletproof layout & Z-index) -->
+        <div id="mobile-menu" class="fixed inset-0 bg-[#050508]/98 backdrop-blur-3xl z-[100] hidden flex-col items-center justify-center opacity-0 transition-opacity duration-300 h-[100dvh]">
+            <button id="close-mobile-menu" class="absolute top-6 right-6 p-2 text-gray-400 hover:text-white border border-white/10 rounded-full bg-white/5" aria-label="Close Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            </button>
+            <div class="flex flex-col items-center gap-8 text-2xl font-display font-bold w-full">
+                <a href="#home" data-page-target="home" class="mobile-link text-gray-400 hover:text-white transition-colors w-full text-center py-2">Home</a>
+                <a href="#about" data-page-target="about" class="mobile-link text-gray-400 hover:text-white transition-colors w-full text-center py-2">About</a>
+                <a href="#experience" data-page-target="experience" class="mobile-link text-gray-400 hover:text-white transition-colors w-full text-center py-2">Experience</a>
+                <a href="#skills" data-page-target="skills" class="mobile-link text-gray-400 hover:text-white transition-colors w-full text-center py-2">Expertise</a>
+                <a href="#projects" data-page-target="projects" class="mobile-link text-gray-400 hover:text-white transition-colors w-full text-center py-2">Projects & Awards</a>
+                <a href="#contact" data-page-target="contact" class="mobile-link text-blue-400 hover:text-white transition-colors mt-4 w-full text-center py-2">Contact Me</a>
+            </div>
         </div>
 
-        <!-- Main Container (Overflow hidden ensures no mobile scrolling bugs) -->
-        <main class="page-container max-w-7xl mx-auto px-6 overflow-x-hidden">
+        <!-- Main Container -->
+        <main class="page-container max-w-7xl mx-auto px-4 sm:px-6">
 
             <!-- ================= HOME PAGE ================= -->
             <section id="home" class="page active">
@@ -461,7 +441,7 @@
                     
                     <!-- Text Content -->
                     <div class="lg:col-span-7 order-2 lg:order-1 relative z-10 text-center lg:text-left">
-                        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/10 text-sm font-bold tracking-wide mb-8 reveal text-blue-300 shadow-[0_0_15px_rgba(59,130,246,0.15)]">
+                        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/10 text-xs sm:text-sm font-bold tracking-wide mb-8 reveal text-blue-300 shadow-[0_0_15px_rgba(59,130,246,0.15)]">
                             <span class="relative flex h-2.5 w-2.5">
                                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
                                 <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-blue-500"></span>
@@ -469,66 +449,68 @@
                             Available for Strategic Roles
                         </div>
                         
-                        <h1 class="font-display text-5xl md:text-6xl lg:text-[5.5rem] font-black tracking-tight mb-6 reveal delay-100 leading-[1.05] text-white">
+                        <h1 class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[5.5rem] font-black tracking-tight mb-6 reveal delay-100 leading-[1.05] text-white">
                             Strategic <br class="hidden lg:block"/>
                             <span class="text-gradient-accent">Marketing &</span><br />
                             Operations.
                         </h1>
                         
-                        <p class="text-lg md:text-xl text-gray-400 mb-10 max-w-xl mx-auto lg:mx-0 leading-relaxed reveal delay-200 font-light border-l-2 border-blue-500/50 pl-4">
+                        <p class="text-base sm:text-lg md:text-xl text-gray-400 mb-10 max-w-xl mx-auto lg:mx-0 leading-relaxed reveal delay-200 font-light border-l-2 border-blue-500/50 pl-4">
                             Elevating brands and optimizing business workflows through data-driven campaigns, comprehensive CRM management, and high-impact digital strategies.
                         </p>
                         
                         <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 reveal delay-300">
-                            <button onclick="app.navigate('experience')" class="px-8 py-4 bg-white text-black hover:bg-gray-200 rounded-full font-display font-bold transition-all flex items-center gap-2 hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(255,255,255,0.2)] cursor-none">
+                            <button onclick="app.navigate('experience')" class="px-6 py-3 sm:px-8 sm:py-4 bg-white text-black hover:bg-gray-200 rounded-full font-display font-bold transition-all flex items-center gap-2 hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(255,255,255,0.2)] cursor-none text-sm sm:text-base">
                                 Explore Experience
                             </button>
-                            <button onclick="window.print()" class="px-8 py-4 border border-white/20 bg-white/5 hover:bg-white/10 backdrop-blur-md text-white rounded-full font-display font-bold transition-all flex items-center gap-2 hover:scale-105 active:scale-95 cursor-none">
-                                <i data-lucide="printer" class="w-5 h-5"></i> Extract ATS Resume
+                            <button onclick="window.print()" class="px-6 py-3 sm:px-8 sm:py-4 border border-white/20 bg-white/5 hover:bg-white/10 backdrop-blur-md text-white rounded-full font-display font-bold transition-all flex items-center gap-2 hover:scale-105 active:scale-95 cursor-none text-sm sm:text-base">
+                                <!-- Inline SVG for Print -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 9V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6"/><rect x="6" y="14" width="12" height="8" rx="1"/></svg> 
+                                Extract ATS Resume
                             </button>
                         </div>
 
-                        <!-- Direct Contact Strip -->
+                        <!-- Direct Contact Strip (Robust Inline SVGs) -->
                         <div class="mt-8 flex items-center justify-center lg:justify-start gap-6 reveal delay-300">
                             <a href="mailto:paryani.abdullah@gmail.com" class="flex items-center gap-2 text-gray-400 hover:text-blue-400 transition-colors font-medium cursor-none group">
                                 <div class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-blue-500/20 group-hover:border-blue-500/30 transition-all">
-                                    <i data-lucide="mail" class="w-4 h-4"></i>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
                                 </div>
-                                <span class="hidden sm:block">Email Me</span>
+                                <span class="hidden sm:block text-sm">Email Me</span>
                             </a>
                             <a href="tel:+12498762164" class="flex items-center gap-2 text-gray-400 hover:text-purple-400 transition-colors font-medium cursor-none group">
                                 <div class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-purple-500/20 group-hover:border-purple-500/30 transition-all">
-                                    <i data-lucide="phone" class="w-4 h-4"></i>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                                 </div>
-                                <span class="hidden sm:block">+1 (249) 876-2164</span>
+                                <span class="hidden sm:block text-sm">+1 (249) 876-2164</span>
                             </a>
                             <a href="https://wa.me/12498762164" target="_blank" class="flex items-center gap-2 text-gray-400 hover:text-green-400 transition-colors font-medium cursor-none group">
                                 <div class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-green-500/20 group-hover:border-green-500/30 transition-all">
-                                    <i data-lucide="message-circle" class="w-4 h-4"></i>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
                                 </div>
-                                <span class="hidden sm:block">WhatsApp</span>
+                                <span class="hidden sm:block text-sm">WhatsApp</span>
                             </a>
                         </div>
                     </div>
 
                     <!-- Highly Impressive Photo Presentation -->
-                    <div class="lg:col-span-5 order-1 lg:order-2 flex flex-col items-center justify-center reveal delay-200 w-full px-4 sm:px-0">
-                        <div class="relative w-full max-w-[340px] md:max-w-[400px] aspect-[3/4] group animate-float will-change-transform mt-10 lg:mt-0">
+                    <div class="lg:col-span-5 order-1 lg:order-2 flex flex-col items-center justify-center reveal delay-200 w-full pt-10 lg:pt-0">
+                        <div class="relative w-full max-w-[280px] sm:max-w-[340px] md:max-w-[380px] aspect-[3/4] group">
                             
-                            <div class="absolute -inset-2 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 rounded-[2.5rem] blur-2xl opacity-40 group-hover:opacity-70 transition duration-700 animate-gradient-xy will-change-transform"></div>
+                            <div class="absolute -inset-2 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 rounded-[2.5rem] blur-2xl opacity-40 group-hover:opacity-60 transition duration-700"></div>
                             
-                            <div class="relative w-full h-full p-2 rounded-[2.5rem] overflow-hidden bg-[#0c0c10] border border-white/10 shadow-2xl z-10">
-                                <img src="Assets/photo/profile.jpg" onerror="this.src='https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800'" alt="Abdullah Paryani" class="w-full h-full rounded-[2rem] object-cover filter brightness-90 group-hover:brightness-110 transition-all duration-700 group-hover:scale-105 will-change-transform" />
+                            <div class="relative w-full h-full p-2 rounded-[2.5rem] overflow-hidden bg-[#0c0c10] border border-white/10 shadow-2xl z-10 animate-float">
+                                <img src="Assets/photo/profile.jpg" onerror="this.src='https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800'" alt="Abdullah Paryani" class="w-full h-full rounded-[2rem] object-cover filter brightness-90 group-hover:brightness-110 transition-all duration-700 group-hover:scale-105" />
                                 <div class="absolute inset-0 rounded-[2rem] shadow-[inset_0_-100px_100px_-20px_rgba(0,0,0,0.9)] pointer-events-none"></div>
                                 
                                 <div class="absolute bottom-4 left-4 right-4 md:bottom-6 md:left-6 md:right-6">
                                     <div class="bg-black/40 backdrop-blur-xl border border-white/10 rounded-2xl p-4 flex justify-between items-center shadow-lg">
                                         <div>
-                                            <h3 class="font-display font-bold text-white text-base md:text-lg tracking-wide">Abdullah Paryani</h3>
+                                            <h3 class="font-display font-bold text-white text-sm sm:text-base md:text-lg tracking-wide">Abdullah Paryani</h3>
                                             <p class="text-blue-400 text-xs md:text-sm font-bold tracking-wide">GTA, Ontario</p>
                                         </div>
-                                        <div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-blue-500/20 flex items-center justify-center border border-blue-500/30 text-blue-400">
-                                            <i data-lucide="check" class="w-4 h-4 md:w-5 md:h-5"></i>
+                                        <div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-blue-500/20 flex items-center justify-center border border-blue-500/30 text-blue-400 shrink-0">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
                                         </div>
                                     </div>
                                 </div>
@@ -536,23 +518,23 @@
                         </div>
 
                         <!-- Floating Badges neatly positioned BELOW the image -->
-                        <div class="flex flex-col sm:flex-row gap-4 mt-8 w-full max-w-[340px] md:max-w-[400px]">
-                            <div class="flex-1 bg-[#0c0c10]/95 backdrop-blur-xl border border-white/10 border-t-white/20 rounded-2xl px-4 py-4 flex items-center gap-3 shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:-translate-y-1 transition-transform duration-300">
-                                <div class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 border border-blue-500/30 shrink-0">
-                                    <i data-lucide="globe" class="w-5 h-5"></i>
+                        <div class="flex flex-row gap-3 sm:gap-4 mt-6 sm:mt-8 w-full max-w-[340px] md:max-w-[400px]">
+                            <div class="flex-1 bg-[#0c0c10]/95 backdrop-blur-xl border border-white/10 border-t-white/20 rounded-2xl px-3 sm:px-4 py-3 sm:py-4 flex items-center gap-2 sm:gap-3 shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:-translate-y-1 transition-transform duration-300">
+                                <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 border border-blue-500/30 shrink-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
                                 </div>
-                                <div>
-                                    <div class="text-[10px] text-gray-400 font-bold uppercase tracking-widest whitespace-nowrap">Market Scope</div>
-                                    <div class="text-white font-display font-bold text-sm md:text-[15px] leading-tight whitespace-nowrap">Enterprise</div>
+                                <div class="overflow-hidden">
+                                    <div class="text-[9px] sm:text-[10px] text-gray-400 font-bold uppercase tracking-widest whitespace-nowrap truncate">Market Scope</div>
+                                    <div class="text-white font-display font-bold text-xs sm:text-sm md:text-[15px] leading-tight whitespace-nowrap truncate">Enterprise</div>
                                 </div>
                             </div>
-                            <div class="flex-1 bg-[#0c0c10]/95 backdrop-blur-xl border border-white/10 border-t-white/20 rounded-2xl px-4 py-4 flex items-center gap-3 shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:-translate-y-1 transition-transform duration-300">
-                                <div class="w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400 border border-purple-500/30 shrink-0">
-                                    <i data-lucide="briefcase" class="w-5 h-5"></i>
+                            <div class="flex-1 bg-[#0c0c10]/95 backdrop-blur-xl border border-white/10 border-t-white/20 rounded-2xl px-3 sm:px-4 py-3 sm:py-4 flex items-center gap-2 sm:gap-3 shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:-translate-y-1 transition-transform duration-300">
+                                <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400 border border-purple-500/30 shrink-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
                                 </div>
-                                <div>
-                                    <div class="text-[10px] text-gray-400 font-bold uppercase tracking-widest whitespace-nowrap">Experience</div>
-                                    <div class="text-white font-display font-bold text-sm md:text-[15px] leading-tight whitespace-nowrap">10+ Years</div>
+                                <div class="overflow-hidden">
+                                    <div class="text-[9px] sm:text-[10px] text-gray-400 font-bold uppercase tracking-widest whitespace-nowrap truncate">Experience</div>
+                                    <div class="text-white font-display font-bold text-xs sm:text-sm md:text-[15px] leading-tight whitespace-nowrap truncate">10+ Years</div>
                                 </div>
                             </div>
                         </div>
@@ -560,14 +542,14 @@
                 </div>
 
                 <!-- Fixed Logos / Proof Strip -->
-                <div class="mt-20 lg:mt-24 reveal delay-200 w-full max-w-[900px] mx-auto mb-10 px-2">
-                    <div class="glass-panel !rounded-[2rem] p-8 md:p-10 flex flex-col items-center border border-white/10 shadow-[0_0_40px_rgba(0,0,0,0.5)]">
-                        <p class="text-center text-xs text-gray-500 font-bold mb-8 uppercase tracking-[0.2em]">Executing operations for industry leaders</p>
-                        <div class="flex flex-wrap justify-center items-center gap-6 md:gap-16 lg:gap-20 opacity-60 grayscale hover:grayscale-0 transition-all duration-700">
-                            <div class="flex items-center gap-2 font-display font-bold text-lg md:text-xl lg:text-2xl text-white hover:text-blue-500 transition-colors"><i data-lucide="shield" class="text-blue-500 w-5 h-5 md:w-6 md:h-6"></i> Neilson</div>
-                            <div class="flex items-center gap-2 font-display font-bold text-lg md:text-xl lg:text-2xl text-white hover:text-green-500 transition-colors"><i data-lucide="gem" class="text-green-500 w-5 h-5 md:w-6 md:h-6"></i> Greenstone</div>
-                            <div class="flex items-center gap-2 font-display font-bold text-lg md:text-xl lg:text-2xl text-white hover:text-blue-400 transition-colors"><i data-lucide="cloud" class="text-blue-400 w-5 h-5 md:w-6 md:h-6"></i> Salesforce</div>
-                            <div class="flex items-center gap-2 font-display font-bold text-lg md:text-xl lg:text-2xl text-white hover:text-red-500 transition-colors"><i data-lucide="chrome" class="text-red-500 w-5 h-5 md:w-6 md:h-6"></i> Google Ops</div>
+                <div class="mt-20 lg:mt-24 reveal delay-200 w-full max-w-[900px] mx-auto mb-10">
+                    <div class="glass-panel !rounded-[2rem] p-6 sm:p-8 md:p-10 flex flex-col items-center border border-white/10 shadow-[0_0_40px_rgba(0,0,0,0.5)]">
+                        <p class="text-center text-[10px] sm:text-xs text-gray-500 font-bold mb-6 sm:mb-8 uppercase tracking-[0.2em]">Executing operations for industry leaders</p>
+                        <div class="flex flex-wrap justify-center items-center gap-4 sm:gap-8 md:gap-16 lg:gap-20 opacity-60 grayscale hover:grayscale-0 transition-all duration-700">
+                            <div class="flex items-center gap-2 font-display font-bold text-base sm:text-lg md:text-xl lg:text-2xl text-white"><i data-lucide="shield" class="text-blue-500 w-5 h-5"></i> Neilson</div>
+                            <div class="flex items-center gap-2 font-display font-bold text-base sm:text-lg md:text-xl lg:text-2xl text-white"><i data-lucide="gem" class="text-green-500 w-5 h-5"></i> Greenstone</div>
+                            <div class="flex items-center gap-2 font-display font-bold text-base sm:text-lg md:text-xl lg:text-2xl text-white"><i data-lucide="cloud" class="text-blue-400 w-5 h-5"></i> Salesforce</div>
+                            <div class="flex items-center gap-2 font-display font-bold text-base sm:text-lg md:text-xl lg:text-2xl text-white"><i data-lucide="chrome" class="text-red-500 w-5 h-5"></i> Google Ops</div>
                         </div>
                     </div>
                 </div>
@@ -587,8 +569,8 @@
                                 <i data-lucide="fingerprint" class="w-32 h-32 md:w-48 md:h-48"></i>
                             </div>
 
-                            <div class="relative z-10 text-base md:text-lg text-gray-300 leading-relaxed font-light space-y-6">
-                                <p class="text-white font-medium text-lg md:text-xl font-display tracking-wide border-l-2 border-blue-500 pl-4">
+                            <div class="relative z-10 text-sm sm:text-base md:text-lg text-gray-300 leading-relaxed font-light space-y-6">
+                                <p class="text-white font-medium text-base sm:text-lg md:text-xl font-display tracking-wide border-l-2 border-blue-500 pl-4">
                                     My journey in marketing started in Hyderabad's bustling business environment, where my family's ventures in wholesale and retail gave me an early and deep understanding of business operations.
                                 </p>
                                 <p>
@@ -600,21 +582,21 @@
                                 
                                 <ul class="list-none space-y-5 pt-2 pb-2">
                                     <li class="flex items-start gap-4">
-                                        <i data-lucide="check-circle-2" class="w-6 h-6 text-blue-500 shrink-0 mt-1"></i>
+                                        <i data-lucide="check-circle-2" class="w-5 h-5 md:w-6 md:h-6 text-blue-500 shrink-0 mt-1"></i>
                                         <div>
-                                            <strong class="text-white font-display text-lg block mb-1">High-Stakes Digital Operations:</strong> As a Social Media Analyst for the Google Operations Center, I managed communications for products with over 1.5 billion users. I learned to be strategic and resilient in a global high-pressure environment.
+                                            <strong class="text-white font-display text-base sm:text-lg block mb-1">High-Stakes Digital Operations:</strong> As a Social Media Analyst for the Google Operations Center, I managed communications for products with over 1.5 billion users. I learned to be strategic and resilient in a global high-pressure environment.
                                         </div>
                                     </li>
                                     <li class="flex items-start gap-4">
-                                        <i data-lucide="check-circle-2" class="w-6 h-6 text-blue-500 shrink-0 mt-1"></i>
+                                        <i data-lucide="check-circle-2" class="w-5 h-5 md:w-6 md:h-6 text-blue-500 shrink-0 mt-1"></i>
                                         <div>
-                                            <strong class="text-white font-display text-lg block mb-1">Process Improvement & Risk Management:</strong> I'm most proud of devising a scam prevention workflow that cut our team's average response time from 6 days down to just 1 hour.
+                                            <strong class="text-white font-display text-base sm:text-lg block mb-1">Process Improvement & Risk Management:</strong> I'm most proud of devising a scam prevention workflow that cut our team's average response time from 6 days down to just 1 hour.
                                         </div>
                                     </li>
                                     <li class="flex items-start gap-4">
-                                        <i data-lucide="check-circle-2" class="w-6 h-6 text-blue-500 shrink-0 mt-1"></i>
+                                        <i data-lucide="check-circle-2" class="w-5 h-5 md:w-6 md:h-6 text-blue-500 shrink-0 mt-1"></i>
                                         <div>
-                                            <strong class="text-white font-display text-lg block mb-1">Data-Driven Strategy:</strong> I have hands-on experience using market research and KPI analysis to guide brand voice, build editorial calendars, and ultimately drive business growth, contributing to customer acquisition on multiple projects.
+                                            <strong class="text-white font-display text-base sm:text-lg block mb-1">Data-Driven Strategy:</strong> I have hands-on experience using market research and KPI analysis to guide brand voice, build editorial calendars, and ultimately drive business growth, contributing to customer acquisition on multiple projects.
                                         </div>
                                     </li>
                                 </ul>
@@ -659,19 +641,21 @@
                                     <i data-lucide="linkedin" class="w-5 h-5"></i> View LinkedIn Profile
                                 </a>
                                 <button onclick="window.print()" class="w-full py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:opacity-90 text-white transition-all font-display font-bold flex items-center justify-center gap-3 rounded-2xl text-sm shadow-[0_0_20px_rgba(59,130,246,0.3)] hover:scale-105 active:scale-95 cursor-none">
-                                    <i data-lucide="download" class="w-5 h-5"></i> Extract ATS Resume
+                                    <!-- Inline SVG for Print -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 9V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6"/><rect x="6" y="14" width="12" height="8" rx="1"/></svg> 
+                                    Extract ATS Resume
                                 </button>
                                 
                                 <!-- Contact Strip Addition -->
                                 <div class="mt-2 flex items-center justify-center gap-4 pt-4 border-t border-white/10">
                                     <a href="mailto:paryani.abdullah@gmail.com" class="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-blue-400 hover:bg-blue-500/20 hover:border-blue-500/30 transition-all cursor-none group" title="Email">
-                                        <i data-lucide="mail" class="w-5 h-5 group-hover:scale-110 transition-transform"></i>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:scale-110 transition-transform"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
                                     </a>
                                     <a href="tel:+12498762164" class="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-purple-400 hover:bg-purple-500/20 hover:border-purple-500/30 transition-all cursor-none group" title="Phone">
-                                        <i data-lucide="phone" class="w-5 h-5 group-hover:scale-110 transition-transform"></i>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:scale-110 transition-transform"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                                     </a>
                                     <a href="https://wa.me/12498762164" target="_blank" class="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-green-400 hover:bg-green-500/20 hover:border-green-500/30 transition-all cursor-none group" title="WhatsApp">
-                                        <i data-lucide="message-circle" class="w-5 h-5 group-hover:scale-110 transition-transform"></i>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:scale-110 transition-transform"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
                                     </a>
                                 </div>
                             </div>
@@ -750,9 +734,9 @@
                                         <span class="text-xs md:text-sm font-bold text-gray-400 whitespace-nowrap bg-white/5 px-3 py-1.5 md:px-4 md:py-2 rounded-lg border border-white/10 inline-block w-fit">Nov 2024 - Mar 2025</span>
                                     </div>
                                     <ul class="space-y-3 text-gray-300 text-sm md:text-base font-light">
-                                        <li class="flex gap-3"><i data-lucide="chevron-right" class="w-5 h-5 text-gray-600 shrink-0 mt-0.5 group-hover:text-white transition-colors"></i> <span>Operated as a licensed advisor across 10+ provinces, adhering strictly to complex regulatory compliance.</span></li>
-                                        <li class="flex gap-3"><i data-lucide="chevron-right" class="w-5 h-5 text-gray-600 shrink-0 mt-0.5 group-hover:text-white transition-colors"></i> <span>Maintained meticulous client interaction records using enterprise-grade CRM systems.</span></li>
-                                        <li class="flex gap-3"><i data-lucide="chevron-right" class="w-5 h-5 text-gray-600 shrink-0 mt-0.5 group-hover:text-white transition-colors"></i> <span>Conducted deep-dive needs analyses to accurately advise on coverage, liabilities, and optimal policies.</span></li>
+                                        <li class="flex gap-3"><i data-lucide="chevron-right" class="w-5 h-5 text-gray-600 shrink-0 mt-0.5 group-hover:text-blue-500 transition-colors"></i> <span>Operated as a licensed advisor across 10+ provinces, adhering strictly to complex regulatory compliance.</span></li>
+                                        <li class="flex gap-3"><i data-lucide="chevron-right" class="w-5 h-5 text-gray-600 shrink-0 mt-0.5 group-hover:text-blue-500 transition-colors"></i> <span>Maintained meticulous client interaction records using enterprise-grade CRM systems.</span></li>
+                                        <li class="flex gap-3"><i data-lucide="chevron-right" class="w-5 h-5 text-gray-600 shrink-0 mt-0.5 group-hover:text-blue-500 transition-colors"></i> <span>Conducted deep-dive needs analyses to accurately advise on coverage, liabilities, and optimal policies.</span></li>
                                     </ul>
                                 </div>
                             </div>
@@ -1157,20 +1141,19 @@
                 </div>
                 <div class="p-3 md:p-4 border-t border-white/10 bg-white/5 flex gap-2 md:gap-3 items-center backdrop-blur-md">
                     <input type="text" id="chat-input" placeholder="Ask a question..." class="flex-1 bg-white/5 border border-white/10 rounded-lg md:rounded-xl px-3 py-2 md:px-4 md:py-3 text-xs md:text-sm text-white focus:outline-none focus:border-blue-500 transition-colors placeholder-gray-500 cursor-none">
-                    <button onclick="app.sendChat()" class="bg-blue-600 hover:bg-blue-500 text-white p-2 md:p-3 rounded-lg md:rounded-xl transition-colors shadow-lg cursor-none"><i data-lucide="send" class="w-4 h-4"></i></button>
+                    <button onclick="app.sendChat()" class="bg-blue-600 hover:bg-blue-500 text-white p-2 md:p-3 rounded-lg md:rounded-xl transition-colors shadow-lg cursor-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" x2="11" y1="2" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                    </button>
                 </div>
             </div>
             
             <button onclick="app.toggleChat()" class="w-12 h-12 md:w-14 md:h-14 bg-blue-600 text-white rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(59,130,246,0.4)] hover:shadow-[0_0_30px_rgba(59,130,246,0.6)] hover:scale-105 active:scale-95 transition-all cursor-none">
-                <i data-lucide="message-square" class="w-5 h-5 md:w-6 md:h-6"></i>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
             </button>
         </div>
     </div>
 
     <script>
-        // Initialize Icons
-        lucide.createIcons();
-
         // High-End SPA Engine
         const app = {
             pages: ['home', 'about', 'experience', 'skills', 'projects', 'contact'],
@@ -1199,7 +1182,6 @@
                 let progress = 0;
                 
                 const progressInterval = setInterval(() => {
-                    // Random increment for organic loading feel
                     progress += Math.floor(Math.random() * 15) + 1;
                     
                     if (progress >= 100) {
@@ -1211,21 +1193,21 @@
                         text.textContent = 'System Ready';
                         text.classList.replace('text-blue-400', 'text-green-400');
                         
-                        // Wait a beat before fading out
                         setTimeout(() => {
                             loader.style.opacity = '0';
                             loader.style.transform = 'scale(1.05)';
+                            document.body.classList.remove('overflow-hidden'); // Unlock scroll
                             
                             setTimeout(() => {
                                 loader.style.display = 'none';
                                 this.triggerReveals(); 
-                            }, 700); 
+                            }, 500); 
                         }, 500); 
                     } else {
                         bar.style.width = `${progress}%`;
                         pct.textContent = `${progress}%`;
                     }
-                }, 150);
+                }, 120); // Slightly faster
             },
 
             setupRouting() {
@@ -1240,11 +1222,10 @@
                         const target = e.currentTarget.getAttribute('data-page-target');
                         this.navigate(target);
                         
-                        // Close mobile menu
+                        // Close mobile menu logic
                         const mobileMenu = document.getElementById('mobile-menu');
                         if(!mobileMenu.classList.contains('hidden')) {
-                            mobileMenu.style.opacity = '0';
-                            setTimeout(() => mobileMenu.classList.add('hidden'), 300);
+                            this.closeMobileMenu();
                         }
                     });
                 });
@@ -1266,7 +1247,6 @@
                 }
             },
 
-            // Navigation explicitly utilizes style.display logic to prevent empty page scrolling areas
             navigate(targetId, updateHash = true) {
                 if(this.isAnimating) return;
                 if(this.currentPage === targetId && document.getElementById(targetId).classList.contains('active')) return;
@@ -1365,17 +1345,27 @@
 
             setupMobileMenu() {
                 const btn = document.getElementById('mobile-menu-btn');
+                const closeBtn = document.getElementById('close-mobile-menu');
                 const menu = document.getElementById('mobile-menu');
                 
                 btn.addEventListener('click', () => {
-                    if(menu.classList.contains('hidden')) {
-                        menu.classList.remove('hidden');
-                        setTimeout(() => menu.style.opacity = '1', 10);
-                    } else {
-                        menu.style.opacity = '0';
-                        setTimeout(() => menu.classList.add('hidden'), 300);
-                    }
+                    menu.classList.remove('hidden');
+                    menu.style.display = 'flex';
+                    setTimeout(() => menu.style.opacity = '1', 10);
                 });
+
+                closeBtn.addEventListener('click', () => {
+                    this.closeMobileMenu();
+                });
+            },
+
+            closeMobileMenu() {
+                const menu = document.getElementById('mobile-menu');
+                menu.style.opacity = '0';
+                setTimeout(() => {
+                    menu.classList.add('hidden');
+                    menu.style.display = 'none';
+                }, 300);
             },
 
             toggleChat() {
@@ -1429,7 +1419,11 @@
             }
         };
 
-        window.addEventListener('DOMContentLoaded', () => app.init());
+        window.addEventListener('DOMContentLoaded', () => {
+            // Initialize Icons for non-critical elements
+            lucide.createIcons();
+            app.init();
+        });
     </script>
 </body>
 </html>
