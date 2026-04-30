@@ -404,10 +404,11 @@
             <section class="scene flex-col justify-start items-center px-6 pt-[15vh] md:pt-0 md:justify-end md:items-center md:flex-row md:px-20 lg:px-32" id="scene2">
                 <div class="w-full max-w-[95%] md:max-w-3xl lg:max-w-5xl glass-panel p-6 md:p-12 ui-element opacity-0 translate-y-10 flex flex-col md:flex-row items-center gap-8 md:gap-12" id="ui-panel-1">
                     
-                    <!-- Adjusted Path & Abstract Fallback Image -->
-                    <div class="photo-container relative w-32 h-32 md:w-56 md:h-56 lg:w-72 lg:h-72 rounded-full overflow-hidden border-2 border-blue-500/30 shadow-[0_0_40px_rgba(59,130,246,0.3)] shrink-0">
-                        <img src="./assets/photos/profile.jpg" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=800'" alt="Abdullah Paryani" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                    <!-- Fixed Photo Container - Removed onerror completely, Added background text -->
+                    <div class="photo-container relative w-32 h-32 md:w-56 md:h-56 lg:w-72 lg:h-72 rounded-full overflow-hidden border-2 border-blue-500/30 shadow-[0_0_40px_rgba(59,130,246,0.3)] shrink-0 bg-[#0a0a0f] flex items-center justify-center">
+                        <span class="text-xs text-white/30 absolute">Photo Loading...</span>
+                        <img src="assets/photos/profile.jpg" alt="Abdullah Paryani" class="w-full h-full object-cover relative z-10">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-20"></div>
                     </div>
 
                     <div class="flex-1 text-center md:text-left">
@@ -1012,6 +1013,51 @@
             gsap.ticker.add((time) => { lenis.raf(time * 1000); });
             gsap.ticker.lagSmoothing(0);
 
+            // In scene triggers, robot actions mapped exactly.
+            // S1 -> S2: Wave
+            ScrollTrigger.create({
+                trigger: "#scene2", start: "top 60%",
+                onEnter: () => { 
+                    gsap.to("#ui-panel-1", { opacity: 1, y: 0, duration: 1, ease: "power3.out" }); 
+                    fadeToAction('Wave', 0.5);
+                    setTimeout(() => fadeToAction('Idle', 0.5), 2500);
+                },
+                onLeaveBack: () => { gsap.to("#ui-panel-1", { opacity: 0, y: 50, duration: 0.5 }); }
+            });
+
+            // S2 -> S3: Yes
+            ScrollTrigger.create({
+                trigger: "#scene3", start: "top 60%",
+                onEnter: () => { 
+                    gsap.to("#ui-panel-2", { opacity: 1, y: 0, duration: 1, ease: "power3.out" }); 
+                    fadeToAction('Yes', 0.5);
+                    setTimeout(() => fadeToAction('Idle', 0.5), 2500);
+                },
+                onLeaveBack: () => { gsap.to("#ui-panel-2", { opacity: 0, y: 50, duration: 0.5 }); }
+            });
+
+            // S3 -> S4: Jump
+            ScrollTrigger.create({
+                trigger: "#scene4", start: "top 60%",
+                onEnter: () => { 
+                    gsap.to("#ui-panel-3", { opacity: 1, y: 0, duration: 1, ease: "power3.out" }); 
+                    fadeToAction('Jump', 0.5);
+                    setTimeout(() => fadeToAction('Idle', 0.5), 1500);
+                },
+                onLeaveBack: () => { gsap.to("#ui-panel-3", { opacity: 0, y: 50, duration: 0.5 }); }
+            });
+
+            // S4 -> S5: ThumbsUp
+            ScrollTrigger.create({
+                trigger: "#scene5", start: "top 70%",
+                onEnter: () => { 
+                    gsap.to("#ui-panel-4", { opacity: 1, scale: 1, duration: 1, ease: "back.out(1.5)" }); 
+                    fadeToAction('ThumbsUp', 0.5);
+                    setTimeout(() => fadeToAction('Idle', 0.5), 2500);
+                },
+                onLeaveBack: () => { gsap.to("#ui-panel-4", { opacity: 0, scale: 0.9, duration: 0.5 }); }
+            });
+
             gsap.fromTo('.gs-reveal-up', { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 1.5, ease: 'power3.out', stagger: 0.2 });
             
             // Robot Timeline: Mobile me sirf bottom me rahega aur halke turns lega.
@@ -1037,31 +1083,6 @@
             tl.to(characterGroup.position, { x: 0, y: isMobile ? -3.5 : -2, z: isMobile ? 1 : 3, ease: "power2.inOut" }, 3)
               .to(characterGroup.rotation, { y: 0, ease: "power2.inOut" }, 3)
               .to(camera.position, { z: 6.5, ease: "none" }, 3);
-
-            // UI Triggers
-            ScrollTrigger.create({
-                trigger: "#scene2", start: "top 60%",
-                onEnter: () => { gsap.to("#ui-panel-1", { opacity: 1, y: 0, duration: 1, ease: "power3.out" }); },
-                onLeaveBack: () => { gsap.to("#ui-panel-1", { opacity: 0, y: 50, duration: 0.5 }); }
-            });
-
-            ScrollTrigger.create({
-                trigger: "#scene3", start: "top 60%",
-                onEnter: () => { gsap.to("#ui-panel-2", { opacity: 1, y: 0, duration: 1, ease: "power3.out" }); },
-                onLeaveBack: () => { gsap.to("#ui-panel-2", { opacity: 0, y: 50, duration: 0.5 }); }
-            });
-
-            ScrollTrigger.create({
-                trigger: "#scene4", start: "top 60%",
-                onEnter: () => { gsap.to("#ui-panel-3", { opacity: 1, y: 0, duration: 1, ease: "power3.out" }); },
-                onLeaveBack: () => { gsap.to("#ui-panel-3", { opacity: 0, y: 50, duration: 0.5 }); }
-            });
-
-            ScrollTrigger.create({
-                trigger: "#scene5", start: "top 70%",
-                onEnter: () => { gsap.to("#ui-panel-4", { opacity: 1, scale: 1, duration: 1, ease: "back.out(1.5)" }); },
-                onLeaveBack: () => { gsap.to("#ui-panel-4", { opacity: 0, scale: 0.9, duration: 0.5 }); }
-            });
         }
 
         function animate() {
@@ -1078,12 +1099,12 @@
 
                 // Smart Interaction: Gardan (Head bone) aapke finger/cursor ko dekhegi
                 if(headBone && !isScrolling) {
-                    // Normalize mouse values for smooth tracking
-                    const targetRotY = Math.max(-0.8, Math.min(0.8, mouseX * 0.002));
-                    const targetRotX = Math.max(-0.5, Math.min(0.5, mouseY * 0.002));
+                    // INCREASED TRACKING MULTIPLIER to make it more obvious
+                    const targetRotY = Math.max(-1.2, Math.min(1.2, mouseX * 0.005));
+                    const targetRotX = Math.max(-0.8, Math.min(0.8, mouseY * 0.005));
                     
-                    headBone.rotation.y += (targetRotY - headBone.rotation.y) * 0.1;
-                    headBone.rotation.x += (targetRotX - headBone.rotation.x) * 0.1;
+                    headBone.rotation.y += (targetRotY - headBone.rotation.y) * 0.15;
+                    headBone.rotation.x += (targetRotX - headBone.rotation.x) * 0.15;
                 } else if(!headBone && !isScrolling) {
                     characterModel.rotation.y += ((mouseX * 0.0005) - characterModel.rotation.y) * 0.05;
                 }
