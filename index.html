@@ -404,10 +404,10 @@
             <section class="scene flex-col justify-start items-center px-6 pt-[15vh] md:pt-0 md:justify-end md:items-center md:flex-row md:px-20 lg:px-32" id="scene2">
                 <div class="w-full max-w-[95%] md:max-w-3xl lg:max-w-5xl glass-panel p-6 md:p-12 ui-element opacity-0 translate-y-10 flex flex-col md:flex-row items-center gap-8 md:gap-12" id="ui-panel-1">
                     
-                    <!-- Fixed Photo Container - Removed onerror completely, Added background text -->
+                    <!-- EXACT Path based on user's Github. Removed fallback logic -->
                     <div class="photo-container relative w-32 h-32 md:w-56 md:h-56 lg:w-72 lg:h-72 rounded-full overflow-hidden border-2 border-blue-500/30 shadow-[0_0_40px_rgba(59,130,246,0.3)] shrink-0 bg-[#0a0a0f] flex items-center justify-center">
-                        <span class="text-xs text-white/30 absolute">Photo Loading...</span>
-                        <img src="assets/photos/profile.jpg" alt="Abdullah Paryani" class="w-full h-full object-cover relative z-10">
+                        <span class="text-xs text-white/30 absolute z-0">Loading image...</span>
+                        <img src="Assets/photos/profile.jpg" alt="Abdullah Paryani" class="w-full h-full object-cover relative z-10">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-20"></div>
                     </div>
 
