@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insights | Abdullah Paryani</title>
+    <meta name="description" content="Strategic insights on digital operations, marketing, SEO, and workflow design.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body class="font-sans antialiased selection:bg-blue-500/30 selection:text-white">
+
+    
+    <!-- Intro Animation Container (Exact User Code) -->
+    <div id="loader-container" class="fixed inset-0 z-[9999] flex items-center justify-center bg-[#050505]">
+        <!-- Background Effects -->
+        <div class="ambient-glow"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black opacity-80 z-0"></div>
+        
+        <!-- Logo Wrapper -->
+        <div id="logo-wrapper" class="relative z-10 flex flex-col items-center">
+            
+            <!-- Main Title Container -->
+            <div id="title-container" class="flex flex-col items-center gap-1 md:gap-2">
+                
+                <!-- First Name: ABDULLAH -->
+                <div class="brand-text text-3xl md:text-6xl lg:text-8xl flex">
+                    <!-- Missing A (Injected via JS animation, positioned here structurally) -->
+                    <span id="letter-A" class="char-letter">A</span>
+                    <div id="rest-1" class="flex">
+                        <span class="char-letter">B</span>
+                        <span class="char-letter">D</span>
+                        <span class="char-letter">U</span>
+                        <span class="char-letter">L</span>
+                        <span class="char-letter">L</span>
+                        <span class="char-letter">A</span>
+                        <span class="char-letter">H</span>
+                    </div>
+                </div>
+
+                <!-- Second Name: PARYANI -->
+                <div class="brand-text text-3xl md:text-6xl lg:text-8xl flex">
+                    <!-- Missing P (Injected via JS animation, positioned here structurally) -->
+                    <span id="letter-P" class="char-letter">P</span>
+                    <div id="rest-2" class="flex">
+                        <span class="char-letter">A</span>
+                        <span class="char-letter">R</span>
+                        <span class="char-letter">Y</span>
+                        <span class="char-letter">A</span>
+                        <span class="char-letter">N</span>
+                        <span class="char-letter">I</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Scene 13: Luxury Line -->
+            <div id="luxury-line" class="h-[1px] bg-gradient-to-r from-transparent via-[#60A5FA] to-transparent w-0 mt-4 md:mt-6"></div>
+
+            <!-- Scene 13: Subtitle -->
+            <div id="subtitle-container" class="flex mt-3 md:mt-5 overflow-hidden">
+                <div id="subtitle-text" class="text-[#60A5FA] tracking-[0.4em] md:tracking-[0.6em] text-[8px] md:text-xs font-medium uppercase flex">
+                    <span class="subtitle-letter">S</span>
+                    <span class="subtitle-letter">T</span>
+                    <span class="subtitle-letter">R</span>
+                    <span class="subtitle-letter">A</span>
+                    <span class="subtitle-letter">T</span>
+                    <span class="subtitle-letter">E</span>
+                    <span class="subtitle-letter">G</span>
+                    <span class="subtitle-letter">I</span>
+                    <span class="subtitle-letter">C</span>
+                    <span class="subtitle-letter">&nbsp;</span>
+                    <span class="subtitle-letter">A</span>
+                    <span class="subtitle-letter">D</span>
+                    <span class="subtitle-letter">V</span>
+                    <span class="subtitle-letter">I</span>
+                    <span class="subtitle-letter">S</span>
+                    <span class="subtitle-letter">O</span>
+                    <span class="subtitle-letter">R</span>
+                </div>
+            </div>
+        </div>
+        <!-- Skip Button -->
+        <button id="skip-intro-btn" class="absolute bottom-10 right-10 z-[10000] text-[#60A5FA] tracking-widest text-xs uppercase font-medium border border-[#60A5FA]/30 bg-white/5 backdrop-blur-md px-6 py-2 rounded-full hover:bg-white/10 hover:border-[#60A5FA]/60 transition-all opacity-0 pointer-events-none shadow-[0_0_15px_rgba(59,130,246,0.3)]">Skip Intro</button>
+    </div>
+
+    <!-- Epic Cinematic Transition Overlays -->
+    <div id="epic-transition-container">
+        <div class="epic-panel panel-1"></div>
+        <div class="epic-panel panel-2"></div>
+        <div class="epic-panel panel-3"></div>
+        <div class="epic-logo">AP</div>
+    </div>
+    
+
+
+
+
+
+    <div class="custom-cursor" id="custom-cursor">CLICK</div>
+
+    </div>
+
+    <div class="cinematic-bg">
+        <canvas id="scroll-canvas"></canvas>
+        <div class="cinematic-overlay"></div>
+        <div class="cinematic-vignette"></div>
+    </div>
+
+    <!-- Reading Progress Bar -->
+    <div class="reading-progress-container">
+        <div class="reading-progress-bar" id="reading-progress"></div>
+    
+        <!-- Skip Button -->
+        <button id="skip-intro-btn">Skip Intro</button>
+    </div>
+    
+    <!-- Cinematic Transition Overlay -->
+
+    
+
+    <header class="sticky-header" id="main-header">
+        <a href="index.html" title="Abdullah Paryani - Strategic Advisor Home" class="logo-group flex items-center gap-3 md:gap-4 interactive-el">
+            <div class="logo-circle">
+                <span class="z-10">AP</span>
+            </div>
+            <div class="logo-text">
+                <span class="brand-name">Abdullah Paryani</span>
+                <span class="brand-title">Strategic Advisor</span>
+            </div>
+        </a>
+        
+        <!-- Desktop Nav -->
+        <nav class="hidden lg:flex nav-links">
+            <a href="index.html" title="Abdullah Paryani - Strategic Advisor Home" class="nav-link interactive-el">Home</a>
+            <a href="about.html" title="About Abdullah Paryani - Marketing Operations Consultant" class="nav-link interactive-el">About</a>
+            
+            <div class="nav-link-wrapper">
+                <a href="services.html" title="Consulting Services - Digital Infrastructure & Growth" class="nav-link interactive-el">Services</a>
+                <div class="mega-menu">
+                    <a href="services.html" title="Consulting Services - Digital Infrastructure & Growth" class="interactive-el" data-cursor="EXPLORE">Digital Infrastructure</a>
+                    <a href="services.html" title="Consulting Services - Digital Infrastructure & Growth" class="interactive-el" data-cursor="EXPLORE">Operations Systems</a>
+                    <a href="services.html" title="Consulting Services - Digital Infrastructure & Growth" class="interactive-el" data-cursor="EXPLORE">Growth Strategy</a>
+                </div>
+            </div>
+            
+            <a href="case-studies.html" title="Case Studies - Business Systems & Revenue Optimization" class="nav-link interactive-el" data-cursor="EXPLORE">Case Studies</a>
+            <a href="experience.html" title="Executive Experience - Google Operations & Finance" class="nav-link interactive-el">Experience</a>
+            
+            <div class="nav-link-wrapper">
+                <a href="insights.html" title="Strategic Insights - SEO, SEM & Marketing Analytics" class="nav-link interactive-el">Insights</a>
+                <div class="mega-menu">
+                    <a href="insight-marketing-growth.html" class="interactive-el" data-cursor="READ">Marketing</a>
+                    <a href="insight-seo-strategy.html" class="interactive-el" data-cursor="READ">SEO</a>
+                    <a href="insight-customer-retention.html" class="interactive-el" data-cursor="READ">Brand</a>
+                </div>
+            </div>
+
+            <div class="nav-link-wrapper">
+                <a href="ap-intelligence.html" title="AP Intelligence - Interactive Digital Twin Consultant" class="nav-link interactive-el">AP Intel</a>
+                <div class="mega-menu">
+                    <a href="ap-intelligence.html" title="AP Intelligence - Interactive Digital Twin Consultant" class="interactive-el" data-cursor="OPEN">Digital Twin</a>
+                    <a href="ap-intelligence.html" title="AP Intelligence - Interactive Digital Twin Consultant" class="interactive-el" data-cursor="OPEN">Capabilities</a>
+                </div>
+            </div>
+            
+            <a href="contact.html" title="Contact Abdullah Paryani - Strategic Advisor in Mississauga" class="nav-link interactive-el" style="color: #d4af37;" data-cursor="GO">Contact</a>
+        </nav>
+
+        <!-- Mobile Nav Burger -->
+        <div id="mobile-menu-btn" class="interactive-el">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <!-- Premium Mobile Menu -->
+    <div id="mobile-menu">
+        <div class="mobile-nav-items">
+            <a href="index.html" title="Abdullah Paryani - Strategic Advisor Home" class="interactive-el">Home</a>
+            <a href="about.html" title="About Abdullah Paryani - Marketing Operations Consultant" class="interactive-el">About</a>
+            <a href="services.html" title="Consulting Services - Digital Infrastructure & Growth" class="interactive-el">Services</a>
+            <a href="case-studies.html" title="Case Studies - Business Systems & Revenue Optimization" class="interactive-el">Case Studies</a>
+            <a href="experience.html" title="Executive Experience - Google Operations & Finance" class="interactive-el">Experience</a>
+            <a href="insights.html" title="Strategic Insights - SEO, SEM & Marketing Analytics" class="interactive-el">Insights</a>
+            <a href="ap-intelligence.html" title="AP Intelligence - Interactive Digital Twin Consultant" class="interactive-el">AP Intelligence</a>
+            <a href="contact.html" title="Contact Abdullah Paryani - Strategic Advisor in Mississauga" class="interactive-el" style="color: #d4af37;">Contact</a>
+        </div>
+    </div>
+
+    <main id="page-content" class="relative w-full z-10 pt-24 pb-16">
+        
+        <div class="side-nav hidden md:flex">
+            <a href="#featured" class="side-nav-dot interactive-el active" data-target="featured" title="Featured"></a>
+            <a href="#articles" class="side-nav-dot interactive-el" data-target="articles" title="Library"></a>
+        </div>
+
+        <section id="header" class="reveal-section section-marker pt-20 pb-12 px-6 sm:px-12 text-center max-w-5xl mx-auto">
+            <span class="text-blue-400 font-bold tracking-widest uppercase text-sm sharp-text">Knowledge Hub</span>
+            <h1 class="text-5xl md:text-7xl font-bold tracking-tighter text-white mt-4 mb-6 sharp-text">Strategic Insights</h1>
+            <p class="text-lg text-slate-300 font-light leading-relaxed max-w-2xl mx-auto">
+                Essays, playbooks, and structural models on systems architecture, growth marketing, and digital operations.
+            </p>
+            
+            <div class="mt-10 relative max-w-md mx-auto">
+                <input type="text" id="insights-search" class="w-full bg-white/5 border border-white/10 rounded-full px-6 py-4 text-white focus:outline-none focus:border-blue-500 transition-colors interactive-el pl-12" placeholder="Search the library...">
+                <svg class="w-5 h-5 absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+            </div>
+        </section>
+
+        <!-- FEATURED INSIGHT -->
+        <section id="featured" class="reveal-section section-marker px-6 sm:px-12 max-w-6xl mx-auto mb-20">
+            <a href="insight-marketing-growth.html" class="block glass-panel rounded-3xl overflow-hidden group interactive-el insight-card no-underline relative">
+                <div class="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div class="flex flex-col md:flex-row relative z-10">
+                    <div class="md:w-1/2 p-10 flex flex-col justify-center border-r border-white/10">
+                        <span class="text-xs font-bold tracking-widest text-blue-400 uppercase mb-4">Featured Essay • 12 Min Read</span>
+                        <h2 class="text-3xl font-bold text-white mb-4 leading-tight group-hover:text-blue-300 transition-colors">The Mathematics of Churn: Why Editorial Consistency is a Retention Strategy</h2>
+                        <p class="text-slate-300 font-light mb-8">An exploration into how fractured brand messaging across digital touchpoints mathematically correlates with increased subscriber drop-off, based on the Ad-Din Q2 turnaround model.</p>
+                        <span class="inline-flex items-center text-white font-medium">
+                            Read the Essay <svg class="ml-2 w-4 h-4 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </span>
+                    </div>
+                    <div class="md:w-1/2 p-10 flex flex-col justify-center bg-black/40 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-[url('assets/frames/frame_0001.jpg')] bg-cover bg-center opacity-30 mix-blend-overlay group-hover:scale-105 transition-transform duration-700"></div>
+                        <blockquote class="text-xl text-slate-200 font-light italic border-l-4 border-blue-500 pl-6 relative z-10">
+                            "Marketing is not a department; it is the vascular system of the business. If the message clots, the revenue dies."
+                        </blockquote>
+                    </div>
+                </div>
+            </a>
+        </section>
+
+        <!-- ARTICLE LIBRARY -->
+        <section id="articles" class="reveal-section section-marker px-6 sm:px-12 max-w-6xl mx-auto pb-24">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 border-b border-white/10 pb-6 gap-6">
+                <h3 class="text-2xl font-semibold text-white">Insight Library</h3>
+                <div class="flex flex-wrap gap-3">
+                    <span class="filter-pill interactive-el active" data-filter="all">All</span>
+                    <span class="filter-pill interactive-el" data-filter="marketing">Marketing</span>
+                    <span class="filter-pill interactive-el" data-filter="seo">SEO</span>
+                    <span class="filter-pill interactive-el" data-filter="operations">Operations</span>
+                    <span class="filter-pill interactive-el" data-filter="brand">Brand</span>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="insights-grid">
+                
+                <!-- Article Card 2 -->
+                <div class="insight-card-wrapper" data-category="seo">
+                    <a href="insight-seo-strategy.html" class="glass-panel p-8 rounded-2xl group interactive-el block no-underline transition-all h-full insight-card relative overflow-hidden" data-cursor="READ">
+                        <div class="absolute inset-0 bg-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        <div class="relative z-10">
+                            <div class="mb-4 flex justify-between items-center">
+                                <span class="text-xs font-bold text-cyan-400 uppercase tracking-widest">SEO Strategy</span>
+                                <span class="text-xs text-slate-500">8 Min Read</span>
+                            </div>
+                            <h4 class="text-xl font-semibold text-white mb-3 leading-snug group-hover:text-cyan-300 transition-colors">The Local Intent Trap: Why Generic Keywords Burn Budget</h4>
+                            <p class="text-slate-400 font-light text-sm line-clamp-3">Analyzing the Khan Al Sultan pivot: How hyper-localizing search intent captured 3x the revenue with half the ad spend.</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Article Card 3 -->
+                <div class="insight-card-wrapper" data-category="brand">
+                    <a href="insight-customer-retention.html" class="glass-panel p-8 rounded-2xl group interactive-el block no-underline transition-all h-full insight-card relative overflow-hidden" data-cursor="READ">
+                        <div class="absolute inset-0 bg-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        <div class="relative z-10">
+                            <div class="mb-4 flex justify-between items-center">
+                                <span class="text-xs font-bold text-purple-400 uppercase tracking-widest">Brand Strategy</span>
+                                <span class="text-xs text-slate-500">10 Min Read</span>
+                            </div>
+                            <h4 class="text-xl font-semibold text-white mb-3 leading-snug group-hover:text-purple-300 transition-colors">Visual Compliance in B2B Trust Signaling</h4>
+                            <p class="text-slate-400 font-light text-sm line-clamp-3">A study on how UI/UX stability affects enterprise conversion rates and the psychology of digital reliability.</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Article Card 4 -->
+                <div class="insight-card-wrapper" data-category="operations">
+                    <a href="#" class="glass-panel p-8 rounded-2xl group interactive-el block no-underline transition-all h-full insight-card relative overflow-hidden" data-cursor="READ">
+                        <div class="absolute inset-0 bg-indigo-500/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        <div class="relative z-10">
+                            <div class="mb-4 flex justify-between items-center">
+                                <span class="text-xs font-bold text-indigo-400 uppercase tracking-widest">Operations</span>
+                                <span class="text-xs text-slate-500">14 Min Read</span>
+                            </div>
+                            <h4 class="text-xl font-semibold text-white mb-3 leading-snug group-hover:text-indigo-300 transition-colors">CRM Architecture for Regulatory Compliance</h4>
+                            <p class="text-slate-400 font-light text-sm line-clamp-3">Lessons from the Canadian financial sector on structuring Salesforce to prevent catastrophic data leakage.</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Article Card 5 -->
+                <div class="insight-card-wrapper" data-category="marketing">
+                    <a href="#" class="glass-panel p-8 rounded-2xl group interactive-el block no-underline transition-all h-full insight-card relative overflow-hidden" data-cursor="READ">
+                        <div class="absolute inset-0 bg-emerald-500/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        <div class="relative z-10">
+                            <div class="mb-4 flex justify-between items-center">
+                                <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest">Marketing</span>
+                                <span class="text-xs text-slate-500">6 Min Read</span>
+                            </div>
+                            <h4 class="text-xl font-semibold text-white mb-3 leading-snug group-hover:text-emerald-300 transition-colors">Mapping Friction: When to Automate vs. When to Hire</h4>
+                            <p class="text-slate-400 font-light text-sm line-clamp-3">A structural framework for identifying operational bottlenecks that require software automation versus human intuition.</p>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <footer class="py-10 text-center text-slate-400 bg-black/80 backdrop-blur-md text-sm border-t border-white/10 mt-10">
+            &copy; 2026 Abdullah Paryani. Built with strategic precision. All rights reserved.
+        </footer>
+    </main>
+
+    <!-- Chat Widget -->
+    <div id="ap-chat-widget" class="interactive-el">
+        <button id="ap-chat-toggle" title="Talk to AP Intelligence" aria-label="Open Chat">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path><circle cx="9" cy="10" r="1" fill="currentColor"></circle><circle cx="15" cy="10" r="1" fill="currentColor"></circle></svg>
+        </button>
+        <div id="ap-chat-window">
+            <div id="ap-chat-header">
+                <div class="branding"><div class="avatar">AP</div><div class="details"><h3>AP Intelligence</h3><span id="ap-mode">Strategic Advisor</span></div></div>
+                <div class="chat-controls flex gap-2">
+                    <button id="ap-voice-toggle" class="interactive-el hover:bg-white/10"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg></button>
+                    <button id="ap-chat-reset" class="interactive-el hover:bg-white/10"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></button>
+                    <button id="ap-chat-close" class="interactive-el hover:bg-red-500/20 text-red-400 hover:text-red-300"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+                </div>
+            </div>
+            <div id="ap-chat-body"><div class="typing-indicator" id="ap-typing"><span></span><span></span><span></span></div></div>
+            <div id="ap-chat-suggestions"></div>
+            <div id="ap-chat-input-area">
+                <input type="text" id="ap-chat-input" class="interactive-el" placeholder="Ask about Abdullah's experience..." autocomplete="off">
+                <button id="ap-chat-send" class="interactive-el" title="Send"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/ap-bot.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

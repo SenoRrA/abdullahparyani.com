@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experience | Abdullah Paryani</title>
+    <meta name="description" content="Explore the professional timeline of Abdullah Paryani across global tech giants and boutique consultancies.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body class="font-sans antialiased selection:bg-blue-500/30 selection:text-white">
+
+    
+    <!-- Intro Animation Container (Exact User Code) -->
+    <div id="loader-container" class="fixed inset-0 z-[9999] flex items-center justify-center bg-[#050505]">
+        <!-- Background Effects -->
+        <div class="ambient-glow"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black opacity-80 z-0"></div>
+        
+        <!-- Logo Wrapper -->
+        <div id="logo-wrapper" class="relative z-10 flex flex-col items-center">
+            
+            <!-- Main Title Container -->
+            <div id="title-container" class="flex flex-col items-center gap-1 md:gap-2">
+                
+                <!-- First Name: ABDULLAH -->
+                <div class="brand-text text-3xl md:text-6xl lg:text-8xl flex">
+                    <!-- Missing A (Injected via JS animation, positioned here structurally) -->
+                    <span id="letter-A" class="char-letter">A</span>
+                    <div id="rest-1" class="flex">
+                        <span class="char-letter">B</span>
+                        <span class="char-letter">D</span>
+                        <span class="char-letter">U</span>
+                        <span class="char-letter">L</span>
+                        <span class="char-letter">L</span>
+                        <span class="char-letter">A</span>
+                        <span class="char-letter">H</span>
+                    </div>
+                </div>
+
+                <!-- Second Name: PARYANI -->
+                <div class="brand-text text-3xl md:text-6xl lg:text-8xl flex">
+                    <!-- Missing P (Injected via JS animation, positioned here structurally) -->
+                    <span id="letter-P" class="char-letter">P</span>
+                    <div id="rest-2" class="flex">
+                        <span class="char-letter">A</span>
+                        <span class="char-letter">R</span>
+                        <span class="char-letter">Y</span>
+                        <span class="char-letter">A</span>
+                        <span class="char-letter">N</span>
+                        <span class="char-letter">I</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Scene 13: Luxury Line -->
+            <div id="luxury-line" class="h-[1px] bg-gradient-to-r from-transparent via-[#60A5FA] to-transparent w-0 mt-4 md:mt-6"></div>
+
+            <!-- Scene 13: Subtitle -->
+            <div id="subtitle-container" class="flex mt-3 md:mt-5 overflow-hidden">
+                <div id="subtitle-text" class="text-[#60A5FA] tracking-[0.4em] md:tracking-[0.6em] text-[8px] md:text-xs font-medium uppercase flex">
+                    <span class="subtitle-letter">S</span>
+                    <span class="subtitle-letter">T</span>
+                    <span class="subtitle-letter">R</span>
+                    <span class="subtitle-letter">A</span>
+                    <span class="subtitle-letter">T</span>
+                    <span class="subtitle-letter">E</span>
+                    <span class="subtitle-letter">G</span>
+                    <span class="subtitle-letter">I</span>
+                    <span class="subtitle-letter">C</span>
+                    <span class="subtitle-letter">&nbsp;</span>
+                    <span class="subtitle-letter">A</span>
+                    <span class="subtitle-letter">D</span>
+                    <span class="subtitle-letter">V</span>
+                    <span class="subtitle-letter">I</span>
+                    <span class="subtitle-letter">S</span>
+                    <span class="subtitle-letter">O</span>
+                    <span class="subtitle-letter">R</span>
+                </div>
+            </div>
+        </div>
+        <!-- Skip Button -->
+        <button id="skip-intro-btn" class="absolute bottom-10 right-10 z-[10000] text-[#60A5FA] tracking-widest text-xs uppercase font-medium border border-[#60A5FA]/30 bg-white/5 backdrop-blur-md px-6 py-2 rounded-full hover:bg-white/10 hover:border-[#60A5FA]/60 transition-all opacity-0 pointer-events-none shadow-[0_0_15px_rgba(59,130,246,0.3)]">Skip Intro</button>
+    </div>
+
+    <!-- Epic Cinematic Transition Overlays -->
+    <div id="epic-transition-container">
+        <div class="epic-panel panel-1"></div>
+        <div class="epic-panel panel-2"></div>
+        <div class="epic-panel panel-3"></div>
+        <div class="epic-logo">AP</div>
+    </div>
+    
+
+
+
+
+
+    <div class="custom-cursor" id="custom-cursor">CLICK</div>
+
+    </div>
+
+    <div class="cinematic-bg">
+        <canvas id="scroll-canvas"></canvas>
+        <div class="cinematic-overlay"></div>
+        <div class="cinematic-vignette"></div>
+    </div>
+
+    
+    <!-- Reading Progress Bar -->
+    <div class="reading-progress-container">
+        <div class="reading-progress-bar" id="reading-progress"></div>
+    
+        <!-- Skip Button -->
+        <button id="skip-intro-btn">Skip Intro</button>
+    </div>
+    
+    <!-- Cinematic Transition Overlay -->
+
+    
+
+    <header class="sticky-header" id="main-header">
+        <a href="index.html" title="Abdullah Paryani - Strategic Advisor Home" class="logo-group flex items-center gap-3 md:gap-4 interactive-el">
+            <div class="logo-circle">
+                <span class="z-10">AP</span>
+            </div>
+            <div class="logo-text">
+                <span class="brand-name">Abdullah Paryani</span>
+                <span class="brand-title">Strategic Advisor</span>
+            </div>
+        </a>
+        
+        <!-- Desktop Nav -->
+        <nav class="hidden lg:flex nav-links">
+            <a href="index.html" title="Abdullah Paryani - Strategic Advisor Home" class="nav-link interactive-el">Home</a>
+            <a href="about.html" title="About Abdullah Paryani - Marketing Operations Consultant" class="nav-link interactive-el">About</a>
+            
+            <div class="nav-link-wrapper">
+                <a href="services.html" title="Consulting Services - Digital Infrastructure & Growth" class="nav-link interactive-el">Services</a>
+                <div class="mega-menu">
+                    <a href="services.html" title="Consulting Services - Digital Infrastructure & Growth" class="interactive-el" data-cursor="EXPLORE">Digital Infrastructure</a>
+                    <a href="services.html" title="Consulting Services - Digital Infrastructure & Growth" class="interactive-el" data-cursor="EXPLORE">Operations Systems</a>
+                    <a href="services.html" title="Consulting Services - Digital Infrastructure & Growth" class="interactive-el" data-cursor="EXPLORE">Growth Strategy</a>
+                </div>
+            </div>
+            
+            <a href="case-studies.html" title="Case Studies - Business Systems & Revenue Optimization" class="nav-link interactive-el" data-cursor="EXPLORE">Case Studies</a>
+            <a href="experience.html" title="Executive Experience - Google Operations & Finance" class="nav-link interactive-el">Experience</a>
+            
+            <div class="nav-link-wrapper">
+                <a href="insights.html" title="Strategic Insights - SEO, SEM & Marketing Analytics" class="nav-link interactive-el">Insights</a>
+                <div class="mega-menu">
+                    <a href="insight-marketing-growth.html" class="interactive-el" data-cursor="READ">Marketing</a>
+                    <a href="insight-seo-strategy.html" class="interactive-el" data-cursor="READ">SEO</a>
+                    <a href="insight-customer-retention.html" class="interactive-el" data-cursor="READ">Brand</a>
+                </div>
+            </div>
+
+            <div class="nav-link-wrapper">
+                <a href="ap-intelligence.html" title="AP Intelligence - Interactive Digital Twin Consultant" class="nav-link interactive-el">AP Intel</a>
+                <div class="mega-menu">
+                    <a href="ap-intelligence.html" title="AP Intelligence - Interactive Digital Twin Consultant" class="interactive-el" data-cursor="OPEN">Digital Twin</a>
+                    <a href="ap-intelligence.html" title="AP Intelligence - Interactive Digital Twin Consultant" class="interactive-el" data-cursor="OPEN">Capabilities</a>
+                </div>
+            </div>
+            
+            <a href="contact.html" title="Contact Abdullah Paryani - Strategic Advisor in Mississauga" class="nav-link interactive-el" style="color: #d4af37;" data-cursor="GO">Contact</a>
+        </nav>
+
+        <!-- Mobile Nav Burger -->
+        <div id="mobile-menu-btn" class="interactive-el">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <!-- Premium Mobile Menu -->
+    <div id="mobile-menu">
+        <div class="mobile-nav-items">
+            <a href="index.html" title="Abdullah Paryani - Strategic Advisor Home" class="interactive-el">Home</a>
+            <a href="about.html" title="About Abdullah Paryani - Marketing Operations Consultant" class="interactive-el">About</a>
+            <a href="services.html" title="Consulting Services - Digital Infrastructure & Growth" class="interactive-el">Services</a>
+            <a href="case-studies.html" title="Case Studies - Business Systems & Revenue Optimization" class="interactive-el">Case Studies</a>
+            <a href="experience.html" title="Executive Experience - Google Operations & Finance" class="interactive-el">Experience</a>
+            <a href="insights.html" title="Strategic Insights - SEO, SEM & Marketing Analytics" class="interactive-el">Insights</a>
+            <a href="ap-intelligence.html" title="AP Intelligence - Interactive Digital Twin Consultant" class="interactive-el">AP Intelligence</a>
+            <a href="contact.html" title="Contact Abdullah Paryani - Strategic Advisor in Mississauga" class="interactive-el" style="color: #d4af37;">Contact</a>
+        </div>
+    </div>
+
+
+    <main id="page-content" class="relative w-full z-10">
+        
+        <div class="side-nav hidden md:flex">
+            <a href="#header" class="side-nav-dot interactive-el active" data-target="header" title="Top"></a>
+            <a href="#current" class="side-nav-dot interactive-el" data-target="current" title="Present"></a>
+            <a href="#tech" class="side-nav-dot interactive-el" data-target="tech" title="Tech"></a>
+        </div>
+
+        <section id="header" class="reveal-section section-marker pt-40 pb-16 px-6 sm:px-12 text-center max-w-5xl mx-auto border-b border-white/10">
+            <span class="text-blue-400 font-bold tracking-widest uppercase text-sm sharp-text">Professional Timeline</span>
+            <h1 class="text-5xl md:text-7xl font-bold tracking-tighter text-white mt-4 mb-8 sharp-text">The Corporate Crucible</h1>
+            <p class="text-xl text-slate-300 font-light leading-relaxed">
+                To build a high-performance agency, one must first understand how complex systems behave under pressure and regulatory scrutiny.
+            </p>
+        </section>
+
+        <section id="current" class="reveal-section section-marker max-w-5xl mx-auto py-16 px-6 sm:px-12">
+            <div class="space-y-16 border-l-2 border-blue-500/30 pl-8 ml-4 relative">
+                
+                <!-- Current Advisory Practice -->
+                <div class="relative group glass-panel p-8 rounded-2xl">
+                    <div class="absolute -left-[41px] w-5 h-5 bg-blue-500 rounded-full top-8 border-4 border-slate-900 shadow-sm shadow-blue-500/50 group-hover:scale-125 transition-transform duration-300"></div>
+                    <h3 class="text-2xl font-semibold text-white">Independent Strategic Advisor</h3>
+                    <p class="text-blue-400 font-medium mt-1 mb-2">Self-Employed</p>
+                    <p class="text-sm text-slate-400 font-light mb-6">2023 - Present (Mississauga, ON)</p>
+                    <div class="space-y-4 text-slate-300 font-light text-sm">
+                        <p><strong>Responsibilities:</strong> Managing end-to-end digital operations for 9+ active clients. This includes deploying digital storefronts, orchestrating high-budget marketing campaigns, and standardizing operational SOPs.</p>
+                        <p><strong>Business Impact:</strong> Reduced administrative friction for clients by an average of 40% while driving predictable customer acquisition pipelines through localized SEO and SEM.</p>
+                        <p><strong>Leadership Lesson:</strong> Absolute transparency in reporting builds more long-term trust than superficial metrics.</p>
+                    </div>
+                </div>
+
+                <!-- Greenstone & Neilson -->
+                <div class="relative group glass-panel p-8 rounded-2xl">
+                    <div class="absolute -left-[41px] w-5 h-5 bg-slate-600 rounded-full top-8 border-4 border-slate-900 transition-transform duration-300 group-hover:bg-cyan-500 group-hover:scale-125"></div>
+                    <h3 class="text-2xl font-semibold text-white">Senior Sales Advisor</h3>
+                    <p class="text-cyan-400 font-medium mt-1 mb-2">Greenstone / Neilson Financial Services</p>
+                    <p class="text-sm text-slate-400 font-light mb-6">2026 - Present (Toronto, ON)</p>
+                    <div class="space-y-4 text-slate-300 font-light text-sm">
+                        <p><strong>Responsibilities:</strong> Operating within a highly competitive direct insurance landscape across 10 Canadian provinces under strict LLQP regulatory frameworks. Managing a portfolio of 9 complex life and health products.</p>
+                        <p><strong>Business Impact:</strong> Consistently exceeding high-pressure quotas while maintaining flawless data integrity using Salesforce CRM.</p>
+                        <p><strong>Skills Developed:</strong> Compliance architecture, CRM mastery, high-stakes negotiation, emotional intelligence in finance.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tech" class="reveal-section section-marker max-w-5xl mx-auto py-16 px-6 sm:px-12">
+            <h2 class="text-3xl font-semibold text-white mb-12 border-l-4 border-indigo-500 pl-4">The Global Tech Era</h2>
+            <div class="space-y-16 border-l-2 border-indigo-500/30 pl-8 ml-4 relative">
+                
+                <!-- Google Operations Centre -->
+                <div class="relative group glass-panel p-8 rounded-2xl">
+                    <div class="absolute -left-[41px] w-5 h-5 bg-slate-600 rounded-full top-8 border-4 border-slate-900 transition-transform duration-300 group-hover:bg-indigo-500 group-hover:scale-125"></div>
+                    <h3 class="text-2xl font-semibold text-white">Customer Operations Analyst</h3>
+                    <p class="text-indigo-400 font-medium mt-1 mb-2">Google Operations Centre (via Cognizant)</p>
+                    <p class="text-sm text-slate-400 font-light mb-6">2020 - 2021</p>
+                    <div class="space-y-4 text-slate-300 font-light text-sm">
+                        <p><strong>Responsibilities:</strong> Handling critical support, policy enforcement, and trust & safety parameters for Google Play. Monitoring transactional anomalies across millions of requests.</p>
+                        <p><strong>Achievements:</strong> Designed a "Scam Prevention Workflow" adopted by the engineering team to shut down localized fraudulent networks.</p>
+                        <p><strong>Leadership Lesson:</strong> When operating at global scale, a 0.01% error rate still affects millions. Precision is everything.</p>
+                    </div>
+                </div>
+
+                <!-- Amazon -->
+                <div class="relative group glass-panel p-8 rounded-2xl">
+                    <div class="absolute -left-[41px] w-5 h-5 bg-slate-600 rounded-full top-8 border-4 border-slate-900 transition-transform duration-300 group-hover:bg-orange-500 group-hover:scale-125"></div>
+                    <h3 class="text-2xl font-semibold text-white">Resolution Specialist</h3>
+                    <p class="text-orange-400 font-medium mt-1 mb-2">Amazon</p>
+                    <p class="text-sm text-slate-400 font-light mb-6">2018 - 2020</p>
+                    <div class="space-y-4 text-slate-300 font-light text-sm">
+                        <p><strong>Story:</strong> Known internally for the "Birthday Console Rescue"—I bypassed standard channels during the holiday rush to intercept an "undeliverable" package, coordinating directly with fulfillment center managers to save a child's birthday.</p>
+                        <p><strong>Business Impact:</strong> Received multiple citations for Leadership, Quality, and Customer Delight.</p>
+                        <p><strong>Skills Developed:</strong> Crisis de-escalation, rapid logistics coordination, customer obsession.</p>
+                    </div>
+                </div>
+
+                <!-- Accenture -->
+                <div class="relative group glass-panel p-8 rounded-2xl">
+                    <div class="absolute -left-[41px] w-5 h-5 bg-slate-600 rounded-full top-8 border-4 border-slate-900 transition-transform duration-300 group-hover:bg-purple-500 group-hover:scale-125"></div>
+                    <h3 class="text-2xl font-semibold text-white">Ideathon Qualifier & Consultant</h3>
+                    <p class="text-purple-400 font-medium mt-1 mb-2">Accenture</p>
+                    <div class="space-y-4 text-slate-300 font-light text-sm mt-4">
+                        <p><strong>Experience:</strong> Competed and qualified in the prestigious Accenture Ideathon, proposing high-level systemic improvements for enterprise resource planning.</p>
+                    </div>
+                </div>
+
+                <!-- Khamur IT -->
+                <div class="relative group glass-panel p-8 rounded-2xl">
+                    <div class="absolute -left-[41px] w-5 h-5 bg-slate-600 rounded-full top-8 border-4 border-slate-900 transition-transform duration-300 group-hover:bg-emerald-500 group-hover:scale-125"></div>
+                    <h3 class="text-2xl font-semibold text-white">Operations Associate</h3>
+                    <p class="text-emerald-400 font-medium mt-1 mb-2">Khamur IT</p>
+                    <div class="space-y-4 text-slate-300 font-light text-sm mt-4">
+                        <p><strong>Achievements:</strong> Awarded "Star Performer" 3x and won the prestigious "Shield Award" 2x for maintaining exceptional operational standards and resolving technical escalations faster than SLA requirements.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <footer class="py-10 text-center text-slate-400 bg-black/80 backdrop-blur-md text-sm border-t border-white/10">
+            &copy; 2026 Abdullah Paryani. Built with strategic precision. All rights reserved.
+        </footer>
+    </main>
+
+    <!-- Chat Widget -->
+    <div id="ap-chat-widget" class="interactive-el">
+        <button id="ap-chat-toggle" title="Talk to AP Intelligence" aria-label="Open Chat">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path><circle cx="9" cy="10" r="1" fill="currentColor"></circle><circle cx="15" cy="10" r="1" fill="currentColor"></circle></svg>
+        </button>
+        <div id="ap-chat-window">
+            <div id="ap-chat-header">
+                <div class="branding"><div class="avatar">AP</div><div class="details"><h3>AP Intelligence</h3><span id="ap-mode">Strategic Advisor</span></div></div>
+                <div class="chat-controls flex gap-2">
+                    <button id="ap-voice-toggle" class="interactive-el hover:bg-white/10"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg></button>
+                    <button id="ap-chat-reset" class="interactive-el hover:bg-white/10"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></button>
+                    <button id="ap-chat-close" class="interactive-el hover:bg-red-500/20 text-red-400 hover:text-red-300"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+                </div>
+            </div>
+            <div id="ap-chat-body"><div class="typing-indicator" id="ap-typing"><span></span><span></span><span></span></div></div>
+            <div id="ap-chat-suggestions"></div>
+            <div id="ap-chat-input-area">
+                <input type="text" id="ap-chat-input" class="interactive-el" placeholder="Ask about Abdullah's experience..." autocomplete="off">
+                <button id="ap-chat-send" class="interactive-el" title="Send"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/ap-bot.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

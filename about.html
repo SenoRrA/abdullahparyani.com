@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Abdullah Paryani | Strategic Advisor</title>
+    <meta name="description" content="Discover the genesis of Abdullah Paryani's strategic approach, from Hyderabad's retail floors to North American corporate environments.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body class="font-sans antialiased selection:bg-blue-500/30 selection:text-white">
+
+    
+    <!-- Intro Animation Container (Exact User Code) -->
+    <div id="loader-container" class="fixed inset-0 z-[9999] flex items-center justify-center bg-[#050505]">
+        <!-- Background Effects -->
+        <div class="ambient-glow"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black opacity-80 z-0"></div>
+        
+        <!-- Logo Wrapper -->
+        <div id="logo-wrapper" class="relative z-10 flex flex-col items-center">
+            
+            <!-- Main Title Container -->
+            <div id="title-container" class="flex flex-col items-center gap-1 md:gap-2">
+                
+                <!-- First Name: ABDULLAH -->
+                <div class="brand-text text-3xl md:text-6xl lg:text-8xl flex">
+                    <!-- Missing A (Injected via JS animation, positioned here structurally) -->
+                    <span id="letter-A" class="char-letter">A</span>
+                    <div id="rest-1" class="flex">
+                        <span class="char-letter">B</span>
+                        <span class="char-letter">D</span>
+                        <span class="char-letter">U</span>
+                        <span class="char-letter">L</span>
+                        <span class="char-letter">L</span>
+                        <span class="char-letter">A</span>
+                        <span class="char-letter">H</span>
+                    </div>
+                </div>
+
+                <!-- Second Name: PARYANI -->
+                <div class="brand-text text-3xl md:text-6xl lg:text-8xl flex">
+                    <!-- Missing P (Injected via JS animation, positioned here structurally) -->
+                    <span id="letter-P" class="char-letter">P</span>
+                    <div id="rest-2" class="flex">
+                        <span class="char-letter">A</span>
+                        <span class="char-letter">R</span>
+                        <span class="char-letter">Y</span>
+                        <span class="char-letter">A</span>
+                        <span class="char-letter">N</span>
+                        <span class="char-letter">I</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Scene 13: Luxury Line -->
+            <div id="luxury-line" class="h-[1px] bg-gradient-to-r from-transparent via-[#60A5FA] to-transparent w-0 mt-4 md:mt-6"></div>
+
+            <!-- Scene 13: Subtitle -->
+            <div id="subtitle-container" class="flex mt-3 md:mt-5 overflow-hidden">
+                <div id="subtitle-text" class="text-[#60A5FA] tracking-[0.4em] md:tracking-[0.6em] text-[8px] md:text-xs font-medium uppercase flex">
+                    <span class="subtitle-letter">S</span>
+                    <span class="subtitle-letter">T</span>
+                    <span class="subtitle-letter">R</span>
+                    <span class="subtitle-letter">A</span>
+                    <span class="subtitle-letter">T</span>
+                    <span class="subtitle-letter">E</span>
+                    <span class="subtitle-letter">G</span>
+                    <span class="subtitle-letter">I</span>
+                    <span class="subtitle-letter">C</span>
+                    <span class="subtitle-letter">&nbsp;</span>
+                    <span class="subtitle-letter">A</span>
+                    <span class="subtitle-letter">D</span>
+                    <span class="subtitle-letter">V</span>
+                    <span class="subtitle-letter">I</span>
+                    <span class="subtitle-letter">S</span>
+                    <span class="subtitle-letter">O</span>
+                    <span class="subtitle-letter">R</span>
+                </div>
+            </div>
+        </div>
+        <!-- Skip Button -->
+        <button id="skip-intro-btn" class="absolute bottom-10 right-10 z-[10000] text-[#60A5FA] tracking-widest text-xs uppercase font-medium border border-[#60A5FA]/30 bg-white/5 backdrop-blur-md px-6 py-2 rounded-full hover:bg-white/10 hover:border-[#60A5FA]/60 transition-all opacity-0 pointer-events-none shadow-[0_0_15px_rgba(59,130,246,0.3)]">Skip Intro</button>
+    </div>
+
+    <!-- Epic Cinematic Transition Overlays -->
+    <div id="epic-transition-container">
+        <div class="epic-panel panel-1"></div>
+        <div class="epic-panel panel-2"></div>
+        <div class="epic-panel panel-3"></div>
+        <div class="epic-logo">AP</div>
+    </div>
+    
+
+
+
+
+
+    <div class="custom-cursor" id="custom-cursor">CLICK</div>
+
+    </div>
+
+    <div class="cinematic-bg">
+        <canvas id="scroll-canvas"></canvas>
+        <div class="cinematic-overlay"></div>
+        <div class="cinematic-vignette"></div>
+    </div>
+
+    
+    <!-- Reading Progress Bar -->
+    <div class="reading-progress-container">
+        <div class="reading-progress-bar" id="reading-progress"></div>
+    
+        <!-- Skip Button -->
+        <button id="skip-intro-btn">Skip Intro</button>
+    </div>
+    
+    <!-- Cinematic Transition Overlay -->
+
+    
+
+    <header class="sticky-header" id="main-header">
+        <a href="index.html" title="Abdullah Paryani - Strategic Advisor Home" class="logo-group flex items-center gap-3 md:gap-4 interactive-el">
+            <div class="logo-circle">
+                <span class="z-10">AP</span>
+            </div>
+            <div class="logo-text">
+                <span class="brand-name">Abdullah Paryani</span>
+                <span class="brand-title">Strategic Advisor</span>
+            </div>
+        </a>
+        
+        <!-- Desktop Nav -->
+        <nav class="hidden lg:flex nav-links">
+            <a href="index.html" title="Abdullah Paryani - Strategic Advisor Home" class="nav-link interactive-el">Home</a>
+            <a href="about.html" title="About Abdullah Paryani - Marketing Operations Consultant" class="nav-link interactive-el">About</a>
+            
+            <div class="nav-link-wrapper">
+                <a href="services.html" title="Consulting Services - Digital Infrastructure & Growth" class="nav-link interactive-el">Services</a>
+                <div class="mega-menu">
+                    <a href="services.html" title="Consulting Services - Digital Infrastructure & Growth" class="interactive-el" data-cursor="EXPLORE">Digital Infrastructure</a>
+                    <a href="services.html" title="Consulting Services - Digital Infrastructure & Growth" class="interactive-el" data-cursor="EXPLORE">Operations Systems</a>
+                    <a href="services.html" title="Consulting Services - Digital Infrastructure & Growth" class="interactive-el" data-cursor="EXPLORE">Growth Strategy</a>
+                </div>
+            </div>
+            
+            <a href="case-studies.html" title="Case Studies - Business Systems & Revenue Optimization" class="nav-link interactive-el" data-cursor="EXPLORE">Case Studies</a>
+            <a href="experience.html" title="Executive Experience - Google Operations & Finance" class="nav-link interactive-el">Experience</a>
+            
+            <div class="nav-link-wrapper">
+                <a href="insights.html" title="Strategic Insights - SEO, SEM & Marketing Analytics" class="nav-link interactive-el">Insights</a>
+                <div class="mega-menu">
+                    <a href="insight-marketing-growth.html" class="interactive-el" data-cursor="READ">Marketing</a>
+                    <a href="insight-seo-strategy.html" class="interactive-el" data-cursor="READ">SEO</a>
+                    <a href="insight-customer-retention.html" class="interactive-el" data-cursor="READ">Brand</a>
+                </div>
+            </div>
+
+            <div class="nav-link-wrapper">
+                <a href="ap-intelligence.html" title="AP Intelligence - Interactive Digital Twin Consultant" class="nav-link interactive-el">AP Intel</a>
+                <div class="mega-menu">
+                    <a href="ap-intelligence.html" title="AP Intelligence - Interactive Digital Twin Consultant" class="interactive-el" data-cursor="OPEN">Digital Twin</a>
+                    <a href="ap-intelligence.html" title="AP Intelligence - Interactive Digital Twin Consultant" class="interactive-el" data-cursor="OPEN">Capabilities</a>
+                </div>
+            </div>
+            
+            <a href="contact.html" title="Contact Abdullah Paryani - Strategic Advisor in Mississauga" class="nav-link interactive-el" style="color: #d4af37;" data-cursor="GO">Contact</a>
+        </nav>
+
+        <!-- Mobile Nav Burger -->
+        <div id="mobile-menu-btn" class="interactive-el">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <!-- Premium Mobile Menu -->
+    <div id="mobile-menu">
+        <div class="mobile-nav-items">
+            <a href="index.html" title="Abdullah Paryani - Strategic Advisor Home" class="interactive-el">Home</a>
+            <a href="about.html" title="About Abdullah Paryani - Marketing Operations Consultant" class="interactive-el">About</a>
+            <a href="services.html" title="Consulting Services - Digital Infrastructure & Growth" class="interactive-el">Services</a>
+            <a href="case-studies.html" title="Case Studies - Business Systems & Revenue Optimization" class="interactive-el">Case Studies</a>
+            <a href="experience.html" title="Executive Experience - Google Operations & Finance" class="interactive-el">Experience</a>
+            <a href="insights.html" title="Strategic Insights - SEO, SEM & Marketing Analytics" class="interactive-el">Insights</a>
+            <a href="ap-intelligence.html" title="AP Intelligence - Interactive Digital Twin Consultant" class="interactive-el">AP Intelligence</a>
+            <a href="contact.html" title="Contact Abdullah Paryani - Strategic Advisor in Mississauga" class="interactive-el" style="color: #d4af37;">Contact</a>
+        </div>
+    </div>
+
+
+    <main id="page-content" class="relative w-full z-10">
+        
+        <div class="side-nav hidden md:flex">
+            <a href="#genesis" class="side-nav-dot interactive-el active" data-target="genesis" title="Origins"></a>
+            <a href="#academic" class="side-nav-dot interactive-el" data-target="academic" title="Academic"></a>
+            <a href="#philosophy" class="side-nav-dot interactive-el" data-target="philosophy" title="Philosophy"></a>
+        </div>
+
+        <!-- ABOUT PAGE HEADER -->
+        <section id="genesis" class="reveal-section section-marker pt-40 pb-20 px-6 sm:px-12 text-center max-w-5xl mx-auto">
+            <span class="text-blue-400 font-bold tracking-widest uppercase text-sm sharp-text">Executive Profile</span>
+            <h1 class="text-5xl md:text-7xl font-bold tracking-tighter text-white mt-4 mb-8 sharp-text">The Genesis of an Instinct</h1>
+            <p class="text-xl text-slate-300 font-light leading-relaxed mb-12">
+                Business is not merely a theoretical framework learned in auditoriums. For me, it is a living language of supply, demand, negotiation, and trust, acquired through decades of immersion in actual trade environments.
+            </p>
+        </section>
+
+        <!-- HYDERABAD ORIGINS -->
+        <section class="reveal-section py-16 px-6 sm:px-12 max-w-6xl mx-auto">
+            <div class="glass-panel p-10 md:p-16 rounded-3xl group interactive-el" style="cursor: default;">
+                <h2 class="text-3xl font-semibold text-white mb-6 border-b border-white/10 pb-4">Born into Trade: The Hyderabad Floors</h2>
+                <div class="text-lg text-slate-300 font-light leading-relaxed space-y-6 group-hover:text-white transition-colors duration-300">
+                    <p>
+                        My foundation was built far before my professional career began. It started on the retail and wholesale floors of my family's enterprises in Hyderabad, India—Time Traders, Time Needs, and Metro Mobiles. I absorbed the harsh, unvarnished realities of B2B and B2C commerce organically.
+                    </p>
+                    <p>
+                        Growing up in an entrepreneurial household meant dinner table conversations were about inventory turnover, supplier negotiations, and customer retention. I watched closely as deals were struck and observed how long-term trust was the true currency of any sustainable business model. This early exposure instilled an intuitive understanding of trade as a breathing ecosystem, giving me a commercial instinct that cannot be taught in a classroom.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ACADEMIC & TRANSITION -->
+        <section id="academic" class="reveal-section section-marker py-16 px-6 sm:px-12 max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div class="glass-panel p-10 rounded-3xl group interactive-el" style="cursor: default;">
+                    <h3 class="text-2xl font-semibold text-white mb-4">Academic Structure</h3>
+                    <p class="text-slate-300 font-light leading-relaxed group-hover:text-white transition-colors duration-300">
+                        To ground my natural commercial instinct, I pursued rigorous training at St. George's Grammar School and earned my Bachelor of Commerce from St. Mary's College. However, realizing the global nature of modern commerce, I sought to align my foundational knowledge with North American standards.
+                    </p>
+                </div>
+                <div class="glass-panel p-10 rounded-3xl group interactive-el" style="cursor: default;">
+                    <h3 class="text-2xl font-semibold text-white mb-4">The Seneca Transition</h3>
+                    <p class="text-slate-300 font-light leading-relaxed group-hover:text-white transition-colors duration-300">
+                        I relocated to Toronto, Ontario to complete my Graduate Certificate in Marketing Management at Seneca College. Here, I successfully integrated into key networks like the American Marketing Association (AMA) and the Canadian Professional Sales Association (CPSA). This transition effectively converted my practical trade background into a highly analytical, systems-driven strategic discipline.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PHILOSOPHY & VALUES -->
+        <section id="philosophy" class="reveal-section section-marker py-24 px-6 sm:px-12 bg-black/40 border-y border-white/5 mt-10">
+            <div class="max-w-5xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold tracking-tight text-white mb-4 sharp-text">Professional Philosophy</h2>
+                    <p class="text-blue-400 font-medium">Clarity, Structure, and Precision.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="p-8 border border-white/10 rounded-2xl bg-gradient-to-b from-white/5 to-transparent hover:border-blue-400/50 transition-colors">
+                        <div class="text-blue-400 mb-4"><svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg></div>
+                        <h4 class="text-xl font-semibold text-white mb-3">Strategic Thinking</h4>
+                        <p class="text-slate-400 font-light text-sm">I don't believe in band-aid solutions. I analyze the entire digital and operational pipeline to locate friction points and design scalable frameworks that solve root-level bottlenecks.</p>
+                    </div>
+                    <div class="p-8 border border-white/10 rounded-2xl bg-gradient-to-b from-white/5 to-transparent hover:border-blue-400/50 transition-colors">
+                        <div class="text-blue-400 mb-4"><svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg></div>
+                        <h4 class="text-xl font-semibold text-white mb-3">Leadership Style</h4>
+                        <p class="text-slate-400 font-light text-sm">I lead by example, building cross-functional trust. Whether managing remote teams globally or communicating directly with enterprise stakeholders, my leadership is grounded in absolute transparency.</p>
+                    </div>
+                    <div class="p-8 border border-white/10 rounded-2xl bg-gradient-to-b from-white/5 to-transparent hover:border-blue-400/50 transition-colors">
+                        <div class="text-blue-400 mb-4"><svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg></div>
+                        <h4 class="text-xl font-semibold text-white mb-3">Personal Mission</h4>
+                        <p class="text-slate-400 font-light text-sm">In a digital landscape crowded with noise and superficial marketing, my mission is to build robust, functional pipelines that make business growth sustainable and genuine.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="py-10 text-center text-slate-400 bg-black/80 backdrop-blur-md text-sm border-t border-white/10 mt-10">
+            &copy; 2026 Abdullah Paryani. Built with strategic precision. All rights reserved.
+        </footer>
+    </main>
+
+    <!-- Chat Widget remains identical on all pages -->
+    <div id="ap-chat-widget" class="interactive-el">
+        <button id="ap-chat-toggle" title="Talk to AP Intelligence" aria-label="Open Chat">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path><circle cx="9" cy="10" r="1" fill="currentColor"></circle><circle cx="15" cy="10" r="1" fill="currentColor"></circle></svg>
+        </button>
+        <div id="ap-chat-window">
+            <div id="ap-chat-header">
+                <div class="branding"><div class="avatar">AP</div><div class="details"><h3>AP Intelligence</h3><span id="ap-mode">Strategic Advisor</span></div></div>
+                <div class="chat-controls flex gap-2">
+                    <button id="ap-voice-toggle" class="interactive-el hover:bg-white/10"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg></button>
+                    <button id="ap-chat-reset" class="interactive-el hover:bg-white/10"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></button>
+                    <button id="ap-chat-close" class="interactive-el hover:bg-red-500/20 text-red-400 hover:text-red-300"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+                </div>
+            </div>
+            <div id="ap-chat-body"><div class="typing-indicator" id="ap-typing"><span></span><span></span><span></span></div></div>
+            <div id="ap-chat-suggestions"></div>
+            <div id="ap-chat-input-area">
+                <input type="text" id="ap-chat-input" class="interactive-el" placeholder="Ask about Abdullah's experience..." autocomplete="off">
+                <button id="ap-chat-send" class="interactive-el" title="Send"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/ap-bot.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
