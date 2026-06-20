@@ -1,0 +1,9 @@
+/* TEAM */
+Strategic Advisor: Abdullah Paryani
+Site: abdullahparyani.com
+Location: Mississauga, Ontario, Canada
+
+/* SITE */
+Standards: HTML5, CSS3, ES6
+Components: GSAP, PJAX
+Architecture: High-Performance Canvas Rendering

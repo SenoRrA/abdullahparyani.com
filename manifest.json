@@ -1,0 +1,10 @@
+{
+  "name": "Abdullah Paryani - Strategic Advisor",
+  "short_name": "AP Advisor",
+  "description": "Strategic advisory, digital infrastructure, and operational systems by Abdullah Paryani.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050505",
+  "theme_color": "#050505",
+  "icons": []
+}
