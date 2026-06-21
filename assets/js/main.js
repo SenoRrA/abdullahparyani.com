@@ -255,8 +255,8 @@ async function navigateTo(url, pushState = true) {
         gsap.set(panels, { transformOrigin: 'top' });
         
         // 3D fold current page
-        gsap.set(mainContent.parentNode, { perspective: 1000 });
-        tl.to(mainContent, { opacity: 0, rotationX: 10, scale: 0.9, y: -50, duration: 0.6, ease: "power2.inOut" }, 0);
+        // Removed parent perspective to prevent position:fixed bug
+        tl.to(mainContent, { transformPerspective: 1000, opacity: 0, rotationX: 10, scale: 0.9, y: -50, duration: 0.6, ease: "power2.inOut" }, 0);
         
         // Canvas warp
         tl.to(scrollObj, { frame: scrollObj.frame + 20, duration: 0.8, ease: "power3.inOut" }, 0);
@@ -317,7 +317,7 @@ async function navigateTo(url, pushState = true) {
             
             // Content unfolds from 3D
             tlOut.fromTo(mainContent, 
-                { opacity: 0, rotationX: -10, scale: 0.9, y: 50 },
+                { transformPerspective: 1000, opacity: 0, rotationX: -10, scale: 0.9, y: 50 },
                 { opacity: 1, rotationX: 0, scale: 1, y: 0, duration: 0.8, ease: "power3.out" }, 0.4
             );
             
